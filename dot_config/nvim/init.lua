@@ -314,14 +314,9 @@ end
 --
 --  Add any additional override configuration in the following tables. They will be passed to
 --  the `settings` field of the server config. You must look up that documentation yourself.
--- local servers = {
---   -- clangd = {},
---   -- gopls = {},
---   -- pyright = {},
---   -- rust_analyzer = {},
---   -- tsserver = {},
---   },
--- }
+local servers = {
+  gopls = {},
+}
 
 -- Setup neovim lua configuration
 require('neodev').setup()
