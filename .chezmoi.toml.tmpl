@@ -6,3 +6,7 @@
 {{- if not $ephemeral -}}
 {{-     $ephemeral = promptBoolOnce . "ephemeral" "ephemeral" -}}
 {{- end -}}
+
+[data]
+    headless = {{ $headless }}
+    ephemeral = {{ $ephemeral }}
