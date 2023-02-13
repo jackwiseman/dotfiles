@@ -1,0 +1,77 @@
+ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  if (( ${+commands[curl]} )); then
+    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  else
+    mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  fi
+fi
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
+
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$PATH
+export PATH="/usr/local/sbin:$PATH"
+export GOPATH=~/go/
+export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
+export EDITOR=/usr/local/bin/nvim
+#export config="$HOME/.config/"
+#export zshrc="$config/zsh/.zshrc"
+#export zimrc="$config/zsh/.zimrc"
+#export init="$config/nvim/init.vim"
+export NVM_LAZY_LOAD=true
+export NVM_COMPLETION=true
+#export TASKRC="$config/taskwarrior/.taskrc"
+#export TASKDATA="$config/taskwarrior/.task" task list
+export TMUX_NAME=⛵
+
+#alias ez="$config/scripts/ez"
+#alias tmux="tmux -f $config/tmux/tmux.conf"
+alias ls="ls -FG"
+alias l="ls -la -FG"
+
+os=$(uname -m)
+case $os in
+	# Raspberry Pi 4 4GB
+	"aarch64")
+	alias v="/snap/bin/nvim" # requires sudo snap install --beta nvim --classic
+	;;
+	# MacOS
+	"x86_64")
+	alias v="/usr/local/bin/nvim"
+	;;
+*)
+	echo "need to set vim alias for '$os'"
+	# likely
+	# alias v="/usr/local/bin/nvim"
+	;;
+esac
+
+# keybindings
+bindkey '^ ' autosuggest-accept
+
+# fnm completion
+eval "$(fnm env --use-on-cd)"
+
+# custom global gitignore
+git config --global core.excludesFile '~/.config/git/.gitignore'
+git config --global core.editor "/usr/local/bin/nvim"
+
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
+
+timezsh() {
+  shell=${1-$SHELL}
+  /usr/bin/time $shell -i -c exit
+}
+
+export PYENV_ROOT="$HOME/.config/pyenv"
+command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH" 
+eval "$(pyenv init -)"

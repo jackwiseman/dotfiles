@@ -1,0 +1,7 @@
+zmodule git-info
+zmodule gitster
+zmodule prompt-pwd
+zmodule completion
+zmodule fzf
+zmodule zsh-users/zsh-autosuggestions
+zmodule zsh-users/zsh-syntax-highlighting
