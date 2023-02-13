@@ -1,0 +1,4 @@
+#!/bin/bash
+{{ if eq .chezmoi.os "darwin" }}
+cd ~/Library/Fonts && { curl -O 'https://github.com/Karmenzind/monaco-nerd-fonts/blob/4c7fe33df56420b06e0a094db9c4d9a23333b1b7/fonts/Monaco%20Nerd%20Font%20Complete.ttf' ; cd -; }
+{{ end }}
