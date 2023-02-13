@@ -1,0 +1,6 @@
+[user]
+    # Specify the email address of the author/committer.
+    email = "jackwiseman4@gmail.com"
+
+    # Specify the username of the author/committer.
+    name = "Jack Wiseman"
