@@ -67,6 +67,9 @@ require('lazy').setup({
 
   -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
   { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
+
+  -- Easier tmux navigation (port of christoomey/vim-tmux-navigator)
+  'connordeckers/tmux-navigator.nvim', 
 })
 
 -- [[ Setting options ]]
@@ -142,6 +145,9 @@ require('lualine').setup {
 
 -- Enable Comment.nvim
 require('Comment').setup()
+
+-- Enable tmux-navigator.nvim
+require('tmux-navigator').setup { enable = true }
 
 -- Enable `lukas-reineke/indent-blankline.nvim`
 -- See `:help indent_blankline.txt`
