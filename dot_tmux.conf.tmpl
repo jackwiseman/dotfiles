@@ -12,9 +12,6 @@ unbind %
 # defeats the purpose of tmuxing, but makes it helpful
 set -g mouse on
 
-# ez conf reloading
-bind -T prefix r source-file ~/.config/tmux/tmux.conf
-
 # Smart pane switching with awareness of Vim splits.
 # See: https://github.com/christoomey/vim-tmux-navigator
 is_vim="ps -o state= -o comm= -t '#{pane_tty}' \
@@ -52,7 +49,8 @@ set -g status-left " "
 set -g status-justify left
 setw -g window-status-format         ' #(echo "#{pane_current_command}") '
 setw -g window-status-current-format ' #(echo "#{pane_current_command}") '
-set -g status-right '#(~/.config/scripts/tmux_status.sh)'
+
+set -g status-right {{ if eq .chezmoi.hostname "jack-work" }}"🚀"{{ else if eq .chezmoi.hostname "jack-home" }}"⛵️"{{ end }}
 
 # Start windows and panes at 1, not 0, and keep them visually constant
 set -g base-index 1
