@@ -5,8 +5,8 @@ tap "homebrew/cask-fonts"
 tap "homebrew/core"
 tap "hpedrorodrigues/tools"
 tap "jakehilborn/jakehilborn"
-
 tap "jackwiseman/brews", "https://github.com/jackwiseman/brews.git"
+
 brew "chezmoi"
 brew "readline"
 brew "xz"
@@ -31,6 +31,8 @@ brew "wget"
 brew "yarn"
 brew "zlib"
 brew "jakehilborn/jakehilborn/displayplacer"
+
+{{- if (not .headless) -}}
 cask "1password"
 cask "alfred"
 cask "dockutil"
@@ -44,8 +46,8 @@ cask "karabiner-elements"
 cask "slack"
 cask "spotify"
 cask "tableplus"
+{{ end }}
 
-{{/* */}}
 {{- if (not .ephemeral) -}}
 mas "Magnet", id: 441258766
 mas "Spark", id: 1176895641
