@@ -17,7 +17,11 @@ brew "figlet"
 brew "fileicon"
 brew "fnm"
 brew "fzf"
+{{ if .headless }}
+brew "go", link: true
+{{ else }}
 brew "go"
+{{ end }}
 brew "hyperfine"
 brew "mas"
 brew "neovim"
