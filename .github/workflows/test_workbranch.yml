@@ -17,7 +17,6 @@ jobs:
           sudo rm /usr/local/bin/gofmt
       - name: test bootstrap
         run: |
-          sudo rm /usr/local/bin/go
           set -eo pipefail
           export CI=1
           sh -c "$(curl -fsLS get.chezmoi.io)" -- init --branch work --promptBool headless=true --apply jackwiseman -k
