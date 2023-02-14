@@ -43,8 +43,12 @@ cask "karabiner-elements"
 cask "slack"
 cask "spotify"
 cask "tableplus"
+
+{{/* */}}
+{{- if (not .ephemeral) -}}
 mas "Magnet", id: 441258766
 mas "Spark", id: 1176895641
+{{ end }}
 
 {{ if eq .chezmoi.hostname "jack-home" }}
 cask "fl-studio"
