@@ -1,9 +1,0 @@
-#!/bin/bash
-
-{{// for now going to assume headless == ci //}}
-{{ if .headless }}
-
-# with a default go installed, unable to link
-brew unlink go@1.17
-
-{{ end }}
