@@ -3,6 +3,11 @@
 {{- $ephemeral := false -}}{{/* true if machine is ephemeral ie cloud or VM */}}
 {{- "" -}}
 
+{{- if (env "CI") -}}
+{{-   $ephemeral = true -}}
+{{-   $headless = true -}}
+{{- end -}}
+
 {{- if not $headless -}}
 {{-     $ephemeral = promptBoolOnce . "ephemeral" "ephemeral" -}}
 {{- end -}}
