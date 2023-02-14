@@ -1,14 +1,13 @@
 ---
-name: Dotfiles testing
+name: Test Dotfiles on Work Branch
 
 on:
   push:
     branches:
-      - 'main'
       - 'work'
 jobs:
   build:
-    name: install files headless
+    name: install files headless from work branch
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
