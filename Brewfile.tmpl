@@ -1,11 +1,9 @@
 tap "cirruslabs/cli"
 tap "homebrew/bundle"
-
-{{- if (not .headless) -}}
+{{ if (not .headless) }}
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-{{- end -}}
-
+{{ end }}
 tap "homebrew/core"
 tap "hpedrorodrigues/tools"
 tap "jakehilborn/jakehilborn"
