@@ -11,7 +11,11 @@ jobs:
     runs-on: macos-latest
     steps:
       - uses: actions/checkout@v3
-      - name: bootstrap
+      - name: remove go/gofmt symlinks
+        run: |
+          sudo rm /usr/local/bin/go
+          sudo rm /usr/local/bin/gofmt
+      - name: test bootstrap
         run: |
           sudo rm /usr/local/bin/go
           set -eo pipefail
