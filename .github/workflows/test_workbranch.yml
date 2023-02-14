@@ -15,4 +15,4 @@ jobs:
         run: |
           set -eo pipefail
           export CI=1
-          sh -c "$(curl -fsLS get.chezmoi.io)" -- init --branch work --promptBool headless=true --apply jackwiseman
+          sh -c "$(curl -fsLS get.chezmoi.io)" -- init --branch work --promptBool headless=true --apply jackwiseman -k

@@ -1,0 +1,6 @@
+#!/bin/bash
+
+brew bundle install
+{{- if .headless }}
+brew link --overwrite go
+{{ end }}
