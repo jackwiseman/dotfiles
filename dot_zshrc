@@ -21,7 +21,6 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$PATH
 export PATH="/usr/local/sbin:$PATH"
 export GOPATH=~/go/
 export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
-export EDITOR=/usr/local/bin/nvim
 #export NVM_LAZY_LOAD=true
 #export NVM_COMPLETION=true
 
@@ -30,7 +29,9 @@ export EDITOR=/usr/local/bin/nvim
 alias ls="ls -FG"
 alias l="ls -la -FG"
 
-alias v=/usr/local/bin/nvim
+# always use v for neovim
+export EDITOR=/usr/local/bin/nvim
+alias v=$EDITOR
 
 
 # keybindings
@@ -38,10 +39,6 @@ bindkey '^ ' autosuggest-accept
 
 # fnm completion
 eval "$(fnm env --use-on-cd)"
-
-# custom global gitignore
-git config --global core.excludesFile '~/.config/git/.gitignore'
-git config --global core.editor "/usr/local/bin/nvim"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 

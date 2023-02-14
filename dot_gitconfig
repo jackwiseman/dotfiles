@@ -4,3 +4,6 @@
 
     # Specify the username of the author/committer.
     name = "Jack Wiseman"
+[core]
+    # Add a global gitignore
+    excludesFile = ~/.gitignore
