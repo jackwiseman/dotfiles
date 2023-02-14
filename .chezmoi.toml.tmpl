@@ -1,9 +1,9 @@
 {{/* boolean feature tags */}}
 {{- $headless := false -}}{{/* true if this screen does not have a screen and keyboard */}}
 {{- $ephemeral := false -}}{{/* true if machine is ephemeral ie cloud or VM */}}
-{{- "" -}}
+{{- "" -}]
 
-{{- if not $ephemeral -}}
+{{- if not $headless -}}
 {{-     $ephemeral = promptBoolOnce . "ephemeral" "ephemeral" -}}
 {{- end -}}
 
