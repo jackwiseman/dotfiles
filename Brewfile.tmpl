@@ -1,40 +1,53 @@
 tap "cirruslabs/cli"
 tap "homebrew/bundle"
-{{ if (not .headless) }}
+{{- if (not .headless) }}
 tap "homebrew/cask"
 tap "homebrew/cask-fonts"
-{{ end }}
+{{- end }}
 tap "homebrew/core"
 tap "hpedrorodrigues/tools"
 tap "jakehilborn/jakehilborn"
 tap "jackwiseman/brews", "https://github.com/jackwiseman/brews.git"
-
+brew "capstone"
 brew "chezmoi"
-brew "readline"
-brew "xz"
+brew "colima"
+brew "docker"
 brew "fd"
 brew "figlet"
 brew "fileicon"
 brew "fnm"
 brew "fzf"
+brew "glib"
 brew "go", link: true
 brew "hyperfine"
+brew "jakehilborn/jakehilborn/displayplacer"
+brew "jpeg-turbo"
+brew "libpng"
+brew "libslirp"
+brew "libssh"
+brew "libusb"
+brew "lima"
+brew "lzo"
 brew "mas"
 brew "neovim"
 brew "node"
 brew "openssl@3"
+brew "pixman"
 brew "pyenv"
+brew "qemu"
+brew "readline"
 brew "ripgrep"
+brew "snappy"
 brew "sqlite"
 brew "task"
 brew "tldr"
 brew "tmux"
+brew "vde"
 brew "wget"
+brew "xz"
 brew "yarn"
 brew "zlib"
-brew "jakehilborn/jakehilborn/displayplacer"
-
-{{- if (not .headless) -}}
+{{- if (not .headless) }}
 cask "1password"
 cask "alfred"
 cask "dockutil"
@@ -48,14 +61,14 @@ cask "karabiner-elements"
 cask "slack"
 cask "spotify"
 cask "tableplus"
-{{ end }}
+{{- end }}
 
-{{- if (not .ephemeral) -}}
+{{- if (not .ephemeral) }}
 mas "Magnet", id: 441258766
 mas "Spark", id: 1176895641
-{{ end }}
+{{- end }}
 
-{{ if eq .chezmoi.hostname "jack-home" }}
+{{- if eq .chezmoi.hostname "jack-home" }}
 cask "fl-studio"
 cask "lunasea"
 cask "private-internet-access"
@@ -63,4 +76,4 @@ cask "vmware-fusion"
 mas "AdGuard for Safari", id: 1440147259
 mas "Infuse", id: 1136220934
 mas "Xcode", id: 497799835
-{{ end }}
+{{- end }}
