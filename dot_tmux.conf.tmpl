@@ -9,6 +9,9 @@ bind s split-window -v
 unbind '"'
 unbind %
 
+# copy and paste
+set-option -g default-command "reattach-to-user-namespace -l zsh"
+
 # defeats the purpose of tmuxing, but makes it helpful
 set -g mouse on
 

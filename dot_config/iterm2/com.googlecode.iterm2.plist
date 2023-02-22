@@ -2,6 +2,10 @@
 <!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
 <plist version="1.0">
 <dict>
+	<key>AllowClipboardAccess</key>
+	<true/>
+	<key>CopySelection</key>
+	<false/>
 	<key>Custom Color Presets</key>
 	<dict>
 		<key>gruvbox</key>
@@ -1117,6 +1121,8 @@
 			<integer>128</integer>
 			<key>Transparency</key>
 			<real>0.0</real>
+			<key>Unicode Version</key>
+			<integer>9</integer>
 			<key>Unlimited Scrollback</key>
 			<true/>
 			<key>Use Bold Font</key>
@@ -1143,6 +1149,8 @@
 	<false/>
 	<key>OpenNoWindowsAtStartup</key>
 	<true/>
+	<key>PMPrintingExpandedStateForPrint2</key>
+	<false/>
 	<key>PasteTabToStringTabStopSize</key>
 	<integer>4</integer>
 	<key>PointerActions</key>
@@ -1180,6 +1188,8 @@
 	</dict>
 	<key>PreserveWindowSizeWhenTabBarVisibilityChanges</key>
 	<false/>
+	<key>Print In Black And White</key>
+	<true/>
 	<key>PromptOnQuit</key>
 	<true/>
 	<key>ShowFullScreenTabBar</key>
