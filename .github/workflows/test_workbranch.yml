@@ -14,9 +14,10 @@ jobs:
         run: |
           sudo rm /usr/local/bin/go
           sudo rm /usr/local/bin/gofmt
-      - name: test bootstrap
+      - name: bootstrap
         run: |
           set -eo pipefail
           export CI=1
           git_branch=${GITHUB_REF#refs/heads/}
           sh -c "$(curl -fsLS get.chezmoi.io)" -- init --branch ${GITHUB_REF##*/} --promptBool headless=true --apply jackwiseman -k
+      - name: neovim healthchecks
