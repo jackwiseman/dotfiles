@@ -60,7 +60,8 @@ require('lazy').setup({
   'ellisonleao/gruvbox.nvim', -- Port of the classic gruvbox theme
   'nvim-lualine/lualine.nvim', -- Fancier statusline
   'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
-  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+--  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
+  'airblade/vim-rooter',
 
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
@@ -406,7 +407,11 @@ cmp.setup {
 vim.opt.clipboard = "unnamedplus"
 vim.opt.clipboard:append("unnamed")
 
+<<<<<<< HEAD
 -- his.should.break.healthcheck
+=======
+vim.g.rooter_patterns = {'.git', 'package.json'}
+>>>>>>> 9c1c53b (fix: remove vim-sleuth)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
