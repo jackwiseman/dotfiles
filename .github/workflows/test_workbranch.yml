@@ -22,7 +22,7 @@ jobs:
           sh -c "$(curl -fsLS get.chezmoi.io)" -- init --branch ${GITHUB_REF##*/} --promptBool headless=true --apply jackwiseman -k
       - name: init.lua
         run: |
-        nvim --headless -u $HOME/.config/nvim/init.lua +q 
+          nvim --headless -u $HOME/.config/nvim/init.lua +q 
       - name: neovim healthcheck
         run: |
           nvim --headless --clean +'checkhealth' +'qa!'
