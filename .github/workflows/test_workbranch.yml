@@ -23,6 +23,7 @@ jobs:
       - name: init.lua
         run: |
           set -eo pipefail
+          set -e
           nvim --headless -u $HOME/.config/nvim/init.lua +q 
       - name: neovim healthcheck
         run: |
