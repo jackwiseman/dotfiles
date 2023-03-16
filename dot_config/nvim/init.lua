@@ -407,11 +407,7 @@ cmp.setup {
 vim.opt.clipboard = "unnamedplus"
 vim.opt.clipboard:append("unnamed")
 
-<<<<<<< HEAD
--- his.should.break.healthcheck
-=======
 vim.g.rooter_patterns = {'.git', 'package.json'}
->>>>>>> 9c1c53b (fix: remove vim-sleuth)
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
