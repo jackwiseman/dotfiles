@@ -406,7 +406,7 @@ cmp.setup {
 vim.opt.clipboard = "unnamedplus"
 vim.opt.clipboard:append("unnamed")
 
-this.should.break.healthcheck
+-- his.should.break.healthcheck
 
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et

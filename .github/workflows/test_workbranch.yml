@@ -23,8 +23,7 @@ jobs:
       - name: init.lua
         run: |
           set -eo pipefail
-          set -e
-          nvim --headless -u $HOME/.config/nvim/init.lua +q 
+          nvim --headless -u $HOME/.config/nvim/init.lua +q 2> errors.txt && if [ -s errors.txt ]; then return 1; else return 0; fi
       - name: neovim healthcheck
         run: |
           nvim --headless --clean +'checkhealth' +'qa!'
