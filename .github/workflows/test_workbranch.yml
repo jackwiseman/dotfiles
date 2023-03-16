@@ -20,6 +20,6 @@ jobs:
           export CI=1
           git_branch=${GITHUB_REF#refs/heads/}
           sh -c "$(curl -fsLS get.chezmoi.io)" -- init --branch ${GITHUB_REF##*/} --promptBool headless=true --apply jackwiseman -k
-      - name: neovim healthchecks
+      - name: neovim healthcheck
         run: |
-          nvim --headless --clean +'checkhealth'
+          nvim --headless --clean +'checkhealth' +'qa!'
