@@ -71,6 +71,13 @@ require('lazy').setup({
 
   -- Easier tmux navigation (port of christoomey/vim-tmux-navigator)
   'connordeckers/tmux-navigator.nvim', 
+
+  -- File browsing
+  {
+    'kyazdani42/nvim-tree.lua',
+    dependencies = { 'kyazdani42/nvim-web-devicons' },
+  },
+
 })
 
 -- [[ Setting options ]]
@@ -168,6 +175,8 @@ require('gitsigns').setup {
     changedelete = { text = '~' },
   },
 }
+
+require("nvim-tree").setup()
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
@@ -409,5 +418,11 @@ vim.opt.clipboard:append("unnamed")
 
 vim.g.rooter_patterns = {'.git', 'package.json'}
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "vue",
+	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
+})
+
+vim.keymap.set('n', '<leader>f', ":NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "Toggle file explorer" })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
