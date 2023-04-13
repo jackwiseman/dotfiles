@@ -423,6 +423,12 @@ vim.api.nvim_create_autocmd("FileType", {
 	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "php",
+	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
+})
+
+
 vim.keymap.set('n', '<leader>f', ":NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "Toggle file explorer" })
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
