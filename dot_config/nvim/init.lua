@@ -424,6 +424,12 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
+	pattern = "scss",
+	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
+})
+
+
+vim.api.nvim_create_autocmd("FileType", {
 	pattern = "javascript",
 	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
 })
