@@ -1,9 +1,7 @@
 [user]
-    # Specify the email address of the author/committer.
     email = "40647382+jackwiseman@users.noreply.github.com"
-
-    # Specify the username of the author/committer.
     name = "Jack Wiseman"
+    signingkey = 0C9B9E35D2F03725
 [core]
     # Add a global gitignore
     excludesFile = ~/.gitignore
