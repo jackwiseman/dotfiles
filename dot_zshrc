@@ -22,13 +22,11 @@ export PATH="/usr/local/sbin:$PATH"
 export GOPATH=~/go/
 export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
 export DISABLE_AUTO_TITLE='true'
-#export NVM_LAZY_LOAD=true
-#export NVM_COMPLETION=true
 
-#alias ez="$config/scripts/ez"
-#alias tmux="tmux -f $config/tmux/tmux.conf"
 alias ls="ls -FG"
 alias l="ls -la -FG"
+
+alias gs="git status"
 
 # always use v for neovim
 export EDITOR=/usr/local/bin/nvim

@@ -21,6 +21,15 @@ vim.g.maplocalleader = " "
 
 require('lazy').setup({
 
+  { -- Color
+    'ellisonleao/gruvbox.nvim', -- Port of the classic gruvbox theme
+    lazy = false,
+    priority = 1000,
+    config = function()
+      vim.cmd([[colorscheme gruvbox]])
+    end,
+  },
+
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
@@ -57,7 +66,7 @@ require('lazy').setup({
   'lewis6991/gitsigns.nvim',
 
  --   'navarasu/onedark.nvim', -- Theme inspired by Atom
-  'ellisonleao/gruvbox.nvim', -- Port of the classic gruvbox theme
+--  'ellisonleao/gruvbox.nvim', -- Port of the classic gruvbox theme
   'nvim-lualine/lualine.nvim', -- Fancier statusline
   'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
 --  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
@@ -115,7 +124,7 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
-vim.cmd [[colorscheme gruvbox]]
+-- vim.cmd [[colorscheme gruvbox]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
