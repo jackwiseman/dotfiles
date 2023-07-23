@@ -7,3 +7,5 @@
 [core]
     # Add a global gitignore
     excludesFile = ~/.gitignore
+[push]
+    autoSetupRemote = tracking
