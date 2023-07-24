@@ -193,7 +193,9 @@ require('gitsigns').setup {
   },
 }
 
-require("nvim-tree").setup()
+require("nvim-tree").setup {
+  view = { relativenumber = true }
+}
 
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
