@@ -3,13 +3,6 @@ uda.priority.values=H,M,,L
 
 data.location=$HOME/.config/taskwarrior/.task
 
-# WingTask sync server
-taskd.server=app.wingtask.com:53589
-taskd.key=$HOME/.config/taskwarrior/jackwiseman4@gmail.com.key.pem
-taskd.ca=$HOME/.config/taskwarrior/letsencrypt_root_cert.pem
-taskd.certificate=$HOME/.config/taskwarrior/jackwiseman4@gmail.com.cert.pem
-taskd.credentials=WingTask/jackwiseman4@gmail.com/070e9f51-80dd-4f1a-875e-a3bc429a61b9
-
 # silence warnings that taskrc has been moved
 verbose=0
 news.version=2.6.0
