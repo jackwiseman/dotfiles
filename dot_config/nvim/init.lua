@@ -30,15 +30,14 @@ require('lazy').setup({
     end,
   },
 
+  { 'j-hui/fidget.nvim', tag = 'legacy' },
+
   { -- LSP Configuration & Plugins
     'neovim/nvim-lspconfig',
     dependencies = {
       -- Automatically install LSPs to stdpath for neovim
       'williamboman/mason.nvim',
       'williamboman/mason-lspconfig.nvim',
-
-      -- Useful status updates for LSP
-      'j-hui/fidget.nvim',
 
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim',
@@ -65,11 +64,8 @@ require('lazy').setup({
   'tpope/vim-rhubarb',
   'lewis6991/gitsigns.nvim',
 
- --   'navarasu/onedark.nvim', -- Theme inspired by Atom
---  'ellisonleao/gruvbox.nvim', -- Port of the classic gruvbox theme
   'nvim-lualine/lualine.nvim', -- Fancier statusline
   'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
---  'tpope/vim-sleuth', -- Detect tabstop and shiftwidth automatically
   'airblade/vim-rooter',
 
   -- Fuzzy Finder (files, lsp, etc)
@@ -86,6 +82,26 @@ require('lazy').setup({
     'kyazdani42/nvim-tree.lua',
     dependencies = { 'kyazdani42/nvim-web-devicons' },
   },
+
+  -- autoclose and autorename html tags
+  'windwp/nvim-ts-autotag',
+
+  -- copilot
+  'github/copilot.vim',
+
+  -- gpt
+  {
+    "jackMort/ChatGPT.nvim",
+      event = "VeryLazy",
+      config = function()
+        require("chatgpt").setup()
+      end,
+      dependencies = {
+        "MunifTanjim/nui.nvim",
+        "nvim-lua/plenary.nvim",
+        "nvim-telescope/telescope.nvim"
+      }
+  }
 
 })
 
@@ -124,7 +140,6 @@ vim.wo.signcolumn = 'yes'
 
 -- Set colorscheme
 vim.o.termguicolors = true
--- vim.cmd [[colorscheme gruvbox]]
 
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
@@ -166,13 +181,6 @@ require('Comment').setup()
 -- Enable tmux-navigator.nvim
 require('tmux-navigator').setup { enable = true }
 
--- Enable `lukas-reineke/indent-blankline.nvim`
--- See `:help indent_blankline.txt`
--- require('indent_blankline').setup {
---   char = '┊',
---   show_trailing_blankline_indent = false,
--- }
-
 -- Gitsigns
 -- See `:help gitsigns.txt`
 require('gitsigns').setup {
@@ -199,6 +207,8 @@ require('telescope').setup {
     },
   },
 }
+
+require('nvim-ts-autotag').setup()
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
