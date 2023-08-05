@@ -23,10 +23,6 @@ export GOPATH=~/go/
 export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
 export DISABLE_AUTO_TITLE='true'
 
-{{ if eq .chezmoi.hostname "JWISEMAN-MAC" }}
-export OPENAI_API_KEY={{- onepasswordRead "op://Personal/Openai/api-key" }}
-{{ end }}
-
 alias ls="ls -FG"
 alias l="ls -la -FG"
 alias gs="git status"
