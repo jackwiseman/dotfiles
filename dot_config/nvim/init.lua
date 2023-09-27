@@ -67,6 +67,7 @@ require('lazy').setup({
   'nvim-lualine/lualine.nvim', -- Fancier statusline
   'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
   'airblade/vim-rooter',
+  'norcalli/nvim-colorizer.lua', -- make hex codes look nice
 
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
@@ -160,6 +161,8 @@ require('lualine').setup {
     section_separators = '',
   },
 }
+
+require('colorizer').setup()
 
 -- Enable Comment.nvim
 require('Comment').setup()
