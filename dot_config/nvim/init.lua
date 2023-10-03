@@ -68,6 +68,7 @@ require('lazy').setup({
   'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
   'airblade/vim-rooter',
   'norcalli/nvim-colorizer.lua', -- make hex codes look nice
+  'folke/trouble.nvim', -- add lsp diagnostics to quickfix list
 
   -- Fuzzy Finder (files, lsp, etc)
   { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
