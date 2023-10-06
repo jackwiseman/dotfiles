@@ -17,9 +17,8 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/go/bin:$PATH
-export PATH="/usr/local/sbin:$PATH"
 export GOPATH=~/go/
+export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$GOPATH/bin:/usr/local/go/bin:$PATH
 export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
 export DISABLE_AUTO_TITLE='true'
 
