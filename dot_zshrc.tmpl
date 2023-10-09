@@ -44,6 +44,9 @@ alias gs="git status"
 alias gd="git diff"
 alias t="task"
 alias v=$EDITOR
+{{- if eq .chezmoi.hostname "JWISEMAN-MAC" }}
+alias ssh_ezdock="~/ezoicgit/ez_dock_corp_sol/ssh_into_container.sh"
+{{- end }}
 
 # keybindings
 bindkey '^ ' autosuggest-accept
