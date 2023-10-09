@@ -1,5 +1,21 @@
 README.md
 
-{{- if ne .chezmoi.os "darwin" }}
-.config/karabiner/*
+{{- if eq .chezmoi.os "darwin" -}}
+dependencies.sh
+{{- end -}
+
+{{- if eq .chezmoi.os "linux" }}
+setdock.sh
+install_fzf.sh
+brewpackages.sh
+
+Brewfile
+.tmux.conf
+.taskrc
+.hammerspoon
+.config/alacritty
+.config/karabiner
+.hushlogin
+.DS_Store
+.gitignore
 {{- end -}}
