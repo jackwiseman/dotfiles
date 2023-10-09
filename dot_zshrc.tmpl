@@ -19,12 +19,13 @@ source ${ZIM_HOME}/init.zsh
 
 export GOPATH=~/go/
 export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$GOPATH/bin:/usr/local/go/bin:$PATH
-export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
 export DISABLE_AUTO_TITLE='true'
 
 {{ if eq .chezmoi.os "darwin" -}}
 # use 1password for ssh
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+
+export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
 {{- end -}}
 
 alias ls="ls -FG"
@@ -63,4 +64,4 @@ eval "$(pyenv init -)"
 eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
 {{ end }}
 
-. /usr/local/etc/profile.d/z.sh
+. $(brew --prefix)/etc/profile.d/z.sh
