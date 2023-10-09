@@ -1,6 +1,6 @@
 README.md
 
-{{- if eq .chezmoi.os "darwin" -}}
+{{- if eq .chezmoi.os "darwin" }}
 dependencies.sh
 {{- end -}}
 
