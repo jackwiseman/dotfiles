@@ -1,4 +1,4 @@
-ZIM_HOME=${ZDOTDIR:-${HOME}}/.zim
+ZIM_HOME=~/.zim
 
 # Download zimfw plugin manager if missing.
 if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
@@ -22,8 +22,10 @@ export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$GOPATH/bin:/usr/local/go/b
 export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
 export DISABLE_AUTO_TITLE='true'
 
+{{ if eq .chezmoi.os "darwin" -}}
 # use 1password for ssh
  export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+{{- end -}}
 
 alias ls="ls -FG"
 alias l="ls -la -FG"
