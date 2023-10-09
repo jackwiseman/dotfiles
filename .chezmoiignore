@@ -2,7 +2,7 @@ README.md
 
 {{- if eq .chezmoi.os "darwin" -}}
 dependencies.sh
-{{- end -}
+{{- end -}}
 
 {{- if eq .chezmoi.os "linux" }}
 setdock.sh
