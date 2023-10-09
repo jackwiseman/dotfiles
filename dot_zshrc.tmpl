@@ -17,9 +17,19 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
+{{ if eq .chezmoi.os "linux" }}
+eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
+{{ end }}
+
+{{ if eq .chezmoi.os "darwin" }}
+eval $(/usr/local/bin/brew shellenv)
+{{ end }}
+
 export GOPATH=~/go/
-export PATH=$HOME/bin:/usr/local/bin:/usr/local/sbin:$GOPATH/bin:/usr/local/go/bin:$PATH
-export DISABLE_AUTO_TITLE='true'
+export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
+export DISABLE_AUTO_TITLE=true
+export EDITOR=$(brew --prefix)/nvim
+export TLDR_AUTO_UPDATE_DISABLED=true
 
 {{ if eq .chezmoi.os "darwin" -}}
 # use 1password for ssh
@@ -33,35 +43,24 @@ alias l="ls -la -FG"
 alias gs="git status"
 alias gd="git diff"
 alias t="task"
-
-# always use v for neovim
-export EDITOR=/usr/local/bin/nvim
 alias v=$EDITOR
-
-# auto update is annoying
-export TLDR_AUTO_UPDATE_DISABLED=true
 
 # keybindings
 bindkey '^ ' autosuggest-accept
 
 # fnm completion
-eval "$(fnm env --use-on-cd)"
+eval $(fnm env --use-on-cd)
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
-
 
 timezsh() {
   shell=${1-$SHELL}
   /usr/bin/time $shell -i -c exit
 }
 
-export PYENV_ROOT="$HOME/.config/pyenv"
-export PATH="$PYENV_ROOT/bin:$PATH"
-command -v pyenv >/dev/null || export PATH="$PYENV_ROOT/bin:$PATH" 
-eval "$(pyenv init -)"
-
-{{ if eq .chezmoi.os "linux" }}
-eval $(/home/linuxbrew/.linuxbrew/bin/brew shellenv)
-{{ end }}
+export PYENV_ROOT=$HOME/.config/pyenv
+export PATH=$PYENV_ROOT/bin:$PATH
+command -v pyenv >/dev/null || export PATH=$PYENV_ROOT/bin:$PATH
+eval $(pyenv init -)
 
 . $(brew --prefix)/etc/profile.d/z.sh
