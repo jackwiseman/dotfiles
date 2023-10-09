@@ -28,7 +28,7 @@ eval $(/usr/local/bin/brew shellenv)
 export GOPATH=~/go/
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 export DISABLE_AUTO_TITLE=true
-export EDITOR=$(brew --prefix)/nvim
+export EDITOR=$(brew --prefix)/bin/nvim
 export TLDR_AUTO_UPDATE_DISABLED=true
 
 {{ if eq .chezmoi.os "darwin" -}}
@@ -49,7 +49,7 @@ alias v=$EDITOR
 bindkey '^ ' autosuggest-accept
 
 # fnm completion
-eval $(fnm env --use-on-cd)
+eval "$(fnm env --use-on-cd)"
 
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
 
@@ -61,6 +61,6 @@ timezsh() {
 export PYENV_ROOT=$HOME/.config/pyenv
 export PATH=$PYENV_ROOT/bin:$PATH
 command -v pyenv >/dev/null || export PATH=$PYENV_ROOT/bin:$PATH
-eval $(pyenv init -)
+eval "$(pyenv init -)"
 
 . $(brew --prefix)/etc/profile.d/z.sh
