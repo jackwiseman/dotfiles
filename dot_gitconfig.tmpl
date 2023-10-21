@@ -5,11 +5,11 @@
 [core]
     # Add a global gitignore
     excludesFile = ~/.gitignore
-{{ if eq .chezmoi.os "darwin" }}
-[url "git@github.com:"]
-    insteadOf = https://github.com
 [core]
     pager = diff-so-fancy | less --tabs=4 -RFX
 [interactive]
     diffFilter = diff-so-fancy --patch
+{{ if eq .chezmoi.os "darwin" }}
+[url "git@github.com:"]
+    insteadOf = https://github.com
 {{ end }}
