@@ -59,3 +59,9 @@ set -g status-right {{ if eq .chezmoi.hostname "JWISEMAN-MAC" }}"🚀"{{ else if
 set -g base-index 1
 setw -g pane-base-index 1
 set-option -g renumber-windows on
+
+# improve response time
+set-option -sg escape-time 10
+
+# enable focus events
+set-option -g focus-events on
