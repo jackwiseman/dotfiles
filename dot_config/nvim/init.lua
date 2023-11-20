@@ -184,7 +184,14 @@ require('gitsigns').setup {
 }
 
 require("nvim-tree").setup {
-  view = { relativenumber = true }
+  view = {
+    relativenumber = true,
+  },
+  update_cwd = true,
+  update_focused_file = {
+    enable = true,
+    update_cwd = true,
+  },
 }
 
 -- [[ Configure Telescope ]]
