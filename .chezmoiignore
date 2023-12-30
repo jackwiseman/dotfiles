@@ -13,6 +13,7 @@ Brewfile
 .tmux.conf
 .taskrc
 .hammerspoon
+.config/1Password
 .config/alacritty
 .config/karabiner
 .hushlogin
