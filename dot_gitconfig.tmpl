@@ -3,10 +3,10 @@
     name = "Jack Wiseman"
     signingkey = 0C9B9E35D2F03725
 [core]
-    # Add a global gitignore
-    excludesFile = ~/.gitignore
-[core]
+    excludesFile = ~/.gitignore # Add a global gitignore
     pager = diff-so-fancy | less --tabs=4 -RFX
+[push]
+    default = current
 [interactive]
     diffFilter = diff-so-fancy --patch
 {{ if eq .chezmoi.os "darwin" }}
