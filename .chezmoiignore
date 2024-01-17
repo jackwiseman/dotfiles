@@ -1,13 +1,14 @@
 README.md
+bootstrap.sh
 
 {{- if eq .chezmoi.os "darwin" }}
-dependencies.sh
+.chezmoiscripts/dependencies.sh
 {{- end -}}
 
 {{- if eq .chezmoi.os "linux" }}
-setdock.sh
-install_fzf.sh
-brewpackages.sh
+.chezmoiscripts/setdock.sh
+.chezmoiscripts/install_fzf.sh
+.chezmoiscripts/brewpackages.sh
 
 Brewfile
 .tmux.conf

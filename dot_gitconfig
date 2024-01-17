@@ -9,7 +9,5 @@
     default = current
 [interactive]
     diffFilter = diff-so-fancy --patch
-{{ if eq .chezmoi.os "darwin" }}
 [url "git@github.com:"]
-    insteadOf = https://github.com
-{{ end }}
+    pushInsteadOf = https://github.com
