@@ -463,5 +463,7 @@ vim.api.nvim_create_autocmd("FileType", {
 
 vim.keymap.set('n', '<leader>f', ":NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "Toggle file explorer" })
 vim.keymap.set('n', '<leader>x', ":TroubleToggle<CR>", { noremap = true, silent = true, desc = "Open trouble.nvim picker" })
+
+vim.opt.fixeol = false
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
