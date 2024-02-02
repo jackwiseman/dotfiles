@@ -1,5 +1,6 @@
 README.md
 bootstrap.sh
+.chezmoiscripts/install_fzf.sh
 
 {{- if eq .chezmoi.os "darwin" }}
 .chezmoiscripts/dependencies.sh
