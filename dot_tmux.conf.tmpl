@@ -53,7 +53,7 @@ set -g status-justify centre
 setw -g window-status-format         ' #(echo "#{pane_current_command}") '
 setw -g window-status-current-format ' #(echo "#{pane_current_command}") '
 
-set -g status-right {{ if eq .chezmoi.hostname "JWISEMAN-MAC" }}"🚀"{{ else if eq .chezmoi.hostname "jack-home" }}"⛵️"{{ else }}""{{ end }}
+set -g status-right {{ if eq .context "work" }}"🚀"{{ else if eq .context "home" }}"⛵️"{{ else }}""{{ end }}
 
 # Start windows and panes at 1, not 0, and keep them visually constant
 set -g base-index 1

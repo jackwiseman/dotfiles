@@ -10,7 +10,7 @@
 [interactive]
     diffFilter = diff-so-fancy --patch
 [url "git@github.com:"]
-{{ if eq .chezmoi.hostname "JWISEMAN-MAC" }}
+{{ if eq .context "work" }}
     insteadOf = https://github.com
 {{ else }}
     pushInsteadOf = https://github.com

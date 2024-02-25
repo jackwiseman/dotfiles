@@ -46,7 +46,7 @@ alias gd="git diff"
 alias gc="git commit -m"
 alias t="task"
 alias v=$EDITOR
-{{- if eq .chezmoi.hostname "JWISEMAN-MAC" }}
+{{- if eq .context "work" }}
 alias ssh_ezdock="~/ezoicgit/ez-dock-corp-sol/ssh_into_container.sh"
 {{- end }}
 
@@ -71,11 +71,4 @@ function pyenv() {
   unset -f pyenv
   eval "$(command pyenv init -)"
   pyenv $@
-}
-
-# lazy load z
-function z() {
-    unset -f z
-    . $(brew --prefix)/etc/profile.d/z.sh
-    _z "$@"
 }

@@ -12,7 +12,6 @@ brew "fnm"
 brew "fzf"
 brew "glib"
 brew "go", link: true
-brew "hyperfine"
 brew "jakehilborn/jakehilborn/displayplacer"
 brew "jpeg-turbo"
 brew "jq"
@@ -40,16 +39,13 @@ brew "vde"
 brew "wget"
 brew "xz"
 brew "yarn"
-brew "z"
 brew "zlib"
 cask "1password"
 cask "1password/tap/1password-cli"
-cask "alacritty"
-cask "dockutil"
+cask "alacritty", args: { no_quarantine: true }
+# cask "dockutil"
 cask "docker"
 cask "jackwiseman/brews/font-monaco-patched"
-cask "firefox"
-cask "gas-mask"
 cask "gpg-suite"
 cask "hammerspoon"
 cask "hiddenbar"
@@ -57,17 +53,22 @@ cask "karabiner-elements"
 cask "obsidian"
 cask "rapidapi"
 cask "rectangle"
-cask "slack"
 cask "spotify"
-cask "tableplus"
 cask "xbar"
 
-{{- if eq .chezmoi.hostname "jack-home" }}
-brew "pake"
+{{- if eq .context "work" }}
+cask "google-chrome"
+cask "gas-mask"
+cask "slack"
+cask "tableplus"
+{{- end }}
+
+{{- if eq .context "home" }}
+cask "datagrip"
+cask "firefox"
 cask "fl-studio"
 cask "lunasea"
 cask "mullvadvpn"
-mas "Infuse", id: 1136220934
-mas "Tailscale", id: 1475387142
+brew "pake"
 mas "Xcode", id: 497799835
 {{- end }}
