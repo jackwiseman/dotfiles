@@ -72,10 +72,3 @@ function pyenv() {
   eval "$(command pyenv init -)"
   pyenv $@
 }
-
-# lazy load z
-function z() {
-    unset -f z
-    . $(brew --prefix)/etc/profile.d/z.sh
-    _z "$@"
-}
