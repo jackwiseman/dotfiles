@@ -41,7 +41,7 @@ brew "xz"
 brew "yarn"
 brew "zlib"
 cask "1password"
-cask "1password/tap/1password-cli"
+cask "1password-cli"
 cask "alacritty", args: { no_quarantine: true }
 # cask "dockutil"
 cask "docker"
@@ -64,11 +64,12 @@ cask "tableplus"
 {{- end }}
 
 {{- if eq .context "home" }}
-cask "datagrip"
+cask "beekeeper-studio"
 cask "firefox"
 cask "fl-studio"
 cask "lunasea"
 cask "mullvadvpn"
 brew "pake"
+cask "vlc"
 mas "Xcode", id: 497799835
 {{- end }}
