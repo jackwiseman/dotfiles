@@ -2,11 +2,17 @@
 
 dockutil --remove all
 dockutil --add /Applications/Launchpad.app
+{{- if eq .context "home" }}
 dockutil --add /Applications/Messages.app
+{{- end }}
+{{- if eq .context "home" }}
 dockutil --add /Applications/Firefox.app
+{{ else }}
+dockutil --add /Applications/Chrome.app
+{{- end }}
 dockutil --add /Applications/Spotify.app
-{{ - if eq .context "home" }}
+{{- if eq .context "home" }}
 dockutil --add /Applications/Plex.app
-{{ - end }}
+{{- end }}
 dockutil --add /Applications/Obsidian.app
 dockutil --add ~/Downloads --view fan --display stack --sort dateadded
