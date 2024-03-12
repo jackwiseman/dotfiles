@@ -40,6 +40,7 @@ require('lazy').setup({
       'williamboman/mason-lspconfig.nvim',
       'mfussenegger/nvim-dap',
       'jay-babu/mason-nvim-dap.nvim',
+      'rcarriga/nvim-dap-ui',
 
       -- Additional lua configuration, makes nvim stuff amazing
       'folke/neodev.nvim',
@@ -366,6 +367,10 @@ require('mason').setup {
   log_level = vim.log.levels.DEBUG
 }
 
+require('mason-nvim-dap').setup({
+  ensure_installed = { "delve" }
+})
+
 -- Ensure the servers above are installed
 local mason_lspconfig = require 'mason-lspconfig'
 
@@ -467,5 +472,41 @@ vim.keymap.set('n', '<leader>f', ":NvimTreeToggle<CR>", { noremap = true, silent
 vim.keymap.set('n', '<leader>x', ":TroubleToggle<CR>", { noremap = true, silent = true, desc = "Open trouble.nvim picker" })
 
 vim.opt.fixeol = false
+
+local dap = require('dap')
+
+dap.adapters.go = function(callback, _)
+  local host = "127.0.0.1"
+  local port = 2345
+  callback({type = "server", host = host, port = port})
+end
+
+dap.configurations.go = {
+  {
+    name = "Connect to Remote Delve",
+    type = "go",
+    request = "attach",
+    mode = "remote",
+    cwd = vim.fn.getenv("GOPATH") .. "/src/github.com/ezoic/sol",
+    port = 2345,
+    host = "127.0.0.1",
+    apiVersion = 2,
+    substitutePath = {
+      {
+        from = "${env:GOPATH}",
+        to = "/var/go"
+      }
+    },
+    showLog = true,
+    trace = "warn", -- Note: `trace` option handling depends on the `nvim-dap` implementation and might not directly map from VS Code.
+  },
+}
+
+-- Debugging
+require('dapui').setup({})
+vim.keymap.set('n', '<Leader>db', function() require('dap').toggle_breakpoint() end)
+vim.keymap.set('n', '<Leader>dc', function() require('dap').continue() end)
+vim.keymap.set('n', '<Leader>dt', function() require('dapui').toggle() end)
+
 -- The line beneath this is called `modeline`. See `:help modeline`
 -- vim: ts=2 sts=2 sw=2 et
