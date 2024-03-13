@@ -13,91 +13,13 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 -- [[ Basic Keymaps ]]
--- Set <\> as the leader key
+-- Set space as the leader key
 -- See `:help mapleader`
 --  NOTE: Must happen before plugins are required (otherwise wrong leader will be used)
 vim.g.mapleader = " "
 vim.g.maplocalleader = " "
 
-require('lazy').setup({
-
-  { -- Color
-    'ellisonleao/gruvbox.nvim', -- Port of the classic gruvbox theme
-    lazy = false,
-    priority = 1000,
-    config = function()
-      vim.cmd([[colorscheme gruvbox]])
-    end,
-  },
-
-  { 'j-hui/fidget.nvim', tag = 'legacy' },
-
-  { -- LSP Configuration & Plugins
-    'neovim/nvim-lspconfig',
-    dependencies = {
-      -- Automatically install LSPs to stdpath for neovim
-      'williamboman/mason.nvim',
-      'williamboman/mason-lspconfig.nvim',
-      'mfussenegger/nvim-dap',
-      'jay-babu/mason-nvim-dap.nvim',
-      'rcarriga/nvim-dap-ui',
-
-      -- Additional lua configuration, makes nvim stuff amazing
-      'folke/neodev.nvim',
-    },
-  },
-
-  { -- Autocompletion
-    'hrsh7th/nvim-cmp',
-    dependencies = { 'hrsh7th/cmp-nvim-lsp', 'L3MON4D3/LuaSnip', 'saadparwaiz1/cmp_luasnip' },
-  },
-
-  { -- Highlight, edit, and navigate code
-    'nvim-treesitter/nvim-treesitter',
-    build = function()
-      pcall(require('nvim-treesitter.install').update { with_sync = true })
-    end,
-    dependencies = {
-      'nvim-treesitter/nvim-treesitter-textobjects',
-    }
-  },
-
-  -- Git related plugins
-  'tpope/vim-fugitive',
-  'tpope/vim-rhubarb',
-  'lewis6991/gitsigns.nvim',
-
-  'nvim-lualine/lualine.nvim', -- Fancier statusline
-  'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
-  'airblade/vim-rooter',
-  'norcalli/nvim-colorizer.lua', -- make hex codes look nice
-  'folke/trouble.nvim', -- add lsp diagnostics to quickfix list
-
-  -- Fuzzy Finder (files, lsp, etc)
-  { 'nvim-telescope/telescope.nvim', branch = '0.1.x', dependencies = { 'nvim-lua/plenary.nvim' } },
-
-  -- Fuzzy Finder Algorithm which requires local dependencies to be built. Only load if `make` is available
-  { 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
-
-  -- Easier tmux navigation (port of christoomey/vim-tmux-navigator)
-  'connordeckers/tmux-navigator.nvim', 
-
-  -- File browsing
-  {
-    'kyazdani42/nvim-tree.lua',
-    dependencies = { 'kyazdani42/nvim-web-devicons' },
-  },
-
-  -- autoclose and autorename html tags
-  'windwp/nvim-ts-autotag',
-
-  -- copilot
-  'github/copilot.vim',
-
-})
-
--- [[ Setting options ]]
--- See `:help vim.o`
+require('lazy').setup("plugins")
 
 -- Set highlight on search
 vim.o.hlsearch = false
@@ -137,7 +59,7 @@ vim.o.completeopt = 'menuone,noselect'
 
 
 -- Keymaps for better default experience
--- See `:help vim.keymap.set()`
+-- Disable space in visual mode
 vim.keymap.set({ 'n', 'v' }, '<Space>', '<Nop>', { silent = true })
 
 -- Remap for dealing with word wrap
@@ -155,48 +77,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
   pattern = '*',
 })
 
--- Set lualine as statusline
--- See `:help lualine.txt`
-require('lualine').setup {
-  options = {
-    icons_enabled = false,
-    theme = 'gruvbox',
-    component_separators = '|',
-    section_separators = '',
-  },
-}
-
-require('colorizer').setup()
-
--- Enable Comment.nvim
-require('Comment').setup()
-
--- Enable tmux-navigator.nvim
-require('tmux-navigator').setup { enable = true }
-
--- Gitsigns
--- See `:help gitsigns.txt`
-require('gitsigns').setup {
-  signs = {
-    add = { text = '+' },
-    change = { text = '~' },
-    delete = { text = '_' },
-    topdelete = { text = '‾' },
-    changedelete = { text = '~' },
-  },
-}
-
-require("nvim-tree").setup {
-  view = {
-    relativenumber = true,
-  },
-  update_cwd = true,
-  update_focused_file = {
-    enable = true,
-    update_cwd = true,
-  },
-}
-
 -- [[ Configure Telescope ]]
 -- See `:help telescope` and `:help telescope.setup()`
 require('telescope').setup {
@@ -209,8 +89,6 @@ require('telescope').setup {
     },
   },
 }
-
-require('nvim-ts-autotag').setup()
 
 -- Enable telescope fzf native, if installed
 pcall(require('telescope').load_extension, 'fzf')
@@ -231,75 +109,6 @@ vim.keymap.set('n', '<leader>sh', require('telescope.builtin').help_tags, { desc
 vim.keymap.set('n', '<leader>sw', require('telescope.builtin').grep_string, { desc = '[S]earch current [W]ord' })
 vim.keymap.set('n', '<leader>sg', require('telescope.builtin').live_grep, { desc = '[S]earch by [G]rep' })
 vim.keymap.set('n', '<leader>sd', require('telescope.builtin').diagnostics, { desc = '[S]earch [D]iagnostics' })
-
--- [[ Configure Treesitter ]]
--- See `:help nvim-treesitter`
-require('nvim-treesitter.configs').setup {
-  -- Add languages to be installed here that you want installed for treesitter
-  ensure_installed = { 'c', 'cpp', 'go', 'lua', 'python', 'rust', 'typescript', 'vim', 'astro' },
-
-  highlight = { enable = true },
-  indent = { enable = true, disable = { 'python' } },
-  incremental_selection = {
-    enable = true,
-    keymaps = {
-      init_selection = '<c-space>',
-      node_incremental = '<c-space>',
-      scope_incremental = '<c-s>',
-      node_decremental = '<c-backspace>',
-    },
-  },
-  textobjects = {
-    select = {
-      enable = true,
-      lookahead = true, -- Automatically jump forward to textobj, similar to targets.vim
-      keymaps = {
-        -- You can use the capture groups defined in textobjects.scm
-        ['aa'] = '@parameter.outer',
-        ['ia'] = '@parameter.inner',
-        ['af'] = '@function.outer',
-        ['if'] = '@function.inner',
-        ['ac'] = '@class.outer',
-        ['ic'] = '@class.inner',
-      },
-    },
-    move = {
-      enable = true,
-      set_jumps = true, -- whether to set jumps in the jumplist
-      goto_next_start = {
-        [']m'] = '@function.outer',
-        [']]'] = '@class.outer',
-      },
-      goto_next_end = {
-        [']M'] = '@function.outer',
-        [']['] = '@class.outer',
-      },
-      goto_previous_start = {
-        ['[m'] = '@function.outer',
-        ['[['] = '@class.outer',
-      },
-      goto_previous_end = {
-        ['[M'] = '@function.outer',
-        ['[]'] = '@class.outer',
-      },
-    },
-    swap = {
-      enable = true,
-      swap_next = {
-        ['<leader>a'] = '@parameter.inner',
-      },
-      swap_previous = {
-        ['<leader>A'] = '@parameter.inner',
-      },
-    },
-  },
-}
-
--- Diagnostic keymaps
-vim.keymap.set('n', '[d', vim.diagnostic.goto_prev)
-vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
-vim.keymap.set('n', '<leader>e', vim.diagnostic.open_float)
-vim.keymap.set('n', '<leader>q', vim.diagnostic.setloclist)
 
 -- LSP settings.
 --  This function gets run when an LSP connects to a particular buffer.
@@ -388,13 +197,6 @@ mason_lspconfig.setup_handlers {
   end,
 }
 
--- Turn on lsp status information
-require('fidget').setup({
-  text = {
-    spinner = 'dots',
-  },
-})
-
 -- nvim-cmp setup
 local cmp = require 'cmp'
 local luasnip = require 'luasnip'
@@ -444,32 +246,9 @@ vim.opt.clipboard:append("unnamed")
 vim.g.rooter_patterns = {'.git', 'package.json'}
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "vue",
+	pattern = "vue,scss,javascript,sh,php",
 	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
 })
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "scss",
-	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "javascript",
-	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "sh",
-	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
-})
-
-vim.api.nvim_create_autocmd("FileType", {
-	pattern = "php",
-	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
-})
-
-vim.keymap.set('n', '<leader>f', ":NvimTreeToggle<CR>", { noremap = true, silent = true, desc = "Toggle file explorer" })
-vim.keymap.set('n', '<leader>x', ":TroubleToggle<CR>", { noremap = true, silent = true, desc = "Open trouble.nvim picker" })
 
 vim.opt.fixeol = false
 
