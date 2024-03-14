@@ -21,8 +21,8 @@ return {
 			opts.desc = '[G]oto [D]efinition'
 			keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
 
-			-- opts.desc = '[G]oto [R]eferences'
-			-- keymap.set('n', 'gr', require('telescope.builtin').lsp_references, opts)
+			opts.desc = '[G]oto [R]eferences'
+			keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
 
 			opts.desc = '[G]oto [I]mplementation'
 			keymap.set('n', 'gI', vim.lsp.buf.implementation, opts)
@@ -30,11 +30,11 @@ return {
 			opts.desc = 'Type [D]efinition'
 			keymap.set('n', '<leader>D', vim.lsp.buf.type_definition, opts)
 
-			-- opts.desc = '[D]ocument [S]ymbols'
-			-- keymap.set('n', '<leader>ds', require('telescope.builtin').lsp_document_symbols, opts)
+			opts.desc = '[D]ocument [S]ymbols'
+			keymap.set('n', '<leader>ds', '<cmd>Telescope lsp_document_symbols<CR>', opts)
 
-			-- opts.desc = '[W]orkspace [S]ymbols'
-			-- keymap.set('n', '<leader>ws', require('telescope.builtin').lsp_dynamic_workspace_symbols, opts)
+			opts.desc = '[W]orkspace [S]ymbols'
+			keymap.set('n', '<leader>ws', '<cmd>Telescope lsp_dynamic_workspace_symbols<CR>', opts)
 
 			opts.desc = 'Hover Documentation'
 			keymap.set('n', 'K', vim.lsp.buf.hover, opts)
@@ -43,9 +43,9 @@ return {
 			keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 
 			-- Create a command `:Format` local to the LSP buffer
-			-- vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
-			-- 	vim.lsp.buf.format()
-			-- 	end, { desc = 'Format current buffer with LSP' })
+			vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
+				vim.lsp.buf.format()
+				end, { desc = 'Format current buffer with LSP' })
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
