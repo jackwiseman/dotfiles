@@ -1,6 +1,9 @@
 README.md
 bootstrap.sh
 .chezmoiscripts/install_fzf.sh
+{{- if ne .context "work" }}
+.config/nvim/lua/jackwiseman/plugins/copilot.lua
+{{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
 .chezmoiscripts/dependencies.sh

@@ -40,10 +40,5 @@ return {
 		'windwp/nvim-ts-autotag',
 		config = true,
 		ft = { "html" },
-	},
-
-	{ 
-		'github/copilot.vim',
-		cmd = "Copilot",
-	},
+	}
 }
