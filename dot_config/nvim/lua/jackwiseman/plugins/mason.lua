@@ -11,7 +11,8 @@ return {
 
 		mason_lspconfig.setup({
 			ensure_installed = {
-				"gopls"
+				"gopls",
+				"tsserver"
 			},
 			-- :h mason-lspconfig-automatic-server-setup
 			automatic_installation = true
