@@ -1,21 +1,31 @@
 return {
 	'williamboman/mason.nvim',
 	event = "BufReadPost",
-	dependencies = { 'williamboman/mason-lspconfig.nvim' },
+	dependencies = { 
+		'williamboman/mason-lspconfig.nvim',
+		'WhoIsSethDaniel/mason-tool-installer.nvim',
+	},
 
 	config = function()
 		local mason = require('mason')
 		local mason_lspconfig = require('mason-lspconfig')
+		local mason_tool_installer = require('mason-tool-installer')
 
 		mason.setup({})
 
 		mason_lspconfig.setup({
 			ensure_installed = {
-				"gopls",
-				"tsserver"
+				'gopls',
+				'tsserver'
 			},
-			-- :h mason-lspconfig-automatic-server-setup
 			automatic_installation = true
 		})
-	end
+
+		mason_tool_installer.setup({
+			ensure_installed = {
+				'goimports',
+			},
+			run_on_start = true,
+		})
+	end,
 }
