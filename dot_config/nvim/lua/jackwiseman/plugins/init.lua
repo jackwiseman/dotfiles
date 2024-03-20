@@ -8,55 +8,14 @@ return {
 		end,
 	},
 
-	{
-		'smoka7/hop.nvim',
-		version = '*',
-		keys = {
-			{ 's', "<cmd>HopWord<cr>", desc = "Hop word" },
-		},
-		config = {
-			keys = 'etovxqpdygfblzhckisuran'
-		}
-	},
 
-	{
-		"mhartington/formatter.nvim",
-		lazy = true,
-		event = {
-			"BufWritePre",
-		},
-		config = function()
-			require("formatter").setup({
-				filetype = {
-					go = {
-						require("formatter.filetypes.go").gofmt,
-						require("formatter.filetypes.go").goimports,
-					},
-				},
-			})
-
-			local augroup = vim.api.nvim_create_augroup
-			local autocmd = vim.api.nvim_create_autocmd
-			augroup("__formatter__", { clear = true })
-			autocmd("BufWritePost", {
-				group = "__formatter__",
-				command = ":FormatWrite",
-			})
-		end,
-	},
-	-- { -- LSP Configuration & Plugins
-	-- 	'neovim/nvim-lspconfig',
-	-- 	dependencies = {
-	-- 		-- Automatically install LSPs to stdpath for neovim
 	-- 		'mfussenegger/nvim-dap',
 	-- 		'jay-babu/mason-nvim-dap.nvim',
 	-- 		{ 'rcarriga/nvim-dap-ui', config = true },
-	--
-	-- 	},
-	-- },
 
+	 -- "gc" to comment visual regions/lines
 	{ 
-		'numToStr/Comment.nvim', -- "gc" to comment visual regions/lines
+		'numToStr/Comment.nvim',
 		config = true,
 		keys = { { "gc" }, { "gc", mode = "v" } },
 	},
@@ -75,6 +34,6 @@ return {
 	{ 
 		'windwp/nvim-ts-autotag',
 		config = true,
-	ft = { "html" },
+		ft = { "html" },
 	}
 }
