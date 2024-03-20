@@ -22,4 +22,4 @@ return {
 			command = ":FormatWrite",
 		})
 	end,
-},
+}
