@@ -14,3 +14,7 @@ defaults write com.apple.dock autohide -bool true
 
 # Disable bottom right hotcorner
 defaults write com.apple.dock wvous-br-corner -int 0
+
+# Create a new folder for storing screenshots
+mkdir ~/Screenshots
+defaults write com.apple.screencapture location "~/Screenshots"
