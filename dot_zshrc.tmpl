@@ -57,7 +57,8 @@ bindkey '^ ' autosuggest-accept
 # fnm completion
 eval "$(fnm env --use-on-cd)"
 
-[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+# fzf completion
+eval "$(fzf --zsh)"
 
 timezsh() {
   shell=${1-$SHELL}
