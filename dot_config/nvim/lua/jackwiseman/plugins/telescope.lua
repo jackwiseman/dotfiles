@@ -12,7 +12,7 @@ return {
 			local builtin = require('telescope.builtin')
 			return {
 				{ "<leader>sf", builtin.find_files, desc = '[S]earch [F]iles' },
-				{ "<leader>sf", builtin.help_tags, desc = '[S]earch [H]help' },
+				{ "<leader>sh", builtin.help_tags, desc = '[S]earch [H]help' },
 				{ "<leader>sw", builtin.grep_string, desc = '[S]earch current [W]ord' },
 				{ "<leader>sg", builtin.live_grep, desc = '[S]earch by [G]rep' },
 				{ "<leader>sd", builtin.diagnostics, desc = '[S]earch [D]iagnostics' }

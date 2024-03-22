@@ -25,7 +25,7 @@ return {
 	-- Easier tmux navigation (port of christoomey/vim-tmux-navigator)
 	{ 'connordeckers/tmux-navigator.nvim', 
 		lazy = false,
-		config = { 
+		opts = { 
 			enable = true
 		}
 	},

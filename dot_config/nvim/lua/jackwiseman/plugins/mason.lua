@@ -13,16 +13,10 @@ return {
 
 		mason.setup({})
 
-		mason_lspconfig.setup({
-			ensure_installed = {
-				'gopls',
-				'tsserver'
-			},
-			automatic_installation = true
-		})
-
 		mason_tool_installer.setup({
 			ensure_installed = {
+				'gopls',
+				'tsserver',
 				'goimports',
 				'shellcheck', -- linting for shell scripts
 			},

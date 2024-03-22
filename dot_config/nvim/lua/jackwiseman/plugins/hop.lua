@@ -4,7 +4,7 @@ return {
 	keys = {
 		{ 's', "<cmd>HopWord<cr>", desc = "Hop word" },
 	},
-	config = {
+	opts = {
 		keys = 'etovxqpdygfblzhckisuran'
 	}
 }

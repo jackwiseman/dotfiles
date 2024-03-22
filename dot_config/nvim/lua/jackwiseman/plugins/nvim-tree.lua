@@ -3,7 +3,7 @@ return {
 	keys = {
 		{ "<leader>f", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree" },
 	},
-	config = {
+	opts = {
 		view = {
 			relativenumber = true,
 		},
