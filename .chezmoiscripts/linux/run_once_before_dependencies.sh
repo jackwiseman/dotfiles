@@ -9,7 +9,7 @@ packages=(
 sudo apt update
 
 for package in "${packages[@]}"
-    do apt install -y "$package"
+    do sudo apt install -y "$package"
 done
 
 # chsh -s "$(which zsh)"
