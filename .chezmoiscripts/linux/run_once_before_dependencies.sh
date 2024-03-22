@@ -7,5 +7,9 @@ packages=(
 )
 
 sudo apt update
-sudo apt install -y "${packages[*]}"
-chsh -s "$(which zsh)"
+
+for package in "${packages[@]}"
+    do apt install -y "$package"
+done
+
+# chsh -s "$(which zsh)"
