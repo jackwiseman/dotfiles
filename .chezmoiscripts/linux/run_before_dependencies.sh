@@ -10,13 +10,12 @@ echo "Updating dependencies"
 sudo apt update > /dev/null 2>&1
 
 for package in "${packages[@]}"
-    echo "Installing $package"
     do sudo apt install -y "$package" > /dev/null 2>&1
 done
 
 if ! command -v go > /dev/null 2>&1; then
         version="1.22.1"
-        echo "Installing go $version"
+        echo "Installing go"
         wget "https://go.dev/dl/go$version.linux-amd64.tar.gz" > /dev/null 2>&1
         # echo "aab8e15785c997ae20f9c88422ee35d962c4562212bb0f879d052a35c8307c7f go1.22.1.linux-amd.tar.gz" | sha256sum -c
         sudo rm -rf /usr/local/go && sudo tar -C /usr/local -xzf "go$version.linux-amd64.tar.gz"
@@ -26,7 +25,7 @@ fi
 # install fnm 1.35.1
 if ! command -v fnm > /dev/null 2>&1; then
     version="v1.35.1"
-    echo "Installing fnm $version"
+    echo "Installing fnm"
     wget "https://github.com/Schniz/fnm/releases/download/$version/fnm-linux.zip" > /dev/null 2>&1
     unzip fnm-linux.zip
     rm fnm-linux.zip
