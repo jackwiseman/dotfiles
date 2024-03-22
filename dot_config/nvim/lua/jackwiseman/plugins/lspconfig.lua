@@ -61,6 +61,5 @@ return {
 			on_attach = on_attach,
 			cmd = vim.list_extend({ "fnm", "exec", "--using=default" }, lspconfig["tsserver"].document_config.default_config.cmd),
 		})
-
 	end
 }
