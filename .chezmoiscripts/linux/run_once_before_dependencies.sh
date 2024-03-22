@@ -4,6 +4,7 @@ packages=(
     # "neovim"
     "unzip"
     "zsh"
+    "chezmoi"
 )
 
 sudo apt update
