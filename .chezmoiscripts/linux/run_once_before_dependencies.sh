@@ -30,4 +30,10 @@ if ! command -v fnm > /dev/null 2>&1; then
     sudo mv fnm /usr/local/bin/fnm
 fi
 
+if ! command -v nvim > /dev/null 2>&1; then
+curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz
+sudo rm -rf /opt/nvim
+sudo tar -C /opt -xzf nvim-linux64.tar.gz
+fi
+
 # chsh -s "$(which zsh)"
