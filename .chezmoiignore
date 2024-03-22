@@ -4,11 +4,11 @@ README.md
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
-.chezmoiscripts/linux/
+.chezmoiscripts/linux/*
 {{- end -}}
 
 {{- if eq .chezmoi.os "linux" }}
-.chezmoiscripts/mac/
+.chezmoiscripts/mac/*
 icons
 
 Brewfile

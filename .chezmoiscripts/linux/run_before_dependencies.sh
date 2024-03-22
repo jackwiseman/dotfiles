@@ -6,7 +6,8 @@ packages=(
     "zsh"
 )
 
-sudo apt update
+echo "Updating dependencies"
+sudo apt update > /dev/null 2>&1;
 
 for package in "${packages[@]}"
     do sudo apt install -y "$package"
