@@ -20,7 +20,7 @@ if [ "$(which go)" == 1 ]; then
 fi
 
 # install fnm 1.35.1
-if [ "$(which fnm)" == 1 ]; then
+if ! command -v fnm > /dev/null 2>&1; then
     wget "https://github.com/Schniz/fnm/releases/download/v1.35.1/fnm-arm64.zip"
     unzip fnm-arm64.zip
 fi
