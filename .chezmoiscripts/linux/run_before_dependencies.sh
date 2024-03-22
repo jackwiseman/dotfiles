@@ -4,6 +4,7 @@ packages=(
     # "neovim"
     "unzip"
     "zsh"
+    "gcc"
 )
 
 echo "Updating dependencies"
@@ -35,7 +36,7 @@ fi
 
 if ! command -v nvim > /dev/null 2>&1; then
     echo "Installing neovim"
-    curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz > /dev/null 2>&1
+    wget "https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz" > /dev/null 2>&1
     sudo rm -rf /opt/nvim
     sudo tar -C /opt -xzf nvim-linux64.tar.gz
     sudo rm "nvim-linux64.tar.gz"
@@ -44,7 +45,7 @@ fi
 if ! command -v fzf > /dev/null 2>&1; then
     version="0.48.1"
     echo "Installing fzf $version"
-    wget "https://github.com/junegunn/fzf/releases/download/$version/fzf-$version-linux_amd64.tar.gz"
+    wget "https://github.com/junegunn/fzf/releases/download/$version/fzf-$version-linux_amd64.tar.gz" > /dev/null 2>&1
     sudo tar -C /usr/local/bin -xzf "fzf-$version-linux_amd64.tar.gz"
     sudo rm "fzf-$version-linux_amd64.tar.gz"
 fi
