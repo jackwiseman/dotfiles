@@ -18,3 +18,6 @@ defaults write com.apple.dock wvous-br-corner -int 0
 # Create a new folder for storing screenshots
 mkdir ~/Screenshots
 defaults write com.apple.screencapture location "~/Screenshots"
+
+# Set hammerspoon home directory to ~/.config/hammerspoon
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
