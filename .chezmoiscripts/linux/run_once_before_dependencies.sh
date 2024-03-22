@@ -1,9 +1,11 @@
-#!/bin/sh
+#!/bin/bash
 
-$packages=(
-
+packages=(
+    "neovim"
+    "zsh"
+    "go"
 )
 
 sudo apt update
-sudo apt install zsh -y
-chsh -s $(which zsh)
+sudo apt install -y "${packages[*]}"
+chsh -s "$(which zsh)"
