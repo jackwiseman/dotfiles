@@ -24,7 +24,7 @@ return {
 		mason_tool_installer.setup({
 			ensure_installed = {
 				'goimports',
-				'shellchecker', -- linting for shell scripts
+				'shellcheck', -- linting for shell scripts
 			},
 			run_on_start = true,
 		})
