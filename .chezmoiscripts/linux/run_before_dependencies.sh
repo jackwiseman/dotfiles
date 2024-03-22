@@ -39,6 +39,6 @@ fi
 if ! command -v fzf > /dev/null 2>&1; then
     version="0.48.1"
     wget "https://github.com/junegunn/fzf/releases/download/$version/fzf-$version-linux_amd64.tar.gz"
-    sudo tar -C /usr/local/bin -xzf "fzf-$version-linux-amd64.tar.gz"
+    sudo tar -C /usr/local/bin -xzf "fzf-$version-linux_amd64.tar.gz"
 fi
 # chsh -s "$(which zsh)"
