@@ -38,6 +38,7 @@ if ! command -v nvim > /dev/null 2>&1; then
     curl -LO https://github.com/neovim/neovim/releases/latest/download/nvim-linux64.tar.gz > /dev/null 2>&1
     sudo rm -rf /opt/nvim
     sudo tar -C /opt -xzf nvim-linux64.tar.gz
+    sudo rm "nvim-linux64.tar.gz"
 fi
 
 if ! command -v fzf > /dev/null 2>&1; then
@@ -45,5 +46,6 @@ if ! command -v fzf > /dev/null 2>&1; then
     echo "Installing fzf $version"
     wget "https://github.com/junegunn/fzf/releases/download/$version/fzf-$version-linux_amd64.tar.gz"
     sudo tar -C /usr/local/bin -xzf "fzf-$version-linux_amd64.tar.gz"
+    sudo rm "fzf-$version-linux_amd64.tar.gz"
 fi
 # chsh -s "$(which zsh)"
