@@ -19,19 +19,24 @@ source ${ZIM_HOME}/init.zsh
 
 {{ if eq .chezmoi.os "darwin" }}
 eval $(/usr/local/bin/brew shellenv)
-{{ end }}
-
 export GOPATH=~/go
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 export DISABLE_AUTO_TITLE=true
-export EDITOR=$(brew --prefix)/bin/nvim
 export TLDR_AUTO_UPDATE_DISABLED=true
+export EDITOR=$(brew --prefix)/bin/nvim
 
-{{ if eq .chezmoi.os "darwin" -}}
 # use 1password for ssh
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
 export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
+{{- end }}
+
+{{ if eq .chezmoi.os "linux" }}
+path=(
+	$path
+	/usr/local/go/bin
+	/opt/nvim-linux64/bin
+)
 {{- end }}
 
 alias ls="ls -FG"
