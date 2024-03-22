@@ -1,5 +1,5 @@
 zmodule git-info
-zmodule gitster
+zmodule https://github.com/jackwiseman/gitster
 zmodule prompt-pwd
 zmodule completion
 zmodule fzf
