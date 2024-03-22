@@ -27,7 +27,7 @@ if ! command -v fnm > /dev/null 2>&1; then
     unzip fnm-linux.zip
     rm fnm-linux.zip
     sudo chmod +x fnm
-    mv fnm /usr/local/bin/fnm
+    sudo mv fnm /usr/local/bin/fnm
 fi
 
 # chsh -s "$(which zsh)"
