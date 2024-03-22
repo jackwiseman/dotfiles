@@ -6,13 +6,11 @@ bootstrap.sh
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
-.chezmoiscripts/dependencies.sh
+.chezmoiscripts/linux/*
 {{- end -}}
 
 {{- if eq .chezmoi.os "linux" }}
-.chezmoiscripts/setdock.sh
-.chezmoiscripts/install_fzf.sh
-.chezmoiscripts/brewpackages.sh
+.chezmoiscripts/mac/*
 
 Brewfile
 .tmux.conf
