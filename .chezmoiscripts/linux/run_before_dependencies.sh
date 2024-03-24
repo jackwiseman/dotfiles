@@ -13,19 +13,6 @@ for package in "${packages[@]}"
     do sudo apt install -y "$package" > /dev/null 2>&1
 done
 
-# $1 user/repo
-# $2 version
-# $3 file (tar)
-# $4 command
-installFromGithub () {
-    if ! command -v "$4" > /dev/null 2>&1; then
-        echo "Installing $4 $2"
-        wget "https://github.com/$1/releases/download/$2/$3" > /dev/null 2>&1
-        sudo tar -C /usr/local/bin -xzf "$3" > /dev/null 2>&1
-        sudo rm "$3"
-    fi
-}
-
 if ! command -v go > /dev/null 2>&1; then
         version="1.22.1"
         echo "Installing go $version"
@@ -35,6 +22,7 @@ if ! command -v go > /dev/null 2>&1; then
         rm "go$version.linux-amd64.tar.gz"
 fi
 
+# install fnm 1.35.1
 if ! command -v fnm > /dev/null 2>&1; then
     version="v1.35.1"
     echo "Installing fnm $version"
@@ -53,8 +41,22 @@ if ! command -v nvim > /dev/null 2>&1; then
     sudo rm "nvim-linux64.tar.gz"
 fi
 
-installFromGithub "junegunn/fzf" "0.48.1" "fzf-0.48.1-linux_amd64.tar.gz" "fzf"
-installFromGithub "dandavison/delta" "0.17.0" "delta-0.17.0-arm-unknown-linux-gnueabihf.tar.gz" "delta"
+if ! command -v fzf > /dev/null 2>&1; then
+    version="0.48.1"
+    echo "Installing fzf $version"
+    wget "https://github.com/junegunn/fzf/releases/download/$version/fzf-$version-linux_amd64.tar.gz" > /dev/null 2>&1
+    sudo tar -C /usr/local/bin -xzf "fzf-$version-linux_amd64.tar.gz"
+    sudo rm "fzf-$version-linux_amd64.tar.gz"
+fi
+
+if ! command -v delta > /dev/null 2>&1; then
+    version="0.17.0"
+    echo "Installing delta $version"
+    wget "https://github.com/dandavison/delta/releases/download/$version/delta-$version-arm-unknown-linux-gnueabihf.tar.gz" > /dev/null 2>&1
+    sudo tar -xzf "delta-$version-arm-unknown-linux-gnueabihf.tar.gz"
+    sudo mv "delta-$version-arm-unknown-linux-gnueabihf/delta" /usr/local/bin
+    sudo rm -rf "delta-$version-arm-unknown-linux-gnueabihf" "delta-$version-arm-unknown-linux-gnueabihf.tar.gz"
+fi
 
 # ensure pinned node is installed
 fnm install 21.7.1
