@@ -20,8 +20,8 @@ done
 installFromGithub () {
     if ! command -v "$4" > /dev/null 2>&1; then
         echo "Installing $4 $2"
-        wget "https://github.com$1/releases/download/$2/$3" > /dev/null 2>&1
-        sudo tar -C /usr/local/bin -xzf "$3" > /dev/null 2>&1
+        wget "https://github.com$1/releases/download/$2/$3"# > /dev/null 2>&1
+        sudo tar -C /usr/local/bin -xzf "$3"# > /dev/null 2>&1
         sudo rm "$3"
     fi
 }
