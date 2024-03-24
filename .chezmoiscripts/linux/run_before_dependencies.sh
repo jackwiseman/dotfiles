@@ -53,8 +53,8 @@ if ! command -v nvim > /dev/null 2>&1; then
     sudo rm "nvim-linux64.tar.gz"
 fi
 
-installFromGitHub "junegunn/fzf" "0.48.1" "fzf-0.48.1-linux_amd64.tar.gz" "fzf"
-installFromGitHub "dandavision/delta" "0.17.0" "delta-0.17.0-arm-unknown-linux-gnueabihf.tar.gz" "delta"
+installFromGithub "junegunn/fzf" "0.48.1" "fzf-0.48.1-linux_amd64.tar.gz" "fzf"
+installFromGithub "dandavision/delta" "0.17.0" "delta-0.17.0-arm-unknown-linux-gnueabihf.tar.gz" "delta"
 
 # ensure pinned node is installed
 fnm install 21.7.1
@@ -64,6 +64,7 @@ nodepackages=(
     "tldr"
 )
 
+echo "Installing node packages"
 for package in "${nodepackages[@]}"
     do npm install -g "$package" > /dev/null 2>&1
 done
