@@ -69,5 +69,5 @@ nodepackages=(
 
 echo "Installing node packages"
 for package in "${nodepackages[@]}"
-    do npm list | grep "$package" || npm install -g "$package" > /dev/null 2>&1
+    do fnm exec --using 21.7.1 npm install -g "$package" > /dev/null 2>&1
 done
