@@ -1,18 +1,15 @@
 README.md
-bootstrap.sh
-.chezmoiscripts/install_fzf.sh
 {{- if ne .context "work" }}
 .config/nvim/lua/jackwiseman/plugins/copilot.lua
 {{- end }}
 
 {{- if eq .chezmoi.os "darwin" }}
-.chezmoiscripts/dependencies.sh
+.chezmoiscripts/linux/*
 {{- end -}}
 
 {{- if eq .chezmoi.os "linux" }}
-.chezmoiscripts/setdock.sh
-.chezmoiscripts/install_fzf.sh
-.chezmoiscripts/brewpackages.sh
+.chezmoiscripts/mac/*
+icons
 
 Brewfile
 .tmux.conf

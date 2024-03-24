@@ -1,6 +1,7 @@
 return {
 	'williamboman/mason.nvim',
 	event = "BufReadPost",
+	cmd = "Mason",
 	dependencies = { 
 		'williamboman/mason-lspconfig.nvim',
 		'WhoIsSethDaniel/mason-tool-installer.nvim',
@@ -13,10 +14,16 @@ return {
 
 		mason.setup({})
 
-		mason_tool_installer.setup({
+		mason_lspconfig.setup({
 			ensure_installed = {
 				'gopls',
-				'tsserver',
+				'tsserver'
+			},
+			automatic_installation = true
+		})
+
+		mason_tool_installer.setup({
+			ensure_installed = {
 				'goimports',
 				'shellcheck', -- linting for shell scripts
 			},
