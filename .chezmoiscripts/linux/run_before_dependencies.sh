@@ -20,9 +20,8 @@ done
 installFromGithub () {
     if ! command -v "$4" > /dev/null 2>&1; then
         echo "Installing $4 $2"
-        echo "https://github.com/$1/releases/download/$2/$3"
-        wget "https://github.com/$1/releases/download/$2/$3"# > /dev/null 2>&1
-        sudo tar -C /usr/local/bin -xzf "$3"# > /dev/null 2>&1
+        wget "https://github.com/$1/releases/download/$2/$3" > /dev/null 2>&1
+        sudo tar -C /usr/local/bin -xzf "$3" > /dev/null 2>&1
         sudo rm "$3"
     fi
 }
@@ -55,7 +54,7 @@ if ! command -v nvim > /dev/null 2>&1; then
 fi
 
 installFromGithub "junegunn/fzf" "0.48.1" "fzf-0.48.1-linux_amd64.tar.gz" "fzf"
-installFromGithub "dandavision/delta" "0.17.0" "delta-0.17.0-arm-unknown-linux-gnueabihf.tar.gz" "delta"
+installFromGithub "dandavison/delta" "0.17.0" "delta-0.17.0-arm-unknown-linux-gnueabihf.tar.gz" "delta"
 
 # ensure pinned node is installed
 fnm install 21.7.1
