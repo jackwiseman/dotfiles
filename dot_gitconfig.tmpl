@@ -9,9 +9,8 @@
     default = current
 [interactive]
     diffFilter = diff-so-fancy --patch
+{{/* only use ssh keys if this is a well defined machine, otherwise use a token for private repos */}}
+{{ if not .ephemeral }}
 [url "git@github.com:"]
-{{ if eq .context "work" }}
     insteadOf = https://github.com
-{{ else }}
-    pushInsteadOf = https://github.com
 {{ end }}

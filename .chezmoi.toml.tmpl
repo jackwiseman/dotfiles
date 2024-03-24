@@ -1,2 +1,5 @@
+{{- $ephemeral := promptBool "ephemeral" -}}
+
 [data]
 	context  = "{{ if eq .chezmoi.hostname "JWISEMAN-MAC" }}work{{ else }}home{{ end }}"
+	ephemeral = {{ $ephemeral }}
