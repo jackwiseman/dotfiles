@@ -4,11 +4,17 @@
     signingkey = 0C9B9E35D2F03725
 [core]
     excludesFile = ~/.gitignore # Add a global gitignore
-    pager = diff-so-fancy | less --tabs=4 -RFX
+    pager = delta
+[delta]
+    navigate = true
+[merge]
+    conflictstyle = diff3
+[diff]
+    colorMoved = default
 [push]
     default = current
 [interactive]
-    diffFilter = diff-so-fancy --patch
+    diffFilter = delta --color-only
 {{/* only use ssh keys if this is a well defined machine, otherwise use a token for private repos */}}
 {{ if not .ephemeral }}
 [url "git@github.com:"]

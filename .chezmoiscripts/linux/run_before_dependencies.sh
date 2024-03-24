@@ -52,10 +52,9 @@ fi
 if ! command -v delta > /dev/null 2>&1; then
     version="0.17.0"
     echo "Installing delta $version"
-    wget "https://github.com/dandavison/delta/releases/download/$version/delta-$version-arm-unknown-linux-gnueabihf.tar.gz" > /dev/null 2>&1
-    sudo tar -xzf "delta-$version-arm-unknown-linux-gnueabihf.tar.gz"
-    sudo mv "delta-$version-arm-unknown-linux-gnueabihf/delta" /usr/local/bin
-    sudo rm -rf "delta-$version-arm-unknown-linux-gnueabihf" "delta-$version-arm-unknown-linux-gnueabihf.tar.gz"
+    wget "https://github.com/dandavison/delta/releases/download/0.17.0/git-delta_0.17.0_amd64.deb" > /dev/null 2>&1
+    sudo dpkg -i "git-delta_0.17.0_amd64.deb"
+    sudo rm -rf "git-delta_0.17.0_amd64.deb"
 fi
 
 # ensure pinned node is installed
@@ -68,5 +67,5 @@ nodepackages=(
 
 echo "Installing node packages"
 for package in "${nodepackages[@]}"
-    do npm install -g "$package" > /dev/null 2>&1
+    do npm list | grep "$package" || npm install -g "$package" > /dev/null 2>&1
 done
