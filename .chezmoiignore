@@ -1,4 +1,5 @@
 README.md
+
 {{- if ne .context "work" }}
 .config/nvim/lua/jackwiseman/plugins/copilot.lua
 {{- end }}
