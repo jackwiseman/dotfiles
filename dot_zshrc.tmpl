@@ -51,7 +51,8 @@ alias t="task"
 alias v=$EDITOR
 alias vi=$EDITOR
 {{- if eq .context "work" }}
-alias ssh_ezdock="~/ezoicgit/ez-dock-corp-sol/ssh_into_container.sh"
+alias ssh-ezdock="~/ezoicgit/ez-dock-corp-sol/ssh_into_container.sh"
+alias aws-mfa="ezcli aws-mfa $(op item get aws --otp)"
 {{- end }}
 
 # keybindings
