@@ -1,5 +1,7 @@
 #!/bin/sh
 
+echo "Setting defaults, password may be required"
+
 # Prevent display from sleeping
 sudo pmset -a displaysleep 0
 
@@ -16,8 +18,13 @@ defaults write com.apple.dock autohide -bool true
 defaults write com.apple.dock wvous-br-corner -int 0
 
 # Create a new folder for storing screenshots
-mkdir ~/Screenshots
-defaults write com.apple.screencapture location "~/Screenshots"
+mkdir -p "$HOME/Screenshots"
+defaults write com.apple.screencapture location "$HOME/Screenshots"
 
 # Set hammerspoon home directory to ~/.config/hammerspoon
-defaults write org.hammerspoon.Hammerspoon MJConfigFile "~/.config/hammerspoon/init.lua"
+defaults write org.hammerspoon.Hammerspoon MJConfigFile "$HOME/.config/hammerspoon/init.lua"
+
+# Set alt-tab defaults
+defaults write com.lwouis.alt-tab-macos holdShortcut "\\U2318"
+# counter intuitive, but hide stuff in other spaces
+defaults write com.lwouis.alt-tab-macos spacesToShow 1
