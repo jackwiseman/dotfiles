@@ -4,6 +4,7 @@ return {
 		'nvim-telescope/telescope.nvim',
 		branch = '0.1.x', 
 		dependencies = { 'nvim-lua/plenary.nvim' },
+		cmd = "Telescope",
 		config = function(self, opts)
 			require("telescope").setup(opts)
 			require("telescope").load_extension("fzf")
