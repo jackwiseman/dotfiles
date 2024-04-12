@@ -4,5 +4,4 @@ zmodule prompt-pwd
 zmodule completion
 zmodule fzf
 zmodule zsh-users/zsh-autosuggestions
-zmodule https://github.com/agkozak/zsh-z
 zmodule zdharma-continuum/fast-syntax-highlighting

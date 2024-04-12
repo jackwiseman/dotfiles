@@ -19,6 +19,7 @@ source ${ZIM_HOME}/init.zsh
 
 {{ if eq .chezmoi.os "darwin" }}
 eval $(/usr/local/bin/brew shellenv)
+eval "$(zoxide init zsh --cmd cd)"
 export GOPATH=~/go
 export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 export DISABLE_AUTO_TITLE=true
