@@ -19,6 +19,8 @@ Brewfile
 .config/1Password
 .config/alacritty
 .config/karabiner
+.config/yabai
+.config/skhd
 .hushlogin
 .DS_Store
 .gitignore
