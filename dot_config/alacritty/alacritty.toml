@@ -54,20 +54,12 @@ style = "Regular"
 x = 0
 y = 15
 
+# Disable Vi mode
 [[keyboard.bindings]]
-chars = '\p'
-key = "LBracket"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = '\n'
-key = "RBracket"
-mods = "Command"
-
-[[keyboard.bindings]]
-chars = "\u001E"
-key = "Key6"
-mods = "Control"
+action = "None"
+key = "Space"
+mods = "Shift|Control"
+mode = "~Search"
 
 [selection]
 save_to_clipboard = true
