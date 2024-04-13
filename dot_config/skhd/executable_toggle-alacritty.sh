@@ -7,8 +7,8 @@ hotkey_window_id=$(yabai -m query --windows | jq -r 'map(select(.app == "Alacrit
 if [ "$hotkey_window_id" == "null" ] || [ -z "$hotkey_window_id" ]; then
 	open -na Alacritty
 	sleep 0.08
-	yabai -m window --toggle zoom-fullscreen
-	# yabai -m window --toggle float --grid 1:1:0:0:0:0
+	# yabai -m window --toggle zoom-fullscreen
+	yabai -m window --toggle float --grid 1:1:0:0:0:0
 else
 	# Check if the window is not hidden
 	is_hidden=$(yabai -m query --windows --window "$hotkey_window_id" | jq -r '."is-hidden"')
