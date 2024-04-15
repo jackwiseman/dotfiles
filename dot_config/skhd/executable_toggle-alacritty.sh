@@ -18,7 +18,7 @@ else
 	else
 		current_space_id=$(yabai -m query --spaces --space | jq -r '.index')
 		# Show and focus the window
-		yabai -m window "$hotkey_window_id" --space $current_space_id
+		yabai -m window "$hotkey_window_id" --space "$current_space_id"
 		yabai -m window "$hotkey_window_id" --focus
 	fi
 fi
