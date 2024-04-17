@@ -1,4 +1,5 @@
 README.md
+.DS_Store
 
 {{- if ne .context "work" }}
 .config/nvim/lua/jackwiseman/plugins/copilot.lua
@@ -13,15 +14,12 @@ README.md
 icons
 
 Brewfile
-.tmux.conf
 .taskrc
-.hammerspoon
 .config/1Password
 .config/alacritty
 .config/karabiner
 .config/yabai
 .config/skhd
 .hushlogin
-.DS_Store
 .gitignore
 {{- end -}}
