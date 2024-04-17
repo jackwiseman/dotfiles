@@ -3,11 +3,23 @@ unbind C-b
 set-option -g prefix C-a
 bind-key C-a send-prefix
 
-# split panes using | and -
+# change window split bind to (v)ertical and (s)plit
 bind v split-window -h
 bind s split-window -v
 unbind '"'
 unbind %
+
+# Activate OFF mode
+bind -n S-Up \
+    set prefix None \;\
+    set key-table off \;\
+    set status-style "fg=colour245,bg=colour238"
+
+# Disable OFF mode
+bind -T off S-Down \
+    set -u prefix \;\
+    set -u key-table \;\
+    set -u status-style
 
 # copy and paste
 #set-option -g default-command "reattach-to-user-namespace -l zsh"
@@ -35,13 +47,8 @@ bind-key -T copy-mode-vi 'C-k' select-pane -U
 bind-key -T copy-mode-vi 'C-l' select-pane -R
 bind-key -T copy-mode-vi 'C-\' select-pane -l
 
-set -g default-terminal "screen-256color"
 set-option -g status-position bottom
 set-window-option -g xterm-keys on
-bind-key -n S-Up set-option -g status
-bind-key -n S-Down set-option -g status
-bind-key -n S-Left previous-window
-bind-key -n S-Right next-window
 set-option -g status-fg white
 set-option -g status-style bg=default
 #set-window-option -g window-status-current-style fg=red
@@ -66,8 +73,7 @@ set-option -sg escape-time 10
 # enable focus events
 set-option -g focus-events on
 
-# fix truecolors
+# general
 set-option -sa terminal-features ',alacritty:RGB'
-
-# large history -- keep note of RAM, this may need to be adjusted
-set-option -g history-limit 10000
+set -g default-terminal "screen-256color"
+set-option -g history-limit 100000
