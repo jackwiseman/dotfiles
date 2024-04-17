@@ -1,3 +1,16 @@
+# colorscheme vars
+black='#282828'
+white='#ebdbb2'
+red='#fb4934'
+green='#b8bb26'
+blue='#83a598'
+yellow='#fe8019'
+gray='#a89984'
+darkgray='#3c3836'
+lightgray='#504945'
+inactivegray='#7c6f64'
+
+
 # remap prefix from 'C-b' to 'C-a'
 unbind C-b
 set-option -g prefix C-a
@@ -50,10 +63,12 @@ bind-key -T copy-mode-vi 'C-\' select-pane -l
 set-option -g status-position bottom
 set-window-option -g xterm-keys on
 set-option -g status-fg white
-## set-option -g status-style bg=default
-set-option -g status-style bg="#3a3836" # renders as #3b3836
-#set-window-option -g window-status-current-style fg=red
-set-window-option -g window-status-current-style fg="#fb4934"
+
+set-option -g status-style bg=$darkgray
+
+set-option -g window-status-current-style fg=$white,bg=$lightgray
+## set-option -g window-status-current-style bg=$inactivegray
+
 set-option -g pane-active-border-style fg=default
 set-option -g pane-active-border-style bg=default
 set -g status-left " "
