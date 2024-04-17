@@ -50,7 +50,8 @@ bind-key -T copy-mode-vi 'C-\' select-pane -l
 set-option -g status-position bottom
 set-window-option -g xterm-keys on
 set-option -g status-fg white
-set-option -g status-style bg=default
+## set-option -g status-style bg=default
+set-option -g status-style bg="#3a3836" # renders as #3b3836
 #set-window-option -g window-status-current-style fg=red
 set-window-option -g window-status-current-style fg="#fb4934"
 set-option -g pane-active-border-style fg=default
@@ -60,7 +61,8 @@ set -g status-justify centre
 setw -g window-status-format         ' #(echo "#{pane_current_command}") '
 setw -g window-status-current-format ' #(echo "#{pane_current_command}") '
 
-set -g status-right {{ if eq .context "work" }}"🚀"{{ else if eq .context "home" }}"⛵️"{{ else }}""{{ end }}
+set -g status-right " "
+## set -g status-right {{ if eq .context "work" }}"🚀"{{ else if eq .context "home" }}"⛵️"{{ else }}""{{ end }}
 
 # Start windows and panes at 1, not 0, and keep them visually constant
 set -g base-index 1
