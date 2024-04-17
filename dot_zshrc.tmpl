@@ -79,3 +79,6 @@ function pyenv() {
   eval "$(command pyenv init -)"
   pyenv $@
 }
+
+# overwrite vi mode which is set when EDITOR contains the string vi
+bindkey -e
