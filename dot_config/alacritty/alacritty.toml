@@ -1,3 +1,6 @@
+# disable all default keybindings
+import = ["~/.config/alacritty/no-keybindings.toml"]
+
 live_config_reload = true
 
 [colors.bright]
@@ -53,13 +56,6 @@ style = "Regular"
 [font.offset]
 x = 0
 y = 15
-
-# Disable Vi mode
-[[keyboard.bindings]]
-action = "None"
-key = "Space"
-mods = "Shift|Control"
-mode = "~Search"
 
 [selection]
 save_to_clipboard = true
