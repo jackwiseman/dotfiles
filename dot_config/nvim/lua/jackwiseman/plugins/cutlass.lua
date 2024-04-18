@@ -1,5 +1,12 @@
 return { 
 	'gbprod/cutlass.nvim',
 	lazy = false,
-	opts = {},
+	opts = {
+		exclude = { 
+			"nd",
+			"ndd",
+			"xd",
+			"nD"
+		},
+	},
 }

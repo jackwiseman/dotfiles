@@ -4,10 +4,10 @@
 [keyboard]
 bindings = [
 	# general
-	{ key = "Paste", action = "ReceiveChar" },
+	# { key = "Paste", action = "ReceiveChar" },
 	{ key = "Copy", action = "ReceiveChar" },
 	{ key = "L", mods = "Control", action = "ReceiveChar" },
-	{ key = "Paste", mode = "Vi|Search", action = "ReceiveChar" },
+	# { key = "Paste", mode = "Vi|Search", action = "ReceiveChar" },
 	{ key = "L", mods = "Control", mode = "~Vi|~Search", action = "ReceiveChar" },
 	{ key = "PageUp", mods = "Shift", mode = "~Alt", action = "ReceiveChar"},
 	{ key = "PageDown", mods = "Shift", mode = "~Alt", action = "ReceiveChar"},
@@ -88,8 +88,8 @@ bindings = [
 	{ key = "NumpadAdd", mods = "Command", action = "ReceiveChar"},
 	{ key = "-", mods = "Command", action = "ReceiveChar"},
 	{ key = "NumpadSubtract", mods = "Command", action = "ReceiveChar"},
-	{ key = "V", mods = "Command", mode = "~Vi", action = "ReceiveChar"},
-	{ key = "V", mods = "Command", mode = "Vi|Search", action = "ReceiveChar"},
+	# { key = "V", mods = "Command", mode = "~Vi", action = "ReceiveChar"},
+	# { key = "V", mods = "Command", mode = "Vi|Search", action = "ReceiveChar"},
 	{ key = "C", mods = "Command", action = "ReceiveChar"},
 	{ key = "C", mods = "Command", mode = "Vi|~Search", action = "ReceiveChar"},
 	{ key = "H", mods = "Command", action = "ReceiveChar"},

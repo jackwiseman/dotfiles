@@ -4,9 +4,6 @@ vim.g.maplocalleader = " "
 -- Set highlight on search
 vim.o.hlsearch = false
 
--- Set command height to 0, so it looks nice with tmux
-vim.o.cmdheight = 0
-
 -- Set relative number
 vim.o.relativenumber = true
 
