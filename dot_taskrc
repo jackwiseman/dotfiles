@@ -1,8 +1,0 @@
-# Personal Settings
-uda.priority.values=H,M,,L
-
-data.location=$HOME/.config/taskwarrior/.task
-
-# silence warnings that taskrc has been moved
-verbose=0
-news.version=2.6.0
