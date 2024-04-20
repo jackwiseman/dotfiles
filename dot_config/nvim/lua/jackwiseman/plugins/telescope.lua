@@ -13,14 +13,15 @@ return {
 			require("telescope").load_extension("fzf")
 		end,
 		keys = {
-			{ "<leader>sf", "<cmd>lua require('telescope.builtin').find_files()<CR>", desc = "[S]earch Files" },
-			{ "<leader>sh", "<cmd>lua require('telescope.builtin').help_tags()<CR>", desc = "[S]earch [H]elp" },
-			{ "<leader>sw", "<cmd>lua require('telescope.builtin').grep_string()<CR>", desc = "[S]earch current [W]ord" },
-			{ "<leader>sg", "<cmd>lua require('telescope.builtin').live_grep()<CR>", desc = "[S]earch via [G]rep" },
-			{ "<leader>sb", "<cmd>lua require('telescope.builtin').current_buffer_fuzzy_find()<CR>", desc = "[S]earch [B]uffer" },
-			{ "<leader>sd", "<cmd>lua require('telescope.builtin').diagnostics()<CR>", desc = "[S]earch [D]iagnostics" },
-			{ "<leader>sm", "<cmd>lua require('telescope.builtin').marks()<CR>", desc = "[S]earch [D]iagnostics" },
-			{ "<leader>sc", "<cmd>lua require('telescope.builtin').command_history()<CR>", desc = "[S]earch recent [C]ommands" },
+			{ "<leader>sa", "<cmd>Telescope<CR>", desc = "[S]earch [A]ll telescope utils"},
+			{ "<leader>so", "<cmd>Telescope oldfiles<CR>", desc = "[S]earch [O]ld files"},
+			{ "<leader>sf", "<cmd>Telescope find_files<CR>", desc = "[S]earch Files" },
+			{ "<leader>sw", "<cmd>Telescope grep_string<CR>", desc = "[S]earch current [W]ord" },
+			{ "<leader>sg", "<cmd>Telescope live_grep<CR>", desc = "[S]earch via [G]rep" },
+			{ "<leader>sb", "<cmd>Telescope current_buffer_fuzzy_find<CR>", desc = "[S]earch [B]uffer" },
+			{ "<leader>sd", "<cmd>Telescope diagnostics<CR>", desc = "[S]earch [D]iagnostics" },
+			{ "<leader>sm", "<cmd>Telescope marks<CR>", desc = "[S]earch [D]iagnostics" },
+			{ "<leader>sc", "<cmd>Telescope command_history<CR>", desc = "[S]earch recent [C]ommands" },
 		}
 	},
 }
