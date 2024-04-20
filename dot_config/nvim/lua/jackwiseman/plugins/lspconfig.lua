@@ -39,8 +39,8 @@ return {
 			opts.desc = 'Hover Documentation'
 			keymap.set('n', 'K', vim.lsp.buf.hover, opts)
 
-			opts.desc = 'Signature Documentation'
-			keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
+			-- opts.desc = 'Signature Documentation'
+			-- keymap.set('n', '<C-k>', vim.lsp.buf.signature_help, opts)
 
 			-- Create a command `:Format` local to the LSP buffer
 			vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
