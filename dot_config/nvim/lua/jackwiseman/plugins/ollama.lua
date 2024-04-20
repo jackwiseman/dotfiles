@@ -22,7 +22,7 @@ return {
 				model = "llama3:8b",
 				action = "insert",
 				extract = "```$ftype\n(.-)```"
-			}
+			},
 			Ask_about_file = {
 				prompt = "given the file $fname of contents $buf, $input",
 				model = "llama3:8b",

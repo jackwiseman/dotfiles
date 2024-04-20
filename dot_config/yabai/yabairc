@@ -1,6 +1,8 @@
 # bsp, stack or float
 yabai -m config layout bsp
 
+yabai -m config window_zoom_persist off
+
 yabai -m config window_placement second_child
 
 # padding
