@@ -62,7 +62,7 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [shell]
-args = ["-l", "-c", "tmux attach || tmux"]
+args = ["-l", "-c", "tmux attach || tmux new-session -s 'default'"]
 program = "/bin/zsh"
 
 [window]

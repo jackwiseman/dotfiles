@@ -1,5 +1,10 @@
 return {
-	'tpope/vim-fugitive',
+	{
+		'tpope/vim-fugitive',
+		keys = {
+			{ "<leader>gs", "<cmd>G<cr>", desc = "Git status" },
+		}
+	},
 	{ 
 		'tpope/vim-rhubarb',
 		cmd = "GBrowse",
@@ -15,6 +20,12 @@ return {
 				topdelete = { text = '‾' },
 				changedelete = { text = '~' },
 			},
+		}
+	},
+	{
+		'f-person/git-blame.nvim',
+		keys = {	
+			{ "<leader>gb", "<cmd>GitBlameToggle<cr>", desc = "Git blame" },
 		}
 	}
 }

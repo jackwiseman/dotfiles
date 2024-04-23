@@ -1,0 +1,7 @@
+#!/bin/bash
+
+tmux new-window -c "$HOME/obsidian"
+tmux rename-window "obsidian"
+tmux select-window -t 2
+tmux send-keys "nvim -c ':Telescope find_files'" enter
+tmux select-window -t 1

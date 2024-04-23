@@ -21,7 +21,13 @@ source ${ZIM_HOME}/init.zsh
 eval $(/usr/local/bin/brew shellenv)
 eval "$(zoxide init zsh --cmd cd)"
 export GOPATH=~/go
-export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
+path=(
+	$path
+	/usr/local/go/bin
+	$GOPATH/bin
+	$HOME/.local/bin
+)
+# export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 export DISABLE_AUTO_TITLE=true
 export TLDR_AUTO_UPDATE_DISABLED=true
 export EDITOR=$(brew --prefix)/bin/nvim

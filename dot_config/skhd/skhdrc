@@ -4,4 +4,4 @@ lalt - j : yabai -m window --focus south
 lalt - l : yabai -m window --focus east
 lalt - h : yabai -m window --focus west
 lalt - e : yabai -m space --equalize
-lalt - space : $HOME/.config/skhd/toggle-alacritty.sh
+lalt - space : $HOME/.local/bin/toggle_alacritty
