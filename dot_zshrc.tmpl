@@ -56,6 +56,8 @@ alias gd="git diff"
 alias gc="git commit -m"
 alias v=$EDITOR
 alias vi=$EDITOR
+alias obsidian="cd ~/obsidian && nvim -c ':Telescope find_files'"
+
 {{- if eq .context "work" }}
 alias ssh-ezdock="~/ezoicgit/ez-dock-corp-sol/ssh_into_container.sh"
 alias aws-mfa='ezcli aws-mfa $(op item get aws --otp)'
@@ -64,7 +66,7 @@ alias aws-mfa='ezcli aws-mfa $(op item get aws --otp)'
 # keybindings
 bindkey '^ ' autosuggest-accept
 
-# fnm completion
+# node version management
 eval "$(fnm env --use-on-cd)"
 
 # fzf completion
