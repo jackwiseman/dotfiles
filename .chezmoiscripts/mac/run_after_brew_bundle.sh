@@ -2,4 +2,4 @@
 
 # Brewfile hash: {{ include "Brewfile.tmpl" | sha256sum }}
 
-brew bundle install
+brew bundle --no-upgrade
