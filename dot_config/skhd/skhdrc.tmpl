@@ -11,8 +11,8 @@ lalt - space : $HOME/.local/bin/toggle_alacritty
 lalt - tab : yabai -m space --focus recent
 cmd - tab : yabai -m space --focus recent
 
-
-lalt - c : yabai -m space --create && echo "refresh" | nc -U /tmp/yabai-indicator.socket && echo "refresh" | nc -U /tmp/yabai-indicator.socket
+# monterey doesn't have signals for space creation/deltion, so refresh the indicator manually and switch to new (highest index) space
+lalt - c : yabai -m space --create && echo "refresh" | nc -U /tmp/yabai-indicator.socket && echo "refresh" | nc -U /tmp/yabai-indicator.socket && yabai -m space --focus "$(yabai -m query --spaces | jq 'max_by(.index).index')"
 lalt - b : echo "refresh" | nc -U /tmp/yabai-indicator.socket
 lalt - x : yabai -m space --destroy && echo "refresh" | nc -U /tmp/yabai-indicator.socket
 lalt - n : yabai -m space --focus next
