@@ -1,4 +1,5 @@
 alt - return : yabai -m window --toggle zoom-fullscreen
+alt - f : yabai -m window --toggle zoom-fullscreen
 lalt - k : yabai -m window --focus north
 lalt - j : yabai -m window --focus south
 lalt - l : yabai -m window --focus east
