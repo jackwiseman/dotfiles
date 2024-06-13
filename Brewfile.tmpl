@@ -5,9 +5,6 @@ tap "jakehilborn/jakehilborn"
 tap "jackwiseman/brews" 
 tap "koekeishiya/formulae"
 tap "joshmedeski/sesh"
-{{- if eq .context "home" }}
-tap "grad-dev/tap"
-{{- end }}
 brew "capstone"
 brew "chezmoi"
 brew "cocoapods"
@@ -72,16 +69,10 @@ cask "openvpn-connect"
 {{- end }}
 
 {{- if eq .context "home" }}
-<<<<<<< HEAD
-||||||| parent of 7d1edc9 (wip: more space specific stuff)
-brew "qemu"
-=======
-brew "qemu"
-# brew "grad-dev/tap/yabai-spaces-widget"
->>>>>>> 7d1edc9 (wip: more space specific stuff)
 cask "beekeeper-studio"
 cask "firefox"
 cask "fl-studio"
+cask "jackwiseman/casks/yabaiindicator"
 cask "libreoffice"
 cask "lunasea"
 cask "mullvadvpn"
