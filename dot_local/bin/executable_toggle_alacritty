@@ -4,7 +4,6 @@
 hotkey_window_id=$(yabai -m query --windows | jq -r 'map(select(.app == "Alacritty")) | .[0].id')
 hotkey_process_id=$(yabai -m query --windows | jq -r 'map(select(.app == "Alacritty")) | .[0].pid')
 
-
 is_visible=$(yabai -m query --windows --window "$hotkey_window_id" | jq -r '."is-visible"')
 has_focus=$(yabai -m query --windows --window "$hotkey_window_id" | jq -r '."has-focus"')
 # is_fullscreen=$(yabai -m query --windows --window "$hotkey_window_id" | jq -r '."has-fullscreen-zoom"')
@@ -31,10 +30,13 @@ fi
 if [ "$hotkey_window_id" == "null" ] || [ -z "$hotkey_window_id" ]; then
 	open -na Alacritty
 	sleep 0.08
-	yabai -m window --toggle float --grid 1:1:0:0:0:0
+	yabai -m window --space 3 --toggle float --grid 1:1:0:0:0:0 # "$current_space_id" 
     exit 1
 fi
 
+if ! "$is_visible"; then
+	yabai -m window --space "$current_space_id" --toggle float --grid 1:1:0:0:0:0
+fi
 # using it as an app, so we want to continue use after floating
 if ! "$is_floating"; then
     yabai -m window "$hotkey_window_id" --toggle zoom-fullscreen
@@ -50,12 +52,10 @@ fi
 
 if "$is_visible" && "$has_focus"; then
     skhd -k "cmd -h"
-    # osascript -e 'display notification "hiding" with title "test"'
     # yabai -m window "$hotkey_window_id" --move abs:10000:10000
     # yabai -m window --focus mouse
     # focus either another app or dock
 else
-    # osascript -e 'display notification "showing, i think" with title "test"'
     current_space_id=$(yabai -m query --spaces --space | jq -r '.index')
     # Show and focus the window
     yabai -m window "$hotkey_window_id" --space "$current_space_id"

@@ -1,5 +1,7 @@
 {{- $ephemeral := promptBool "ephemeral" -}}
+{{- $sip_disabled := promptBool "sip disabled" -}}
 
 [data]
 	context  = "{{ if eq .chezmoi.hostname "JWISEMAN-MAC" }}work{{ else }}home{{ end }}"
 	ephemeral = {{ $ephemeral }}
+	sip_disabled = {{ $sip_disabled }}
