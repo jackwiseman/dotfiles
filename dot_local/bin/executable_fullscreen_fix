@@ -9,9 +9,6 @@ window_space_id=$(yabai -m query --windows --window "$YABAI_WINDOW_ID" | jq '.sp
 window_is_fullscreen=$(yabai -m query --windows --window "$YABAI_WINDOW_ID" | jq '.["has-fullscreen-zoom"]')
 
 fullscreen_window_id=$(yabai -m query --windows --space "$current_space_id" | jq -r 'map(select(.["has-fullscreen-zoom"] == true)) | .[].id')
-# hotkey_window_id=$(yabai -m query --windows | jq -r 'map(select(.app == "Alacritty")) | .[0].id')
-
-echo "yabai_window_id env var: $YABAI_WINDOW_ID"
 
 if [ "$window_is_fullscreen" == "true" ]; then
     osascript -e 'display notification "window is fullscreen, we would probably ignore this typically"'
@@ -19,39 +16,18 @@ if [ "$window_is_fullscreen" == "true" ]; then
 fi
 
 # osascript -e "display notification \"$fullscreen_window_id\""
-if [ -n "$fullscreen_window_id" ]; then
-    echo "test"
-    # osascript -e "display notification \"this space has a fullscreen app\""
-else
-    # osascript -e "display notification \"panicA\""
-    osascript -e "display notification \"this space does NOT have a fullscren app\""
+if [ -z "$fullscreen_window_id" ]; then
+    # osascript -e "display notification \"this space does NOT have a fullscren app\""
     exit 1
 fi
 
 
-if [ "$window_space_id" == "$current_space_id" ]; then
-    echo "test"
-    # osascript -e "display notification \"window space is equal to current space\""
-else
-    
-    # osascript -e "display notification \"panicB\""
-    osascript -e "display notification \"window space is NOT equal to current space\""
+if ! [ "$window_space_id" == "$current_space_id" ]; then
+    # osascript -e "display notification \"window space is NOT equal to current space\""
     exit 1
 fi
 
-# we actually dont care if if it's alacritty or not, we just want to minimize
-# if [ "$hotkey_window_id" == "$fullscreen_window_id" ]; then
-#     osascript -e "display notification \"its alacritty thats fullscreen, skip\""
-# else
-#     # osascript -e "display notification \"panicC\""
-#     osascript -e "display notification \"some other app has fullscreen\""
-#     exit 1
-# fi
-
-TEST_VAR=55
 if [ "$window_space_id" == "$current_space_id" ] && [ -n "$fullscreen_window_id" ]; then
-    osascript -e "display notification \"toggling zoom for "$fullscreen_window_id"\""
+    # osascript -e "display notification \"toggling zoom for "$fullscreen_window_id"\""
     yabai -m window "$fullscreen_window_id" --toggle zoom-fullscreen
 fi
-#     osascript -e 'display notification "theres a fullscreen app on this window we should hide" with title "title"'
-# fi
