@@ -3,7 +3,9 @@
 dockutil --remove all
 dockutil --add /Applications/Launchpad.app
 {{- if eq .context "home" }}
+{{- if not .ephemeral }}
 dockutil --add /Applications/Messages.app
+{{- end }}
 dockutil --add /Applications/Firefox.app
 {{ else }}
 dockutil --add "/Applications/Google Chrome.app"

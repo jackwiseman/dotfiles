@@ -31,8 +31,8 @@ yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Activity Monitor$" manage=off
 
 # yabai -m signal --add event=application_launched action="$HOME/.local/bin/toggle_alacritty --ensure-hidden"
+yabai -m signal --add event=window_focused action="$HOME/.local/bin/fullscreen_fix"
 {{- if .yabai_extended }}
 # temp disable
 # yabai -m signal --add event=application_activated action="$HOME/.local/bin/new_window"
-yabai -m signal --add event=window_focused action="$HOME/.local/bin/fullscreen_fix"
 {{- end }}
