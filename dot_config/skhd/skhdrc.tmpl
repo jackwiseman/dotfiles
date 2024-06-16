@@ -1,0 +1,39 @@
+alt - return : yabai -m window --toggle zoom-fullscreen
+alt - f : yabai -m window --toggle zoom-fullscreen
+lalt - k : yabai -m window --focus north
+lalt - j : yabai -m window --focus south
+lalt - l : yabai -m window --focus east
+lalt - h : yabai -m window --focus west
+lalt - e : yabai -m space --equalize
+lalt - space : $HOME/.local/bin/toggle_alacritty
+
+{{- if .yabai_extended }}
+lalt - tab : yabai -m space --focus recent
+cmd - tab : yabai -m space --focus recent
+
+# monterey doesn't have signals for space creation/deltion, so refresh the indicator manually and switch to new (highest index) space
+lalt - c : yabai -m space --create && echo "refresh" | nc -U /tmp/yabai-indicator.socket && echo "refresh" | nc -U /tmp/yabai-indicator.socket && yabai -m space --focus "$(yabai -m query --spaces | jq 'max_by(.index).index')"
+lalt - b : echo "refresh" | nc -U /tmp/yabai-indicator.socket
+lalt - x : yabai -m space --destroy && echo "refresh" | nc -U /tmp/yabai-indicator.socket
+lalt - n : yabai -m space --focus next
+lalt - p : yabai -m space --focus prev
+lalt - 1 : yabai -m space --focus 1
+lalt - 2 : yabai -m space --focus 2
+lalt - 3 : yabai -m space --focus 3
+lalt - 4 : yabai -m space --focus 4
+lalt - 5 : yabai -m space --focus 5
+lalt - 6 : yabai -m space --focus 6
+lalt - 7 : yabai -m space --focus 7
+lalt - 8 : yabai -m space --focus 8
+lalt - 9 : yabai -m space --focus 9
+
+lalt + shift - 1 : yabai -m window --space 1
+lalt + shift - 2 : yabai -m window --space 2
+lalt + shift - 3 : yabai -m window --space 3
+lalt + shift - 4 : yabai -m window --space 4
+lalt + shift - 5 : yabai -m window --space 5
+lalt + shift - 6 : yabai -m window --space 6
+lalt + shift - 7 : yabai -m window --space 7
+lalt + shift - 8 : yabai -m window --space 8
+lalt + shift - 9 : yabai -m window --space 9
+{{- end }}

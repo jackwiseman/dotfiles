@@ -3,6 +3,11 @@
 
 [keyboard]
 bindings = [
+	{ key= "C", mods = "Command", chars = "\uE000" },
+	{ key= "N", mods = "Command", chars = "\uE001" },
+	{ key= "P", mods = "Command", chars = "\uE002" },
+	{ key= "=", mods = "Command", chars = "\uE003" },
+	{ key= "T", mods = "Command", chars = "\uE004" },
 	# general
 	# { key = "Paste", action = "ReceiveChar" },
 	{ key = "Copy", action = "ReceiveChar" },

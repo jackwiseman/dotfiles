@@ -78,3 +78,7 @@ cask "plex"
 cask "tailscale"
 cask "vlc"
 {{- end }}
+
+{{- if .yabai_extended }}
+cask "jackwiseman/brews/yabaiindicator"
+{{- end }}
