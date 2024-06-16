@@ -7,7 +7,7 @@ lalt - h : yabai -m window --focus west
 lalt - e : yabai -m space --equalize
 lalt - space : $HOME/.local/bin/toggle_alacritty
 
-{{- if eq .context "home" }}
+{{- if .yabai_extended }}
 lalt - tab : yabai -m space --focus recent
 cmd - tab : yabai -m space --focus recent
 

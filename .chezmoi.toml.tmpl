@@ -1,7 +1,7 @@
 {{- $ephemeral := promptBool "ephemeral" -}}
-{{- $sip_disabled := promptBool "sip disabled" -}}
+{{- $yabai_extended := promptBool "enable yabai extended features" -}}
 
 [data]
 	context  = "{{ if eq .chezmoi.hostname "JWISEMAN-MAC" }}work{{ else }}home{{ end }}"
 	ephemeral = {{ $ephemeral }}
-	sip_disabled = {{ $sip_disabled }}
+	yabai_extended = {{ $yabai_extended }}

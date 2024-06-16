@@ -72,11 +72,14 @@ cask "openvpn-connect"
 cask "beekeeper-studio"
 cask "firefox"
 cask "fl-studio"
-cask "jackwiseman/brews/yabaiindicator"
 cask "libreoffice"
 cask "lunasea"
 cask "mullvadvpn"
 cask "plex"
 cask "tailscale"
 cask "vlc"
+{{- end }}
+
+{{- if .yabai_extended }}
+cask "jackwiseman/brews/yabaiindicator"
 {{- end }}

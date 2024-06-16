@@ -1,4 +1,4 @@
-{{- if eq .context "home" }}
+{{- if .yabai_extended }}
 yabai -m signal --add event=dock_did_restart action="sudo yabai --load-sa"
 {{- end }}
 # bsp, stack or float
@@ -29,7 +29,7 @@ yabai -m config mouse_drop_action swap
 yabai -m rule --add app="^Finder$" manage=off
 
 # yabai -m signal --add event=application_launched action="$HOME/.local/bin/toggle_alacritty --ensure-hidden"
-{{- if eq .context "home" }}
+{{- if .yabai_extended }}
 # temp disable
 # yabai -m signal --add event=application_activated action="$HOME/.local/bin/new_window"
 yabai -m signal --add event=window_focused action="$HOME/.local/bin/fullscreen_fix"
