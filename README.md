@@ -1,3 +1,3 @@
 ```
-/bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/jackwiseman/dotfiles/master/bootstrap.sh)"
+sh -c "$(curl -fsLS get.chezmoi.io)" -- init --apply jackwiseman
 ```
