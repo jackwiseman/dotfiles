@@ -1,6 +1,0 @@
-#!/bin/bash
-
-current_space=$(yabai -m query --spaces | jq 'map(select(.["is-visible"] == true)) | .[].index')
-
- yabai -m query --windows | jq 'map(select(.pid == "$YABAI_PROCESS_ID")) | .[].space' | grep -q "$current_space" && echo "Yes" || echo "No"
-# if there's an app that has zoom-fullscreen enabled, toggle it
