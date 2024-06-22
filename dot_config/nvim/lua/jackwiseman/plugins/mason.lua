@@ -17,7 +17,8 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				'gopls',
-				'tsserver'
+				'tsserver',
+				'eslint'
 			},
 			automatic_installation = true
 		})

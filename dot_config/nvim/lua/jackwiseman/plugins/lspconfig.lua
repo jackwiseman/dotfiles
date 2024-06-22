@@ -55,11 +55,19 @@ return {
 			capabilities = capabilities,
 			on_attach = on_attach,
 		})
+
+		-- lspconfig["eslint"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	root_dir = function() return vim.loop.cwd() end,
+		-- 	-- cmd = { 'vscode-eslint-language-server', '--stdio', '--no-eslintrc' }
+		-- 	cmd = { "eslint", "--no-eslintrc", "--rule 'quotes: [error, double]" }
+		-- })
 		
-		lspconfig["tsserver"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			cmd = vim.list_extend({ "fnm", "exec", "--using=default" }, lspconfig["tsserver"].document_config.default_config.cmd),
-		})
+		-- lspconfig["tsserver"].setup({
+		-- 	capabilities = capabilities,
+		-- 	on_attach = on_attach,
+		-- 	cmd = vim.list_extend({ "fnm", "exec", "--using=default" }, lspconfig["tsserver"].document_config.default_config.cmd),
+		-- })
 	end
 }
