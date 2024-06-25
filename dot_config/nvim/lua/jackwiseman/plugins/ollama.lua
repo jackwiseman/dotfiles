@@ -2,7 +2,7 @@ return {
 	"nomnivore/ollama.nvim",
 	dependencies = {
 		"nvim-lua/plenary.nvim",
-		'stevearc/dressing.nvim',
+		-- 'stevearc/dressing.nvim',
 	},
 	cmd = { "Ollama", "OllamaModel", "OllamaServe", "OllamaServeStop" },
 	keys = {

@@ -1,8 +1,8 @@
 return {
 	'samharju/yeet.nvim',
-	dependencies = {
-		'stevearc/dressing.nvim'
-	},
+	-- dependencies = {
+	-- 	'stevearc/dressing.nvim'
+	-- },
 	cmd = 'Yeet',
 	opts = {},
 	keys = {
