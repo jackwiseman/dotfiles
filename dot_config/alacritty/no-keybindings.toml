@@ -8,6 +8,7 @@ bindings = [
 	{ key= "P", mods = "Command", chars = "\uE002" },
 	# { key= "=", mods = "Command", chars = "\uE003" },
 	{ key= "T", mods = "Command", chars = "\uE004" },
+	{ key= "G", mods = "Control", chars = "\uE005" },
 	# general
 	# { key = "Paste", action = "ReceiveChar" },
 	{ key = "Copy", action = "ReceiveChar" },
