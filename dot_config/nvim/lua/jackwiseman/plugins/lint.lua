@@ -11,11 +11,9 @@ return {
 			javascript = { 'eslint_d' },
 		}
 
+		-- for defaults in single file mode
 		eslint.args = {
-			-- '--no-warn-ignored',
 			'--no-eslintrc',
-			-- '--rule',
-			-- 'semi:error',
 			'--config',
 			vim.fn.expand('$HOME/.eslintrc.js'),
 			'--format',
@@ -25,15 +23,7 @@ return {
 			function()
 				return vim.api.nvim_buf_get_name(0)
 			end,
-		} --format', '--json', '--stdin', '--stdin-filename', function() return vim.api.nvim_buf_get_name(0) end, }
-
-		-- lint.linters = {
-		-- 	eslint_d = {
-		-- 		args = {
-		-- 			"--no-eslintrc"
-		-- 		},
-		-- 	},
-		-- },
+		}
 
 		vim.api.nvim_create_autocmd({ 'BufEnter', 'BufWritePost', 'InsertLeave' }, {
 			group = vim.api.nvim_create_augroup('lint', { clear = true }),
