@@ -26,6 +26,7 @@ return {
 			ensure_installed = {
 				'goimports',
 				'shellcheck', -- linting for shell scripts
+				'eslint_d'
 			},
 			run_on_start = true,
 		})
