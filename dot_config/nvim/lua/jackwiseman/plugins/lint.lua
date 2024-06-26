@@ -11,11 +11,10 @@ return {
 			javascript = { 'eslint_d' },
 		}
 
-		-- for defaults in single file mode
 		eslint.args = {
-			'--no-eslintrc',
-			'--config',
-			vim.fn.expand('$HOME/.eslintrc.js'),
+			-- '--no-eslintrc',
+			-- '--config',
+			-- vim.fn.expand('$HOME/.eslintrc.js'),
 			'--format',
 			'json',
 			'--stdin',
