@@ -18,7 +18,8 @@ return {
 			ensure_installed = {
 				'gopls',
 				'tsserver',
-				'eslint'
+				-- 'eslint'
+				'eslint_d'
 			},
 			automatic_installation = true
 		})
