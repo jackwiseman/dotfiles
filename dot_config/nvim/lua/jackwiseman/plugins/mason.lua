@@ -19,7 +19,6 @@ return {
 				'gopls',
 				'tsserver',
 				-- 'eslint'
-				'eslint_d'
 			},
 			automatic_installation = true
 		})
@@ -28,6 +27,7 @@ return {
 			ensure_installed = {
 				'goimports',
 				'shellcheck', -- linting for shell scripts
+				'eslint_d',
 			},
 			run_on_start = true,
 		})
