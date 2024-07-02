@@ -1,14 +1,6 @@
 README.md
 .DS_Store
 
-{{- if ne .context "work" }}
-.config/nvim/lua/jackwiseman/plugins/copilot.lua
-{{- end }}
-
-{{- if ne .context "home" }}
-.config/nvim/lua/jackwiseman/plugins/ollama.lua
-{{- end }}
-
 {{- if eq .chezmoi.os "darwin" }}
 .chezmoiscripts/linux/*
 {{- end -}}
