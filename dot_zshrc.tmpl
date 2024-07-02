@@ -60,11 +60,6 @@ alias v=$EDITOR
 alias vi=$EDITOR
 alias obsidian="cd ~/obsidian && nvim -c ':Telescope find_files'"
 
-{{- if eq .context "work" }}
-alias ssh-ezdock="~/ezoicgit/ez-dock-corp-sol/ssh_into_container.sh"
-alias aws-mfa='ezcli aws-mfa $(op item get aws --otp)'
-{{- end }}
-
 # keybindings
 bindkey '^ ' autosuggest-accept
 

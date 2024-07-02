@@ -2,6 +2,5 @@
 {{- $yabai_extended := promptBool "enable yabai extended features" -}}
 
 [data]
-	context  = "{{ if eq .chezmoi.hostname "JWISEMAN-MAC" }}work{{ else }}home{{ end }}"
 	ephemeral = {{ $ephemeral }}
 	yabai_extended = {{ $yabai_extended }}

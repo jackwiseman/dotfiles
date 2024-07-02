@@ -52,36 +52,25 @@ brew "zoxide"
 cask "1password"
 cask "1password-cli"
 cask "alacritty", args: { no_quarantine: true }
+cask "beekeeper-studio"
 cask "docker"
+cask "firefox"
 cask "flutter"
+cask "fl-studio"
 cask "jackwiseman/brews/font-monaco-patched"
 cask "gpg-suite-no-mail"
 cask "hiddenbar"
 cask "karabiner-elements"
-cask "obsidian"
-cask "rapidapi"
-cask "spotify"
-cask "xbar"
-
-{{- if eq .context "work" }}
-cask "google-chrome"
-cask "gas-mask"
-cask "slack"
-cask "tableplus"
-cask "openvpn-connect"
-{{- end }}
-
-{{- if eq .context "home" }}
-cask "beekeeper-studio"
-cask "firefox"
-cask "fl-studio"
 cask "libreoffice"
 cask "lunasea"
 cask "mullvadvpn"
+cask "obsidian"
 cask "plex"
+cask "rapidapi"
+cask "spotify"
 cask "tailscale"
 cask "vlc"
-{{- end }}
+cask "xbar"
 
 {{- if .yabai_extended }}
 cask "jackwiseman/brews/yabaiindicator"
