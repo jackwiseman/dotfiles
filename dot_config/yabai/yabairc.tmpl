@@ -29,6 +29,8 @@ yabai -m config mouse_drop_action swap
 yabai -m rule --add app="^Finder$" manage=off
 yabai -m rule --add app="^System Preferences$" manage=off
 yabai -m rule --add app="^Activity Monitor$" manage=off
+yabai -m rule --add app="^Digital Color Meter$" manage=off
+yabai -m rule --add app="^Digital Color Meter$" sticky=on
 
 # yabai -m signal --add event=application_launched action="$HOME/.local/bin/toggle_alacritty --ensure-hidden"
 yabai -m signal --add event=window_focused action="$HOME/.local/bin/fullscreen_fix"
