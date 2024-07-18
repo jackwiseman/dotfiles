@@ -14,7 +14,7 @@ return {
 		},
 	},
 	opts = {
-		model = "llama3:8b",
+		model = "codellama:7b",
 		url = "https://ollama.wiseman.sh",
 		prompts = {
 			Context_aware_generate = {
