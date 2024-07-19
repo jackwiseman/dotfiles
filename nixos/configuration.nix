@@ -70,15 +70,17 @@
   # List packages installed in system profile. To search, run:
   # $ nix search wget
   environment.systemPackages = with pkgs; [
-     neovim
-     git
-     go
-     v4l-utils
-     opencv
      chezmoi
-     gcc
      fnm
      fzf
+     gcc
+     git
+     go
+     lazygit
+     neovim
+     # opencv
+     tmux
+     # v4l-utils
   ];
 
   environment.sessionVariables = rec {
