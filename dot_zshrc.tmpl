@@ -17,8 +17,8 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
-{{ if eq .chezmoi.os "darwin" }}
 eval $(/usr/local/bin/brew shellenv)
+{{ if eq .chezmoi.os "darwin" }}
 eval "$(zoxide init zsh --cmd cd)"
 export GOPATH=~/go
 path=(
