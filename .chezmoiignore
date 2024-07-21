@@ -6,6 +6,7 @@ README.md
 {{- end -}}
 
 {{- if eq .chezmoi.os "linux" }}
+.chezmoiscripts/
 .chezmoiscripts/mac/*
 icons
 
