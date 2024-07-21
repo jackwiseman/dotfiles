@@ -61,7 +61,7 @@
   };
 
   # make zsh default
-  programs.zsh { 
+  programs.zsh = { 
     enable = true;
     enableCompletion = false;
   };
