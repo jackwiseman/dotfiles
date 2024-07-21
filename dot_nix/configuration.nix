@@ -61,7 +61,11 @@
   };
 
   # make zsh default
-  programs.zsh.enable = true;
+  programs.zsh { 
+    enable = true;
+    enableCompletion = false;
+  };
+
   users.defaultUserShell = pkgs.zsh;
 
   # Allow unfree packages
@@ -78,6 +82,8 @@
      go
      lazygit
      neovim
+     lf
+     zoxide
      # opencv
      tmux
      # v4l-utils
