@@ -31,27 +31,29 @@ foreground = "#ebdbb2"
 TERM = "alacritty"
 
 [font]
-size = 15.0
+size = 14.0
 
 [font.bold]
-family = "Monaco Nerd Font"
-style = "Medium"
+family = "monospace"
+# style = "Medium"
+style = "Bold"
 
 [font.bold_italic]
-family = "Monaco Nerd Font"
+family = "monospace"
 style = "Bold Italic"
+
+[font.italic]
+family = "monospace"
+style = "Book Italic"
+
+[font.normal]
+family = "monospace"
+style = "Regular"
 
 [font.glyph_offset]
 x = 0
 y = 7
 
-[font.italic]
-family = "Monaco Nerd Font"
-style = "Book Italic"
-
-[font.normal]
-family = "Monaco Nerd Font"
-style = "Regular"
 
 [font.offset]
 x = 0
@@ -62,10 +64,10 @@ save_to_clipboard = true
 semantic_escape_chars = ",│`|:\"' ()[]{}<>\t"
 
 [shell]
-args = ["-l", "-c", "tmux attach || tmux new-session -s $(readable-name-generator)"]
-program = "/bin/zsh"
+args = ["-l", "-c", "tmux attach || tmux new-session -s 'default'"]
+program = "zsh"
 
 [window]
 decorations = "buttonless"
 dynamic_padding = true
-startup_mode = "Maximized"
+# startup_mode = "Maximized"
