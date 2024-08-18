@@ -13,7 +13,6 @@ icons
 Brewfile
 .taskrc
 .config/1Password
-.config/alacritty
 .config/karabiner
 .config/yabai
 .config/skhd

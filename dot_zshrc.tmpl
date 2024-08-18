@@ -60,6 +60,7 @@ alias gc="git commit -m"
 alias v=$EDITOR
 alias vi=$EDITOR
 alias obsidian="cd ~/obsidian && nvim -c ':Telescope find_files'"
+alias rebuild="chezmoi apply && sudo nixos-rebuild switch --flake ~/.nix/#jackOS"
 
 # keybindings
 bindkey '^ ' autosuggest-accept
