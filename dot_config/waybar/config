@@ -52,7 +52,7 @@
     "temperature": {
       "critical-threshold": 80,
       "format": "{icon} {temperatureC}°C",
-      "format-icons": ["", "", ""]
+      "format-icons": ["󰉬", "", "󰉪"]
     },
     "battery": {
       "states": {
@@ -61,28 +61,28 @@
       },
       "format": "{icon}  {capacity}%",
       "format-full": "{icon}  {capacity}%",
-      "format-charging": "  {capacity}%",
+      "format-charging": "󰃨  {capacity}%",
       "format-plugged": "  {capacity}%",
       "format-alt": "{time} {icon}",
       "format-icons": ["", "", "", "", ""]
     },
     "network": {
       "format-wifi": "  {signalStrength}%",
-      "format-ethernet": "{cidr} ",
-      "tooltip-format": "{ifname} via {gwaddr} ",
-      "format-linked": "{ifname} (No IP) ",
+      "format-ethernet": "{cidr} 󰊗",
+      "tooltip-format": "{ifname} via {gwaddr} 󰊗",
+      "format-linked": "{ifname} (No IP) 󰊗",
       "format-disconnected": " ⚠ ",
       "format-alt": "{ifname}: {ipaddr}/{cidr}"
     },
     "pulseaudio": {
       "format": "{icon}  {volume}%",
       "format-bluetooth": "{volume}% {icon} {format_source}",
-      "format-bluetooth-muted": " {icon} {format_source}",
-      "format-muted": " {format_source}",
+      "format-bluetooth-muted": "󰅶 {icon} {format_source}",
+      "format-muted": "󰅶 {format_source}",
       "format-icons": {
         "headphone": "",
-        "hands-free": "",
-        "headset": "",
+        "hands-free": "󰂑",
+        "headset": "󰂑",
         "phone": "",
         "portable": "",
         "car": "",
