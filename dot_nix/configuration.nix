@@ -58,9 +58,9 @@
   services.xserver.desktopManager.gnome.enable = true;
 
   # Configure keymap in X11
-  services.xserver = {
+  services.xserver.xkb = {
     layout = "us";
-    xkbVariant = "";
+    variant = "";
   };
 
   # Enable CUPS to print documents.
@@ -103,10 +103,14 @@
 
   programs.zsh = {
     enable = true;
-    enableCompletion = true;
+    # enableCompletion = true;
   };
 
+  programs._1password = { enable = true; };
+  programs._1password-gui = { enable = true; };
+
   users.defaultUserShell = pkgs.zsh;
+
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -121,11 +125,16 @@
      gcc
      git
      go
+     hdrop
      killall
      lazygit
      lf
      neovim
+     nodejs_22
+     spotify
      tmux
+     taskwarrior3
+     vlc
      wl-clipboard
      wofi
      wpaperd
@@ -133,7 +142,7 @@
   ];
 
   fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" ]; })
+    (nerdfonts.override { fonts = [ "FiraCode" "DroidSansMono" "JetBrainsMono" ]; })
   ];
 
   fonts.fontconfig = {
