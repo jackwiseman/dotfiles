@@ -107,6 +107,8 @@
   programs.zsh = {
     enable = true;
     enableCompletion = false;
+    autosuggestions.enable = true;
+
   };
 
   programs._1password = { enable = true; };
@@ -142,6 +144,7 @@
      wofi
      wpaperd
      zoxide
+     # zsh-autosuggestions
   ];
 
   fonts.packages = with pkgs; [
@@ -154,7 +157,7 @@
     };
   };
 
-  environment.variables.EDITOR = "nvim";
+  # environment.variables.EDITOR = "nvim";
 
   services.xserver.displayManager.gdm.wayland = true;
   programs.hyprland.enable = true;
