@@ -1,0 +1,47 @@
+# Download zimfw plugin manager if missing.
+if [[ ! -e ${ZIM_HOME}/zimfw.zsh ]]; then
+  if (( ${+commands[curl]} )); then
+    curl -fsSL --create-dirs -o ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  else
+    mkdir -p ${ZIM_HOME} && wget -nv -O ${ZIM_HOME}/zimfw.zsh \
+        https://github.com/zimfw/zimfw/releases/latest/download/zimfw.zsh
+  fi
+fi
+# Install missing modules, and update ${ZIM_HOME}/init.zsh if missing or outdated.
+if [[ ! ${ZIM_HOME}/init.zsh -nt ${ZDOTDIR:-${HOME}}/.zimrc ]]; then
+  source ${ZIM_HOME}/zimfw.zsh init -q
+fi
+# Initialize modules.
+source ${ZIM_HOME}/init.zsh
+
+
+eval "$(zoxide init zsh --cmd cd)"
+
+{{ if eq .chezmoi.os "darwin" }}
+eval $(/usr/local/bin/brew shellenv)
+path=(
+	$path
+	/usr/local/go/bin
+	$GOPATH/bin
+	$HOME/.local/bin
+)
+# export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
+{{- end }}
+
+
+# keybindings
+bindkey '^ ' autosuggest-accept
+
+# node version management
+# eval "$(fnm env --use-on-cd)"
+
+# fzf completion
+eval "$(fzf --zsh)"
+
+# overwrite vi mode which is set when EDITOR contains the string vi
+bindkey -e
+
+source $ZDOTDIR/aliases
+
+bindkey '^ ' autosuggest-accept
