@@ -8,7 +8,7 @@ README.md
 {{- if eq .chezmoi.os "linux" }}
 .chezmoiscripts/
 .chezmoiscripts/mac/*
-icons
+.config/alacritty/alacritty.icns
 
 Brewfile
 .taskrc
