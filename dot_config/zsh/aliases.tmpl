@@ -1,0 +1,25 @@
+# system
+alias shutdown="sudo shutdown now"
+alias restart="sudo reboot"
+
+# ls
+alias ls="ls --color=auto"
+alias l="ls -la -FG"
+
+# git
+alias ga="git add"
+alias gs="git status"
+alias gd="git diff"
+alias gc="git commit -m"
+
+# files (these might get annoying)
+alias cp="cp -iv"
+alias mv="mv -iv"
+
+# funnel everything to editor environment variable
+alias v=$EDITOR
+alias vi=$EDITOR
+
+alias obsidian="cd ~/obsidian && nvim -c ':Telescope find_files'"
+
+alias rebuild="chezmoi apply && sudo nixos-rebuild switch --flake ~/.config/nix/#jackOS"
