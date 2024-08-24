@@ -96,6 +96,9 @@
     packages = with pkgs; [
     #  thunderbird
     ];
+    openssh.authorizedKeys.keys = [
+      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICHVGCExjxSPKletSqxBsgoYvLdP4IcaK6ZEajjrESTI"
+    ];
   };
 
   # Install firefox.
@@ -136,9 +139,10 @@
      lf
      neovim
      nodejs_22
+     ripgrep
      spotify
-     tmux
      taskwarrior3
+     tmux
      vlc
      wl-clipboard
      wofi
@@ -173,13 +177,19 @@
   #   enableSSHSupport = true;
   # };
 
+  
+
 
 
 
   # List services that you want to enable:
 
   # Enable the OpenSSH daemon.
-  # services.openssh.enable = true;
+  services.openssh = {
+    enable = true;
+    settings.PasswordAuthentication = false;
+    settings.KbdInteractiveAuthentication = false;
+  };
 
   services.kanata = {
     enable = false;

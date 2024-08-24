@@ -67,6 +67,11 @@ vim.api.nvim_create_autocmd("FileType", {
 	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
 })
 
+vim.api.nvim_create_autocmd("FileType", {
+	pattern = "nix",
+	command = "setlocal shiftwidth=2 tabstop=2 expandtab"
+})
+
 vim.opt.fixeol = false
 
 -- disable all the providers (i've never used them?)
