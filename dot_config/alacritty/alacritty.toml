@@ -34,20 +34,24 @@ TERM = "alacritty"
 size = 14.0
 
 [font.bold]
-family = "JetBrainsMono Nerd Font"
+family = "Monaco Nerd Font"
+# family = "JetBrainsMono Nerd Font"
 # style = "Medium"
 style = "Bold"
 
 [font.bold_italic]
-family = "JetBrainsMono Nerd Font"
+family = "Monaco Nerd Font"
+# family = "JetBrainsMono Nerd Font"
 style = "Bold Italic"
 
 [font.italic]
-family = "JetBrainsMono Nerd Font"
+family = "Monaco Nerd Font"
+# family = "JetBrainsMono Nerd Font"
 style = "Book Italic"
 
 [font.normal]
-family = "JetBrainsMono Nerd Font"
+family = "Monaco Nerd Font"
+# family = "JetBrainsMono Nerd Font"
 style = "Regular"
 
 [font.glyph_offset]
