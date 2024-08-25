@@ -1,4 +1,7 @@
 { config, pkgs, ... }:
+let
+  monaco-nerd-font = pkgs.callPackage ./packages/monaco-nerd-font.nix { inherit pkgs; };
+in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -83,6 +86,7 @@
 
   fonts = {
     packages = with pkgs; [
+      monaco-nerd-font
       (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
     fontconfig = {
