@@ -91,7 +91,7 @@ in
     ];
     fontconfig = {
       defaultFonts = {
-        monospace = [ "JetBrainsMono" ];
+        monospace = [ "Monaco Nerd Font" ];
       };
     };
   };
