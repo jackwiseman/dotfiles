@@ -1,11 +1,12 @@
 { config, pkgs, ... }:
-
 {
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./desktop.nix
     ];
+
+
 
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
@@ -16,7 +17,6 @@
   boot.loader.grub.useOSProber = true;
 
   networking.hostName = "jackOS"; # Define your hostname.
-  # networking.wireless.enable = true;  # Enables wireless support via wpa_supplicant.
 
   # Enable networking
   networking.networkmanager.enable = true;
@@ -28,18 +28,20 @@
   # hardware.bluetooth.powerOnBoot = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
-  users.users.jack = {
-    isNormalUser = true;
-    description = "jack";
-    extraGroups = [ "networkmanager" "wheel" "uinput"];
-    packages = with pkgs; [
-    #  thunderbird
-    ];
-    openssh.authorizedKeys.keys = [
-      "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICHVGCExjxSPKletSqxBsgoYvLdP4IcaK6ZEajjrESTI"
-    ];
+  users = {
+    defaultUserShell = pkgs.zsh;
+    users.jack = {
+      isNormalUser = true;
+      description = "jack";
+      extraGroups = [ "networkmanager" "wheel" "uinput"];
+      packages = with pkgs; [
+      #  thunderbird
+      ];
+      openssh.authorizedKeys.keys = [
+        "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICHVGCExjxSPKletSqxBsgoYvLdP4IcaK6ZEajjrESTI"
+      ];
+    };
   };
-
 
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
@@ -50,9 +52,6 @@
   };
 
   programs._1password = { enable = true; };
-
-  users.defaultUserShell = pkgs.zsh;
-
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -82,18 +81,17 @@
      zoxide
   ];
 
-  fonts.packages = with pkgs; [
-    (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-  ];
-
-  fonts.fontconfig = {
-    defaultFonts = {
-      monospace = [ "JetBrainsMono" ];
+  fonts = {
+    packages = with pkgs; [
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    ];
+    fontconfig = {
+      defaultFonts = {
+        monospace = [ "JetBrainsMono" ];
+      };
     };
   };
 
-
-  # Enable the OpenSSH daemon.
   services.openssh = {
     enable = true;
     settings.PasswordAuthentication = false;
@@ -105,22 +103,21 @@
     keyboards = {
       internalKeyboard = {
         config = ''
-	(defsrc
-	  caps
-	)
+          (defsrc
+           caps
+          )
 
-	(defalias
-	  escctrl (tap-hold 100 100 esc lctrl)
-	)
+          (defalias
+           escctrl (tap-hold 100 100 esc lctrl)
+          )
 
-	(deflayer base
-	  @escctrl
-        )
-	'';
+          (deflayer base
+           @escctrl
+          )
+        '';
       };
     };
   };
 
   system.stateVersion = "24.05"; # Did you read the comment?
-
 }
