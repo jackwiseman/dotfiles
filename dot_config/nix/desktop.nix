@@ -1,6 +1,8 @@
 # extras needed for a full-fledged desktop
 { config, pkgs, ... }:
-
+let
+  monaco-nerd-font = pkgs.callPackage ./packages/monaco-nerd-font.nix { inherit pkgs; };
+in
 {
   boot.initrd.kernelModules = ["amdgpu"];
 
@@ -16,6 +18,36 @@
     displayManager.gdm = {
       enable = true;
       wayland = true;
+    };
+  };
+
+  environment.systemPackages = with pkgs; [
+    alacritty
+    hdrop
+    libreoffice-qt6-fresh
+    lxqt.lxqt-openssh-askpass
+    obsidian
+    spotify
+    vlc
+    wl-clipboard
+    wofi
+    wpaperd
+    zathura
+  ];
+
+  xdg.mime.defaultApplications = {
+    "application/pdf" = "org.pwmt.zathura-pdf-mupdf.desktop";
+  };
+
+  fonts = {
+    packages = with pkgs; [
+      monaco-nerd-font
+      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
+    ];
+    fontconfig = {
+      defaultFonts = {
+        monospace = [ "Monaco Nerd Font" ];
+      };
     };
   };
 
