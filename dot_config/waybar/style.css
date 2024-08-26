@@ -64,9 +64,10 @@ button:hover {
 #network,
 #pulseaudio {
   padding: 0 10px;
+  color: @white;
 }
 
-#pulseaudio {
+/*#pulseaudio {
   color: @light-purple;
 }
 
@@ -88,7 +89,7 @@ button:hover {
 
 #window {
   color: @text;
-}
+}*/
 
 .modules-right,
 .modules-left,
