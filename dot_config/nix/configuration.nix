@@ -36,7 +36,7 @@ in
     users.jack = {
       isNormalUser = true;
       description = "jack";
-      extraGroups = [ "networkmanager" "wheel" "uinput"];
+      extraGroups = [ "networkmanager" "wheel" "uinput" "docker" ];
       packages = with pkgs; [
       #  thunderbird
       ];
@@ -83,6 +83,8 @@ in
      wpaperd
      zoxide
   ];
+
+  virtualisation.docker.enable = true;
 
   fonts = {
     packages = with pkgs; [
