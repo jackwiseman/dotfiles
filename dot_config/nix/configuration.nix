@@ -1,7 +1,4 @@
 { config, pkgs, ... }:
-let
-  monaco-nerd-font = pkgs.callPackage ./packages/monaco-nerd-font.nix { inherit pkgs; };
-in
 {
   imports =
     [ # Include the results of the hardware scan.
@@ -9,22 +6,25 @@ in
       ./desktop.nix
     ];
 
-
-
   # Bootloader.
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.loader.grub.enable = true;
-  boot.loader.grub.device = "/dev/sda";
-  boot.loader.grub.useOSProber = true;
+  boot.loader.grub = {
+    enable = true;
+    device = "/dev/sda";
+    useOSProber = true;
+  };
 
-  networking.hostName = "jackOS"; # Define your hostname.
+  # boot.loader.grub.enable = true;
+  # boot.loader.grub.device = "/dev/sda";
+  # boot.loader.grub.useOSProber = true;
 
-  # Enable networking
-  networking.networkmanager.enable = true;
+  networking = {
+    hostName = "jackOS";
+    networkmanager.enable = true;
+  };
 
-  # Set your time zone.
   time.timeZone = "America/Los_Angeles";
 
   # hardware.bluetooth.enable = true;
@@ -49,6 +49,15 @@ in
   # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
+  programs.ssh = {
+    enableAskPassword = true;
+    askPassword = "${pkgs.lxqt.lxqt-openssh-askpass}/bin/lxqt-openssh-askpass";
+  };
+
+  # home.sessionVariables = {
+  #   SSH_ASKPASS = "${pkgs.lxqt.lxqt-openssh-askpass}/bin/lxqt-openssh-askpass";
+  # };
+
   programs.zsh = {
     enable = true;
     enableCompletion = false;
@@ -59,7 +68,6 @@ in
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
   environment.systemPackages = with pkgs; [
-     alacritty
      chezmoi
      delta
      fnm
@@ -67,36 +75,19 @@ in
      gcc
      git
      go
-     hdrop
+     jq
      killall
      lazygit
      lf
      neovim
      nodejs_22
      ripgrep
-     spotify
      taskwarrior3
      tmux
-     vlc
-     wl-clipboard
-     wofi
-     wpaperd
      zoxide
   ];
 
   virtualisation.docker.enable = true;
-
-  fonts = {
-    packages = with pkgs; [
-      monaco-nerd-font
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
-    ];
-    fontconfig = {
-      defaultFonts = {
-        monospace = [ "Monaco Nerd Font" ];
-      };
-    };
-  };
 
   services.openssh = {
     enable = true;

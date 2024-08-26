@@ -28,3 +28,6 @@ defaults write org.hammerspoon.Hammerspoon MJConfigFile "$HOME/.config/hammerspo
 defaults write com.lwouis.alt-tab-macos holdShortcut "\\U2318"
 # counter intuitive, but hide stuff in other spaces
 defaults write com.lwouis.alt-tab-macos spacesToShow 1
+
+# disable .DS_Store file creation on network shares
+defaults write com.apple.desktopservices DSDontWriteNetworkStores true

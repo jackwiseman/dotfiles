@@ -20,6 +20,11 @@ alias mv="mv -iv"
 alias v=$EDITOR
 alias vi=$EDITOR
 
+{{ if eq .chezmoi.os "darwin" }}
 alias obsidian="cd ~/obsidian && nvim -c ':Telescope find_files'"
+{{ end }}
 
+{{ if eq .chezmoi.os "linux" }}
 alias rebuild="chezmoi apply && sudo nixos-rebuild switch --flake ~/.config/nix/#jackOS"
+alias open="xdg-open"
+{{ end }}
