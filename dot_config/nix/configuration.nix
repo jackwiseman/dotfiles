@@ -3,7 +3,8 @@
   imports =
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
-      ./desktop.nix
+      ./modules/desktop.nix
+      ./modules/shares.nix
     ];
 
   # Bootloader.
