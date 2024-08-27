@@ -65,6 +65,13 @@ in
     _1password-gui.enable = true;
     hyprland.enable = true;
     waybar.enable = true;
+    steam = {
+      enable = true;
+      remotePlay.openFirewall = true;
+      dedicatedServer.openFirewall = true;
+      extraCompatPackages = with pkgs; [ proton-ge-bin ];
+    };
+    gamemode.enable = true;
   };
 
   environment.sessionVariables = { WLR_DRM_DEVICES = "/dev/dri/card0"; }; #if this isn't set, hyprland doesn't know which gpu to use
