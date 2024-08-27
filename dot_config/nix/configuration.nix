@@ -4,10 +4,9 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/desktop.nix
-      ./modules/shares.nix
+      ./modules/gpu-passthrough.nix
     ];
 
-  # Bootloader.
   # boot.loader.systemd-boot.enable = true;
   # boot.loader.efi.canTouchEfiVariables = true;
 
@@ -16,10 +15,6 @@
     device = "/dev/sda";
     useOSProber = true;
   };
-
-  # boot.loader.grub.enable = true;
-  # boot.loader.grub.device = "/dev/sda";
-  # boot.loader.grub.useOSProber = true;
 
   networking = {
     hostName = "jackOS";

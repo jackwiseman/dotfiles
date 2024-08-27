@@ -4,11 +4,8 @@ let
   monaco-nerd-font = pkgs.callPackage ../packages/monaco-nerd-font.nix { inherit pkgs; };
 in
 {
-  boot.initrd.kernelModules = ["amdgpu"];
-
   services.xserver = {
     enable = true;
-    videoDrivers = [ "amdgpu" ];
 
     xkb = {
       layout = "us";
@@ -73,6 +70,4 @@ in
     };
     gamemode.enable = true;
   };
-
-  environment.sessionVariables = { WLR_DRM_DEVICES = "/dev/dri/card0"; }; #if this isn't set, hyprland doesn't know which gpu to use
 }
