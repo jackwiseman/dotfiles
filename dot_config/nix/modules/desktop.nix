@@ -1,7 +1,7 @@
 # extras needed for a full-fledged desktop
 { config, pkgs, ... }:
 let
-  monaco-nerd-font = pkgs.callPackage ./packages/monaco-nerd-font.nix { inherit pkgs; };
+  monaco-nerd-font = pkgs.callPackage ../packages/monaco-nerd-font.nix { inherit pkgs; };
 in
 {
   boot.initrd.kernelModules = ["amdgpu"];
