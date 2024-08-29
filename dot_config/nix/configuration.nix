@@ -5,6 +5,7 @@
       ./hardware-configuration.nix
       ./modules/desktop.nix
       ./modules/gpu-passthrough.nix
+      ./modules/gaming.nix
     ];
 
   # boot.loader.systemd-boot.enable = true;
@@ -23,8 +24,8 @@
 
   time.timeZone = "America/Los_Angeles";
 
-  # hardware.bluetooth.enable = true;
-  # hardware.bluetooth.powerOnBoot = true;
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   # Define a user account. Don't forget to set a password with ‘passwd’.
   users = {
@@ -79,9 +80,29 @@
      nodejs_22
      ripgrep
      taskwarrior3
+     taskwarrior-tui
      tmux
      zoxide
   ];
+
+  systemd.timers."task-sync" = {
+    wantedBy = [ "timers.target" ];
+      timerConfig = {
+        OnBootSec = "5m";
+        OnUnitActiveSec = "5m";
+        Unit = "task-sync.service";
+      };
+  };
+
+  systemd.services."task-sync" = {
+    script = ''
+      ${pkgs.taskwarrior3}/bin/task sync
+    '';
+    serviceConfig = {
+      Type = "oneshot";
+      User = "jack";
+    };
+  };
 
   virtualisation.docker.enable = true;
 
