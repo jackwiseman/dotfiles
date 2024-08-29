@@ -62,12 +62,5 @@ in
     _1password-gui.enable = true;
     hyprland.enable = true;
     waybar.enable = true;
-    steam = {
-      enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
-      extraCompatPackages = with pkgs; [ proton-ge-bin ];
-    };
-    gamemode.enable = true;
   };
 }
