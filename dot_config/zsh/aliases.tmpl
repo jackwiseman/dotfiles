@@ -25,6 +25,6 @@ alias obsidian="cd ~/obsidian && nvim -c ':Telescope find_files'"
 {{ end }}
 
 {{ if eq .chezmoi.os "linux" }}
-alias rebuild="chezmoi apply && sudo nixos-rebuild switch --flake ~/.config/nix/#macbook"
+alias rebuild="chezmoi apply && sudo nixos-rebuild switch --flake ~/.config/nix/#{{ .flake }}"
 alias open="xdg-open"
 {{ end }}

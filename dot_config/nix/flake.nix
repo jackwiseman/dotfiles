@@ -6,11 +6,11 @@
   };
 
   outputs = { self, nixpkgs }@inputs: {
-    nixosConfigurations.jackOS = nixpkgs.lib.nixosSystem {
+    nixosConfigurations.desktop = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
         ./configuration.nix
-        ./hardware-configuration.nix
+        ./hardware/proxmox-desktop.nix
         ./modules/desktop.nix
         ./modules/gaming.nix
         ./modules/gpu-passthrough.nix
@@ -19,9 +19,9 @@
     nixosConfigurations.macbook = nixpkgs.lib.nixosSystem {
       system = "x86_64-linux";
       modules = [
+        ./configuration.nix
         ./hardware/macbook-pro.nix
         ./modules/desktop.nix
-        ./configuration.nix
       ];
     };
   };
