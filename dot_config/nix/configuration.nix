@@ -1,10 +1,10 @@
 { config, pkgs, ... }:
 {
-  imports =
-    [ # Include the results of the hardware scan.
-     # ./modules/gpu-passthrough.nix
-     # ./modules/gaming.nix
-    ];
+
+  fileSystems."/nas" = {
+    device = "192.168.1.115:/mnt/casino/downloads";
+    fsType = "nfs";
+  };
 
   boot.loader.systemd-boot.enable = true;
   boot.loader.efi.canTouchEfiVariables = true;
