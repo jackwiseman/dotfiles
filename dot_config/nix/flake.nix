@@ -12,5 +12,12 @@
         ./configuration.nix
       ];
     };
+    nixosConfigurations.macbook = nixpkgs.lib.nixosSystem {
+      system = "x86_64-linux";
+      modules = [
+        ./hardware/macbook-pro.nix
+        ./configuration.nix
+      ];
+    };
   };
 }

@@ -4,18 +4,18 @@
     [ # Include the results of the hardware scan.
       ./hardware-configuration.nix
       ./modules/desktop.nix
-      ./modules/gpu-passthrough.nix
-      ./modules/gaming.nix
+     # ./modules/gpu-passthrough.nix
+     # ./modules/gaming.nix
     ];
 
-  # boot.loader.systemd-boot.enable = true;
-  # boot.loader.efi.canTouchEfiVariables = true;
+  boot.loader.systemd-boot.enable = true;
+  boot.loader.efi.canTouchEfiVariables = true;
 
-  boot.loader.grub = {
-    enable = true;
-    device = "/dev/sda";
-    useOSProber = true;
-  };
+  # boot.loader.grub = {
+  #  enable = true;
+  #  device = "/dev/sda";
+  #  useOSProber = true;
+  # };
 
   networking = {
     hostName = "jackOS";
@@ -64,6 +64,10 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
+  services.keyd = {
+    enable = true;
+  };
+
   environment.systemPackages = with pkgs; [
      chezmoi
      delta
@@ -82,6 +86,7 @@
      taskwarrior3
      taskwarrior-tui
      tmux
+     xcape
      zoxide
   ];
 

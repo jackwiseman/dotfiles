@@ -16,6 +16,8 @@ in
       enable = true;
       wayland = true;
     };
+
+    desktopManager.gnome.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
