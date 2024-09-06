@@ -17,8 +17,3 @@
     default = current
 [interactive]
     diffFilter = delta --color-only
-{{/* only use ssh keys if this is a well defined machine, otherwise use a token for private repos */}}
-{{ if not .ephemeral }}
-[url "git@github.com:"]
-    insteadOf = https://github.com
-{{ end }}

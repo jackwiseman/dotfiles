@@ -1,9 +1,7 @@
-{{- $ephemeral := promptBool "ephemeral" -}}
 {{- $yabai_extended := promptBool "enable yabai extended features" -}}
 {{- $flake_list := list "macbook" "desktop" -}}
 {{- $flake := promptChoice "choose flake" $flake_list -}}
 
 [data]
-	ephemeral = {{ $ephemeral }}
 	yabai_extended = {{ $yabai_extended }}
 	flake = {{- $flake | quote -}}
