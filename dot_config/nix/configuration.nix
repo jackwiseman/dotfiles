@@ -6,15 +6,6 @@
     fsType = "nfs";
   };
 
-  boot.loader.systemd-boot.enable = true;
-  boot.loader.efi.canTouchEfiVariables = true;
-
-  # boot.loader.grub = {
-  #  enable = true;
-  #  device = "/dev/sda";
-  #  useOSProber = true;
-  # };
-
   networking = {
     hostName = "jackOS";
     networkmanager.enable = true;

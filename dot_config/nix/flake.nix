@@ -14,6 +14,7 @@
         ./modules/desktop.nix
         ./modules/gaming.nix
         ./modules/gpu-passthrough.nix
+        ./modules/boot-grub.nix
       ];
     };
     nixosConfigurations.macbook = nixpkgs.lib.nixosSystem {
@@ -22,6 +23,7 @@
         ./configuration.nix
         ./hardware/macbook-pro.nix
         ./modules/desktop.nix
+        ./modules/boot-systemd.nix
       ];
     };
   };
