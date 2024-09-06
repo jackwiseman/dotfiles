@@ -53,10 +53,6 @@
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
-  services.keyd = {
-    enable = true;
-  };
-
   environment.systemPackages = with pkgs; [
      chezmoi
      delta
@@ -104,27 +100,6 @@
     enable = true;
     settings.PasswordAuthentication = false;
     settings.KbdInteractiveAuthentication = false;
-  };
-
-  services.kanata = {
-    enable = false;
-    keyboards = {
-      internalKeyboard = {
-        config = ''
-          (defsrc
-           caps
-          )
-
-          (defalias
-           escctrl (tap-hold 100 100 esc lctrl)
-          )
-
-          (deflayer base
-           @escctrl
-          )
-        '';
-      };
-    };
   };
 
   system.stateVersion = "24.05"; # Did you read the comment?

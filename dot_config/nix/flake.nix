@@ -24,6 +24,9 @@
         ./hardware/macbook-pro.nix
         ./modules/desktop.nix
         ./modules/boot-systemd.nix
+        {
+          services.keyd.enable = true;
+        }
       ];
     };
   };
