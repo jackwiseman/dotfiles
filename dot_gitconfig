@@ -17,3 +17,5 @@
     default = current
 [interactive]
     diffFilter = delta --color-only
+[credential "https://git.wiseman.sh"]
+    helper = 1password

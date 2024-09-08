@@ -2,6 +2,7 @@
 { config, pkgs, ... }:
 let
   monaco-nerd-font = pkgs.callPackage ../packages/monaco-nerd-font.nix { inherit pkgs; };
+  git-credential-1password = pkgs.callPackage ../packages/git-credential-1password/default.nix { };
 in
 {
   services.xserver = {
@@ -22,6 +23,7 @@ in
 
   environment.systemPackages = with pkgs; [
     alacritty
+    git-credential-1password
     hdrop
     libreoffice-qt6-fresh
     lxqt.lxqt-openssh-askpass
