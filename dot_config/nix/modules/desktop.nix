@@ -31,7 +31,11 @@ in
     spotify
     vlc
     wl-clipboard
-    wofi
+    pinentry-rofi
+    libsecret
+    libnotify
+    # wofi
+    rofi-wayland-unwrapped
     wpaperd
     zathura
   ];
