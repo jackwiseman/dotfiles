@@ -25,9 +25,7 @@
         ./modules/desktop.nix
         ./modules/boot-systemd.nix
         ./modules/laptop-configuration.nix
-        {
-          services.keyd.enable = true;
-        }
+        ./modules/keyd.nix
       ];
     };
   };
