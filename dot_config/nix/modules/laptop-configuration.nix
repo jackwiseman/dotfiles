@@ -4,4 +4,11 @@
   environment.systemPackages = with pkgs; [
     brightnessctl
   ];
+
+  # not ideal, but cant figure out a graceful way to sleep currently
+  services.logind = {
+    # extraConfig = "HandlePowerKey=poweroff";
+    lidSwitch = "ignore";
+  };
+
 }

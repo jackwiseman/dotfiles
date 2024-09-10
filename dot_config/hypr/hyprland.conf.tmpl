@@ -186,8 +186,6 @@ bind = $mainMod, E, exec, $fileManager
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, RETURN, fullscreen, 1
 bind = SUPER, SPACE, exec, $menu
-bind = $mainMod, P, pseudo, # dwindle
-# bind = $mainMod, J, togglesplit, # dwindle
 
 # Move focus with mainMod + arrow keys
 bind = $mainMod, h, movefocus, l
@@ -255,6 +253,8 @@ windowrulev2 = suppressevent maximize, class:.* # You'll probably like this.
 {{ if eq .flake "macbook" }}
 bind = $mainMod, Down, exec, wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bind = $mainMod, Up, exec, wpctl set-volume -l 1 @DEFAULT_AUDIO_SINK@ 5%+
+
+bindl = , switch:Lid Switch, exec, hyprlock
 {{ end }}
 
 {{ if eq .flake "desktop" }}

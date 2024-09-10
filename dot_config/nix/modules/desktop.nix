@@ -69,6 +69,7 @@ in
     firefox.enable = true;
     _1password-gui.enable = true;
     hyprland.enable = true;
+    hyprlock.enable = true;
     waybar.enable = true;
   };
 }
