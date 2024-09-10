@@ -11,7 +11,6 @@ README.md
 
 Brewfile
 .taskrc
-.config/1Password
 .config/karabiner
 .config/yabai
 .config/skhd
