@@ -34,6 +34,9 @@ $menu = pgrep rofi >/dev/null 2>&1 && killall rofi || rofi -show drun
 exec-once = wpaperd
 exec-once = waybar
 exec-once = hdrop -b $terminal --class scratch
+exec-once = bluetoothctl connect 70:8C:F2:86:18:EB
+# exec-once = waybar & hyprpaper & firefox
+
 
 #############################
 ### ENVIRONMENT VARIABLES ###
@@ -43,6 +46,7 @@ exec-once = hdrop -b $terminal --class scratch
 
 env = XCURSOR_SIZE,24
 env = HYPRCURSOR_SIZE,24
+
 
 #####################
 ### LOOK AND FEEL ###
@@ -124,10 +128,8 @@ master {
 }
 
 # https://wiki.hyprland.org/Configuring/Variables/#misc
-misc { 
-	force_default_wallpaper = 0 # Set to 0 or 1 to disable the anime mascot wallpapers
-	disable_hyprland_logo = true
-}
+# misc { 
+#     force_default_wallpaper = -1 # Set to 0 or 1 to disable the anime mascot wallpapers
 #     disable_hyprland_logo = false # If true disables the random hyprland logo / anime girl background. :(
 # }
 
@@ -177,12 +179,12 @@ device {
 $mainMod = ALT # Sets "Windows" key as main modifier
 
 # Example binds, see https://wiki.hyprland.org/Configuring/Binds/ for more
-bind = $mainMod, Q, killactive,
+bind = $mainMod, Q, exec, $terminal
+bind = $mainMod, C, killactive,
 bind = $mainMod, M, exit,
 bind = $mainMod, E, exec, $fileManager
 bind = $mainMod, V, togglefloating,
 bind = $mainMod, RETURN, fullscreen, 1
-bind = $mainMod, F, fullscreen
 bind = SUPER, SPACE, exec, $menu
 
 # Move focus with mainMod + arrow keys
