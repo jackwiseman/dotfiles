@@ -6,10 +6,10 @@
     "margin-right": 10,
     "height" : 35,
     "modules-left": [
-      "hyprland/workspaces",
+      "sway/workspaces",
     ],
     "modules-center": [
-      "hyprland/window"
+      "sway/window"
     ],
     "modules-right": [
     "battery",
@@ -17,24 +17,26 @@
     "network",
     "clock",
     ],
-    "hyprland/window": {
+    "sway/window": {
       "format": "{}",
       "max-length": 35,
       "rewrite": {
-        "": "Hyprland"
+        "": "Sway"
       },
       "separate-outputs": true,
     },
-    "hyprland/workspaces": {
+    "sway/workspaces": {
       "format": "{icon}",
       "on-click": "activate",
       "format-icons": {
-        "active": " ",
+        "focused": " ",
       },
       "sort-by-number": true,
       "persistent-workspaces": {
-        "*": 4, // 5 workspaces by default on every monitor
-        "HDMI-A-1": 3 // but only three on HDMI-A-1
+      	"1": [],
+      	"2": [],
+      	"3": [],
+      	"4": [],
       },
     },
     "clock": {

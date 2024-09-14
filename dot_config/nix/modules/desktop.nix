@@ -1,5 +1,5 @@
 # extras needed for a full-fledged desktop
-{ config, pkgs, ... }:
+{ inputs, config, pkgs, ... }:
 let
   monaco-nerd-font = pkgs.callPackage ../packages/monaco-nerd-font.nix { inherit pkgs; };
   git-credential-1password = pkgs.callPackage ../packages/git-credential-1password/default.nix { };
@@ -38,6 +38,7 @@ in
     rofi-wayland-unwrapped
     wpaperd
     zathura
+    waybar
   ];
 
   xdg.mime.defaultApplications = {
@@ -68,8 +69,15 @@ in
   programs = {
     firefox.enable = true;
     _1password-gui.enable = true;
-    hyprland.enable = true;
+    sway = {
+      enable = true;
+      package = pkgs.swayfx;
+    };
+    hyprland = {
+      enable = true;
+      package = inputs.hyprland.packages.${pkgs.stdenv.hostPlatform.system}.hyprland;
+      xwayland.enable = true;
+    };
     hyprlock.enable = true;
-    waybar.enable = true;
   };
 }

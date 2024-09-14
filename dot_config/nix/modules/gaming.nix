@@ -11,13 +11,14 @@
   programs = {
     steam = {
       enable = true;
-      remotePlay.openFirewall = true;
-      dedicatedServer.openFirewall = true;
+      # remotePlay.openFirewall = true;
+      # dedicatedServer.openFirewall = true;
       extraCompatPackages = with pkgs; [ proton-ge-bin ];
 
       gamescopeSession.enable = true;
     };
 
+    gamescope.enable = true;
     gamemode.enable = true;
   };
 }
