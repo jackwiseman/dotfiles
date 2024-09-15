@@ -25,7 +25,7 @@ set $menu rofi -show drun | xargs swaymsg exec --
 ### Output configuration
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-output * bg /nas/wallpapers/wallpaper.jpg fill
+# output * bg /nas/wallpapers/wallpaper.jpg fill
 #
 # Example configuration:
 #
@@ -94,11 +94,10 @@ output * bg /nas/wallpapers/wallpaper.jpg fill
     bindsym $mod+$down focus down
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
-    # Or use $mod+[up|down|left|right]
-    bindsym $mod+Left focus left
-    bindsym $mod+Down focus down
-    bindsym $mod+Up focus up
-    bindsym $mod+Right focus right
+    
+    # audio
+    bindsym $mod+Down exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+    bindsym $mod+Up exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
@@ -167,11 +166,13 @@ bar {
     swaybar_command waybar
 }
 
+exec wpaperd
+# exec $terminal
+
 default_border none
 
-gaps outer 10
 gaps inner 10
 
-corner_radius 8
+corner_radius 10
 
 # include /etc/sway/config.d/*
