@@ -169,7 +169,8 @@ bar {
 exec wpaperd
 # exec $terminal
 
-default_border none
+default_border pixel 2
+client.focused "#83a598" "#83a598" "#ffffff" "#83a598"
 
 gaps inner 10
 
