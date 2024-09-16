@@ -23,6 +23,8 @@ set $term alacritty
 set $menu rofi -show drun | xargs swaymsg exec --
 
 ### Output configuration
+
+output DP-1 scale 1.5
 #
 # Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
 # output * bg /nas/wallpapers/wallpaper.jpg fill
