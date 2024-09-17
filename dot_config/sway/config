@@ -21,19 +21,9 @@ set $term alacritty
 # on the original workspace that the command was run on.
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
 set $menu rofi -show drun | xargs swaymsg exec --
-
-### Output configuration
+set $1password 1password --quick-access | xargs swaymsg exec --
 
 output DP-1 scale 1.5
-#
-# Default wallpaper (more resolutions are available in /run/current-system/sw/share/backgrounds/sway/)
-# output * bg /nas/wallpapers/wallpaper.jpg fill
-#
-# Example configuration:
-#
-#   output HDMI-A-1 resolution 1920x1080 position 1920,0
-#
-# You can get the names of your outputs by running: swaymsg -t get_outputs
 
 ### Idle configuration
 #
@@ -76,12 +66,18 @@ output DP-1 scale 1.5
     # Start your launcher
     bindsym $altMod+Space exec $menu
 
+    bindsym Control+Shift+Space exec $1password
+
+    # for_window [title="(Quick Access)"] fullscreen enable sticky enable
+
     # Drag floating windows by holding down $mod and left mouse button.
     # Resize them with right mouse button + $mod.
     # Despite the name, also works for non-floating windows.
     # Change normal to inverse to use left mouse button for resizing and right
     # mouse button for dragging.
     floating_modifier $mod normal
+
+    focus_follows_mouse no
 
     # Reload the configuration file
     bindsym $mod+Shift+c reload
@@ -97,20 +93,11 @@ output DP-1 scale 1.5
     bindsym $mod+$up focus up
     bindsym $mod+$right focus right
     
-    # audio
-    bindsym $mod+Down exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-    bindsym $mod+Up exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
-
     # Move the focused window with the same, but add Shift
     bindsym $mod+Shift+$left move left
     bindsym $mod+Shift+$down move down
     bindsym $mod+Shift+$up move up
     bindsym $mod+Shift+$right move right
-    # Ditto, with arrow keys
-    bindsym $mod+Shift+Left move left
-    bindsym $mod+Shift+Down move down
-    bindsym $mod+Shift+Up move up
-    bindsym $mod+Shift+Right move right
 #
 # Workspaces:
 #
@@ -141,11 +128,6 @@ output DP-1 scale 1.5
 #
 # Layout stuff:
 #
-    # You can "split" the current object of your focus with
-    # $mod+b or $mod+v, for horizontal and vertical splits
-    # respectively.
-    # bindsym $mod+b splith
-    # bindsym $mod+v splitv
 
     # Switch the current container between different layout styles
     bindsym $mod+s layout stacking
@@ -160,10 +142,13 @@ output DP-1 scale 1.5
 
 bindsym $mod+r mode "resize"
 
+# audio
+bindsym $mod+Down exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
+bindsym $mod+Up exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+
+
 #
 # Status Bar:
-#
-# Read `man 5 sway-bar` for more information about this section.
 bar {
     swaybar_command waybar
 }
