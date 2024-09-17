@@ -17,8 +17,6 @@ in
       enable = true;
       wayland = true;
     };
-
-    # desktopManager.gnome.enable = true;
   };
 
   environment.systemPackages = with pkgs; [
@@ -37,7 +35,6 @@ in
     rofi-wayland-unwrapped
     wpaperd
     zathura
-    # waybar
   ];
 
   xdg.mime.defaultApplications = {
@@ -47,7 +44,6 @@ in
   fonts = {
     packages = with pkgs; [
       monaco-nerd-font
-      (nerdfonts.override { fonts = [ "JetBrainsMono" ]; })
     ];
     fontconfig = {
       defaultFonts = {
@@ -55,6 +51,9 @@ in
       };
     };
   };
+
+  hardware.bluetooth.enable = true;
+  hardware.bluetooth.powerOnBoot = true;
 
   hardware.pulseaudio.enable = false;
   security.rtkit.enable = true;
@@ -73,10 +72,5 @@ in
       enable = true;
       package = pkgs.swayfx;
     };
-    hyprland = {
-      enable = true;
-      xwayland.enable = true;
-    };
-    hyprlock.enable = true;
   };
 }
