@@ -23,16 +23,16 @@ in
     alacritty
     git-credential-1password
     hdrop
+    libnotify
     libreoffice-qt6-fresh
+    libsecret
     lxqt.lxqt-openssh-askpass
     obsidian
+    pinentry-rofi
+    rofi-wayland-unwrapped
     spotify
     vlc
     wl-clipboard
-    pinentry-rofi
-    libsecret
-    libnotify
-    rofi-wayland-unwrapped
     wpaperd
     zathura
   ];
@@ -67,6 +67,7 @@ in
   programs = {
     waybar.enable = true;
     firefox.enable = true;
+    _1password.enable = true;
     _1password-gui.enable = true;
     sway = {
       enable = true;

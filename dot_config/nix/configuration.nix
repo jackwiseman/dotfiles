@@ -1,15 +1,6 @@
 { config, pkgs, ... }:
 {
-
-  fileSystems."/nas" = {
-    device = "192.168.1.115:/mnt/casino/downloads";
-    fsType = "nfs";
-  };
-
-  networking = {
-    hostName = "jackOS";
-    networkmanager.enable = true;
-  };
+  networking.networkmanager.enable = true;
 
   time.timeZone = "America/Los_Angeles";
 
@@ -20,16 +11,12 @@
       isNormalUser = true;
       description = "jack";
       extraGroups = [ "networkmanager" "wheel" "uinput" "docker" ];
-      packages = with pkgs; [
-      #  thunderbird
-      ];
       openssh.authorizedKeys.keys = [
         "ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAICHVGCExjxSPKletSqxBsgoYvLdP4IcaK6ZEajjrESTI"
       ];
     };
   };
 
-  # Allow unfree packages
   nixpkgs.config.allowUnfree = true;
 
   programs.ssh = {
@@ -37,16 +24,10 @@
     askPassword = "${pkgs.lxqt.lxqt-openssh-askpass}/bin/lxqt-openssh-askpass";
   };
 
-  # home.sessionVariables = {
-  #   SSH_ASKPASS = "${pkgs.lxqt.lxqt-openssh-askpass}/bin/lxqt-openssh-askpass";
-  # };
-
   programs.zsh = {
     enable = true;
     enableCompletion = false;
   };
-
-  programs._1password = { enable = true; };
 
   nix.settings.experimental-features = [ "nix-command" "flakes" ];
 
@@ -65,31 +46,10 @@
      neovim
      nodejs_22
      ripgrep
-     taskwarrior3
-     taskwarrior-tui
      tmux
      xcape
      zoxide
   ];
-
-  systemd.timers."task-sync" = {
-    wantedBy = [ "timers.target" ];
-      timerConfig = {
-        OnBootSec = "5m";
-        OnUnitActiveSec = "5m";
-        Unit = "task-sync.service";
-      };
-  };
-
-  systemd.services."task-sync" = {
-    script = ''
-      ${pkgs.taskwarrior3}/bin/task sync
-    '';
-    serviceConfig = {
-      Type = "oneshot";
-      User = "jack";
-    };
-  };
 
   virtualisation.docker.enable = true;
 
@@ -99,5 +59,5 @@
     settings.KbdInteractiveAuthentication = false;
   };
 
-  system.stateVersion = "24.05"; # Did you read the comment?
+  system.stateVersion = "24.05";
 }
