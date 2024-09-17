@@ -44,9 +44,10 @@
       mario = nixpkgs.lib.nixosSystem {
         system = "x86_64-linux";
         modules = [
+	  ./hardware/mario.nix
           ./configuration.nix
           ./modules/boot-grub.nix
-          { networking.hostName = "mario"; }
+          { networking.hostName = "mario-nix"; }
         ];
       };
     };
