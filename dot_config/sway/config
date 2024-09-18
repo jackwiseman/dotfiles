@@ -165,5 +165,6 @@ client.focused "#83a598" "#83a598" "#ffffff" "#83a598"
 gaps inner 10
 
 corner_radius 10
+default_dim_inactive float .3
 
 # include /etc/sway/config.d/*
