@@ -146,6 +146,9 @@ bindsym $mod+r mode "resize"
 bindsym $mod+Down exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
 bindsym $mod+Up exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
 
+# audio
+bindsym $mod+Shift+Up exec brightnessctl s 5%+
+bindsym $mod+Shift+Down exec brightnessctl s 5%-
 
 #
 # Status Bar:

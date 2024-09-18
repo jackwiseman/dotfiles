@@ -22,7 +22,6 @@ in
   environment.systemPackages = with pkgs; [
     alacritty
     git-credential-1password
-    hdrop
     libnotify
     libreoffice-qt6-fresh
     libsecret
@@ -34,6 +33,7 @@ in
     vlc
     wl-clipboard
     wpaperd
+    xfce.thunar
     zathura
   ];
 
