@@ -8,6 +8,8 @@ in
   services.xserver = {
     enable = true;
 
+    excludePackages = [ pkgs.xterm ];
+
     xkb = {
       layout = "us";
       variant = "";
@@ -21,6 +23,7 @@ in
 
   environment.systemPackages = with pkgs; [
     alacritty
+    avizo
     git-credential-1password
     libnotify
     libreoffice-qt6-fresh
@@ -33,7 +36,7 @@ in
     vlc
     wl-clipboard
     wpaperd
-    xfce.thunar
+    nautilus
     zathura
   ];
 

@@ -143,12 +143,12 @@ output DP-1 scale 1.5
 bindsym $mod+r mode "resize"
 
 # audio
-bindsym $mod+Down exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%-
-bindsym $mod+Up exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 5%+
+bindsym $mod+Down exec volumectl -u down
+bindsym $mod+Up exec volumectl -u up
 
 # audio
-bindsym $mod+Shift+Up exec brightnessctl s 5%+
-bindsym $mod+Shift+Down exec brightnessctl s 5%-
+bindsym $mod+Shift+Up exec lightctl up
+bindsym $mod+Shift+Down exec lightctl down
 
 #
 # Status Bar:
@@ -157,7 +157,7 @@ bar {
 }
 
 exec wpaperd
-# exec $terminal
+exec avizo-service
 
 default_border pixel 2
 client.focused "#83a598" "#83a598" "#ffffff" "#83a598"
@@ -165,6 +165,6 @@ client.focused "#83a598" "#83a598" "#ffffff" "#83a598"
 gaps inner 10
 
 corner_radius 10
-default_dim_inactive float .3
+default_dim_inactive .3
 
 # include /etc/sway/config.d/*
