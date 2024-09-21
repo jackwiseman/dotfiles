@@ -33,6 +33,7 @@ in
     pinentry-rofi
     rofi-wayland-unwrapped
     spotify
+    swayimg
     vlc
     wl-clipboard
     wpaperd
