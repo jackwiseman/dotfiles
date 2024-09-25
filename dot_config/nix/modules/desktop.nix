@@ -30,6 +30,7 @@ in
     libsecret
     lxqt.lxqt-openssh-askpass
     obsidian
+    overskride
     pinentry-rofi
     rofi-wayland-unwrapped
     spotify
