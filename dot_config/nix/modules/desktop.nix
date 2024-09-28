@@ -40,6 +40,7 @@ in
     wpaperd
     nautilus
     zathura
+    zoom-us
   ];
 
   xdg.mime.defaultApplications = {

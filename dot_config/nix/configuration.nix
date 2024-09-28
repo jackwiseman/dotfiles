@@ -38,6 +38,7 @@
      fzf
      gcc
      git
+     gnumake
      go
      jq
      killall
