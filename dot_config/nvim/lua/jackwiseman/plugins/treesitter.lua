@@ -17,7 +17,7 @@ return {
 				'go',
 				'lua',
 				'markdown',
-				'markdown_inline'
+				'markdown_inline',
 				'python',
 				'regex',
 				'rust',
