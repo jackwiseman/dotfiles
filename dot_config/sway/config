@@ -24,6 +24,8 @@ set $menu rofi -show drun | xargs swaymsg exec --
 set $1password 1password --quick-access | xargs swaymsg exec --
 
 output DP-1 scale 1.5
+output DP-3 scale 1.5
+output HDMI-A-1 mode 1920x1080
 
 ### Idle configuration
 #
