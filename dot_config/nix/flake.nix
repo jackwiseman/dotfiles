@@ -15,7 +15,7 @@
           ./configuration.nix
           ./hardware/proxmox-desktop.nix
           ./modules/desktop.nix
-          ./modules/gaming.nix
+          # ./modules/gaming.nix
           ./modules/gpu-passthrough.nix
           ./modules/boot-grub.nix
           ./modules/taskwarrior.nix
