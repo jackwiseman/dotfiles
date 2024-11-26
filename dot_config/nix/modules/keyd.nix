@@ -19,6 +19,7 @@
             t = "C-t";
             left = "home";
             right = "end";
+            space = "M-space";
           };
         };
       };
