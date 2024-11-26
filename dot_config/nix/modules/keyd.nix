@@ -9,10 +9,16 @@
         settings = {
           main = {
             capslock = "overload(control, esc)";
-
-            # wip mac style keybindings
-            # only issue is cmd + space for spotlight vs autocomplete in zsh
-            # leftmeta = "rightcontrol"
+            esc = "capslock";
+            leftmeta = "layer(cmd)";
+          };
+          cmd = {
+            c = "C-c";
+            v = "C-v";
+            x = "C-x";
+            t = "C-t";
+            left = "home";
+            right = "end";
           };
         };
       };
