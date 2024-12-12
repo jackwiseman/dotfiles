@@ -2,9 +2,7 @@
 
 dockutil --remove all
 dockutil --add /Applications/Launchpad.app
-{{- if not .ephemeral }}
 dockutil --add /Applications/Messages.app
-{{- end }}
 dockutil --add /Applications/Firefox.app
 dockutil --add /Applications/Spotify.app
 dockutil --add /Applications/Plex.app
