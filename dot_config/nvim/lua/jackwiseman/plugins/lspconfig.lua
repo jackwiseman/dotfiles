@@ -56,10 +56,15 @@ return {
 			on_attach = on_attach,
 		})
 
-		lspconfig["tsserver"].setup({
+		lspconfig["pyright"].setup({
 			capabilities = capabilities,
 			on_attach = on_attach,
-			cmd = vim.list_extend({ "fnm", "exec", "--using=default" }, lspconfig["tsserver"].document_config.default_config.cmd),
+		})
+
+		lspconfig["ts_ls"].setup({
+			capabilities = capabilities,
+			on_attach = on_attach,
+			cmd = vim.list_extend({ "fnm", "exec", "--using=default" }, lspconfig["ts_ls"].document_config.default_config.cmd),
 		})
 	end
 }
