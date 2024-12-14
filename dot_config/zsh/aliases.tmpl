@@ -20,6 +20,9 @@ alias mv="mv -iv"
 alias v=$EDITOR
 alias vi=$EDITOR
 
+# misc
+alias :q="exit"
+
 {{ if eq .chezmoi.os "darwin" }}
 alias obsidian="cd ~/obsidian && nvim -c ':Telescope find_files'"
 {{ end }}
