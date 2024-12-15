@@ -43,3 +43,11 @@ bindkey -e
 source $ZDOTDIR/aliases
 
 bindkey '^ ' autosuggest-accept
+
+ssht() {
+    if [ $# -eq 1 ]; then
+        ssh -t "$1" 'tmux attach -t ssh || tmux new -s ssh'
+    else
+        echo "Usage: ssht user@host"
+    fi
+}
