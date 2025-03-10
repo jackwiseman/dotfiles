@@ -13,11 +13,11 @@ export HISTSIZE=10000
 export SAVEHIST=10000
 
 export FZF_ALT_C_COMMAND="" # disable fzf's annoying alt-c bind
-{{ if or (eq .flake "desktop") (eq .flake "macbook") }}
-export SSH_AUTH_SOCK="$HOME/.1password/agent.sock" # should only be set on desktop
-{{ end }}
 
-{{ if eq .chezmoi.os "darwin" }}
+export SSH_AUTH_SOCK="$HOME/.1password/agent.sock" # should only be set on desktop
+
+
+
 export GOPATH=~/go
 export DISABLE_AUTO_TITLE=true
 export HOMEBREW_NO_AUTO_UPDATE=1
@@ -27,4 +27,5 @@ export EDITOR=$(brew --prefix)/bin/nvim
 # use 1password for ssh
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
-{{ end }}
+
+. "$HOME/.cargo/env"
