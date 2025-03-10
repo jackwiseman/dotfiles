@@ -17,7 +17,8 @@ return {
 		mason_lspconfig.setup({
 			ensure_installed = {
 				'gopls',
-				'tsserver'
+				'pyright',
+				'ts_ls'
 			},
 			automatic_installation = true
 		})

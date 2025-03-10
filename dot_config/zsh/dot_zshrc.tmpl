@@ -26,6 +26,7 @@ path=(
 	/usr/local/go/bin
 	$GOPATH/bin
 	$HOME/.local/bin
+	$HOME/.cargo/bin
 )
 # export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 {{- end }}
@@ -43,3 +44,11 @@ bindkey -e
 source $ZDOTDIR/aliases
 
 bindkey '^ ' autosuggest-accept
+
+ssht() {
+    if [ $# -eq 1 ]; then
+        ssh -t "$1" 'tmux attach -t ssh || tmux new -s ssh'
+    else
+        echo "Usage: ssht user@host"
+    fi
+}
