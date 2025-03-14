@@ -15,6 +15,7 @@ return {
 				'c',
 				'cpp',
 				'go',
+				'hcl',
 				'lua',
 				'markdown',
 				'markdown_inline',
