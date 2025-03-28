@@ -1,3 +1,11 @@
 packages:
   debian:
+    - alacritty
+    - firefox-esr
+    - fzf
+    - neovim # pretty sure this is a few versions behind
+    - sway # look into swayfx
     - tmux
+    - waybar
+    - zoxide
+    - zsh
