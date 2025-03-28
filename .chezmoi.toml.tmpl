@@ -1,3 +1,5 @@
+scriptTempDir = "~/tmp"
+
 {{- $yabai_extended := promptBool "enable yabai extended features" -}}
 {{- $flake_list := list "macbook" "desktop" "mario" -}}
 {{- $flake := promptChoice "choose flake" $flake_list -}}
