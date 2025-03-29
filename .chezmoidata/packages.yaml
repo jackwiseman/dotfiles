@@ -2,8 +2,10 @@ packages:
   debian:
     - alacritty
     - firefox-esr
+    - firmware-amd-graphics
     - fzf
     - neovim # pretty sure this is a few versions behind
+    - rofi
     - sway # look into swayfx
     - tmux
     - waybar
