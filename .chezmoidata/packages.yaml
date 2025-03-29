@@ -7,6 +7,7 @@ packages:
     - neovim # pretty sure this is a few versions behind
     - rofi
     - sway # look into swayfx
+    - taskwarrior
     - tmux
     - waybar
     - zoxide
