@@ -1,11 +1,3 @@
-# Default config for sway
-#
-# Copy this to ~/.config/sway/config and edit it to your liking.
-#
-# Read `man 5 sway` for a complete reference.
-
-### Variables
-#
 # Logo key. Use Mod1 for Alt.
 set $mod Mod1
 set $altMod Mod4
@@ -60,7 +52,7 @@ output HDMI-A-1 mode 1920x1080
 # Basics:
 #
     # Start a terminal
-    bindsym $mod+Return maximize
+    bindsym $mod+Return exec $term
 
     # Kill focused window
     bindsym $mod+q kill
