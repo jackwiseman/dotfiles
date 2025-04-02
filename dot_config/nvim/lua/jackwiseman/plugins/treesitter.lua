@@ -23,6 +23,7 @@ return {
 				'regex',
 				'rust',
 				'starlark',
+				'terraform',
 				'typescript',
 				'vim',
 			},
