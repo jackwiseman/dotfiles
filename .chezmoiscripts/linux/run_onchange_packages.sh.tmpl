@@ -1,3 +1,16 @@
 #!/bin/sh
 
-sudo apt install -y {{ .packages.debian | join " " }}
+sudo apt install -y {{ .packages.debian.apt | join " " }}
+{{ range .packages.debian.go -}}
+go install {{ . }}
+{{ end }}
+{{ range .tarballs -}}
+  # Download the tarball
+  curl -L -o /home/jack/{{ .binary }}.tar.gz {{ .url }}
+  
+  # Extract the binary to /usr/local/bin
+  sudo tar -xf /home/jack/{{ .binary }}.tar.gz -C /usr/local/bin {{ .binary }}
+  
+  # Clean up
+  rm /tmp/{{ .binary }}.tar.gz
+{{ end }}
