@@ -1,10 +1,12 @@
 #!/bin/sh
 
+{{ if eq .chezmoi.osRelease.id "debian" }}
+
 sudo apt install -y {{ .packages.debian.apt | join " " }}
 {{ range .packages.debian.go -}}
 go install {{ . }}
 {{ end }}
-{{ range .tarballs -}}
+{{ range .tarball -}}
   # Download the tarball
   curl -L -o /home/jack/{{ .binary }}.tar.gz {{ .url }}
   
@@ -14,3 +16,8 @@ go install {{ . }}
   # Clean up
   rm /tmp/{{ .binary }}.tar.gz
 {{ end }}
+
+{{ end }}
+
+{{ if eq .chezmoi.osRelease.id "arch" }}
+sudo pacman -Syu --noconfirm {{ .packages.arch | join " " }}

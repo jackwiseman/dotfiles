@@ -1,4 +1,15 @@
 packages:
+  arch:
+    - firefox
+    - alacritty
+    - neovim
+    - nmap
+    - rofi
+    - taskwarrior
+    - tmux
+    - unzip
+    - waybar
+    - zsh
   debian:
     apt:
       - alacritty
