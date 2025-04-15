@@ -5,7 +5,7 @@ packages:
     - neovim
     - nmap
     - rofi
-    - taskwarrior
+    - task
     - tmux
     - unzip
     - waybar
