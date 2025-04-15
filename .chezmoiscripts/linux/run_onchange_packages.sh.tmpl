@@ -16,6 +16,6 @@ go install {{ . }}
   rm /tmp/{{ .binary }}.tar.gz
 {{ end }}
 {{ else if eq .osid "arch" }}
-sudo pacman -Syu --noconfirm {{ .packages.arch.pacman | join " " }}
-yay -Syu --noconfirm {{ .packages.arch.yay | join " " }}
+sudo pacman -Syu --noconfirm --needed {{ .packages.arch.pacman | join " " }}
+yay -Syu --noconfirm --needed {{ .packages.arch.yay | join " " }}
 {{ end }}
