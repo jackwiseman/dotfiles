@@ -1,7 +1,6 @@
 #!/bin/sh
 
-{{ if eq .chezmoi.osRelease.id "debian" }}
-
+{{ if eq .osid "debian" }}
 sudo apt install -y {{ .packages.debian.apt | join " " }}
 {{ range .packages.debian.go -}}
 go install {{ . }}
@@ -16,10 +15,7 @@ go install {{ . }}
   # Clean up
   rm /tmp/{{ .binary }}.tar.gz
 {{ end }}
-
-{{ end }}
-
-{{ if eq .chezmoi.osRelease.id "arch" }}
+{{ else if eq .osid "arch" }}
 sudo pacman -Syu --noconfirm {{ .packages.arch.pacman | join " " }}
 yay -Syu --noconfirm {{ .packages.arch.yay | join " " }}
 {{ end }}

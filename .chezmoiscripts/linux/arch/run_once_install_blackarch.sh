@@ -16,3 +16,5 @@ sudo ./strap.sh
 
 # Enable multilib following https://wiki.archlinux.org/index.php/Official_repositories#Enabling_multilib and run:
 sudo pacman -Syu
+
+rm strap.sh
