@@ -8,7 +8,7 @@ scriptTempDir = "~/tmp"
 [data]
 	osid = {{ $osid | quote }}
 	{{- if and (hasKey .chezmoi.osRelease "id")  (eq .chezmoi.osRelease.id "arch") }}
-	blackarch = {{ promptBool "include blackarch repos?" false }}
+	blackarch = {{ promptBool "include blackarch repos" false }}
 	{{- else }}
 	blackarch = false
 	{{- end }}
