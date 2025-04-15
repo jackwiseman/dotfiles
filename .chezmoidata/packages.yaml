@@ -1,15 +1,17 @@
 packages:
   arch:
     pacman:
-      - firefox
       - alacritty
+      - atuin
+      - firefox
+      - fzf
       - neovim
-      - nmap
       - rofi
       - task
       - tmux
       - unzip
       - waybar
+      - zoxide
       - zsh
     yay:
       - ttf-monaco-nerd-font-git

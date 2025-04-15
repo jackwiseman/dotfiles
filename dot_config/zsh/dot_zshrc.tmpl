@@ -15,16 +15,13 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
-
 eval "$(zoxide init zsh --cmd cd)"
-
-# fzf completion
 eval "$(fzf --zsh)"
+eval "$(atuin init zsh)"
 
 {{ if eq .chezmoi.os "darwin" }}
 eval $(/opt/homebrew/bin/brew shellenv)
 eval "$(fnm env --use-on-cd)"
-eval "$(atuin init zsh)"
 
 path=(
 	$path
