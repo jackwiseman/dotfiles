@@ -1,12 +1,12 @@
 README.md
 .DS_Store
 
-{{- if eq .chezmoi.os "darwin" }}
-.chezmoiscripts/linux/*
+{{- if eq .osid "darwin" }}
+.chezmoiscripts/linux/**
 {{- end -}}
 
 {{- if eq .chezmoi.os "linux" }}
-.chezmoiscripts/mac/*
+.chezmoiscripts/mac/**
 .config/alacritty/alacritty.icns
 
 Brewfile
