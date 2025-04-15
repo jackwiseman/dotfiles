@@ -20,6 +20,10 @@ Brewfile
 .config/skhd
 {{- end -}}
 
+{{- if (eq .osid "linux-debian") }}
+.chezmoiscripts/linux/arch/*
+{{- end -}}
+
 {{- if eq .blackarch "false" }}
 .chezmoiscripts/linux/arch/install_blackarch.sh
 {{- end - }}
