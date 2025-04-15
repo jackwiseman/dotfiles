@@ -20,5 +20,6 @@ go install {{ . }}
 {{ end }}
 
 {{ if eq .chezmoi.osRelease.id "arch" }}
-sudo pacman -Syu --noconfirm {{ .packages.arch | join " " }}
+sudo pacman -Syu --noconfirm {{ .packages.arch.pacman | join " " }}
+sudo yay -Syu --noconfirm {{ .packages.arch.yay | join " " }}
 {{ end }}

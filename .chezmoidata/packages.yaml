@@ -1,15 +1,18 @@
 packages:
   arch:
-    - firefox
-    - alacritty
-    - neovim
-    - nmap
-    - rofi
-    - task
-    - tmux
-    - unzip
-    - waybar
-    - zsh
+    pacman:
+      - firefox
+      - alacritty
+      - neovim
+      - nmap
+      - rofi
+      - task
+      - tmux
+      - unzip
+      - waybar
+      - zsh
+    yay:
+      - ttf-monaco-nerd-font-git
   debian:
     apt:
       - alacritty
