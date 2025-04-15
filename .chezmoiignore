@@ -3,17 +3,20 @@ README.md
 
 {{- if eq .osid "darwin" }}
 .chezmoiscripts/linux/**
+.config/sway/*
+.config/nix/*
+.config/waybar/*
+.config/wpaperd/*
 {{- end -}}
 
-{{- if eq .chezmoi.os "linux" }}
-.chezmoiscripts/mac/**
-.config/alacritty/alacritty.icns
-
-Brewfile
-.taskrc
-.config/karabiner
-.config/yabai
-.config/skhd
-.hushlogin
+{{- if or (eq .osid "debian") (eq .osid "arch") }}
 .gitignore
+Brewfile
+.chezmoiscripts/mac/**
+.config/1Password/*
+.config/aerospace/*
+.config/alacritty/alacritty.icns
+.config/karabiner/*
+.config/karabiner/*
+.config/skhd
 {{- end -}}
