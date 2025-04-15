@@ -27,7 +27,7 @@ export EDITOR=nvim
 # use 1password for ssh
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 
-{{ if .osid eq "darwin" }}
+{{ if eq .osid "darwin" }}
 export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
 . "$HOME/.cargo/env"
 {{ end }}
