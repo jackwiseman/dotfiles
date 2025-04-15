@@ -4,7 +4,6 @@ README.md
 {{- if eq .osid "darwin" }}
 .chezmoiscripts/linux/**
 .config/sway/*
-.config/nix/*
 .config/waybar/*
 .config/wpaperd/*
 {{- end -}}
