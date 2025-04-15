@@ -21,3 +21,4 @@ go install {{ . }}
 
 {{ if eq .chezmoi.osRelease.id "arch" }}
 sudo pacman -Syu --noconfirm {{ .packages.arch | join " " }}
+{{ end }}
