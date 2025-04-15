@@ -24,6 +24,6 @@ Brewfile
 .chezmoiscripts/linux/arch/*
 {{- end -}}
 
-{{- if eq .blackarch "false" }}
+{{- if not .blackarch }}
 .chezmoiscripts/linux/arch/install_blackarch.sh
 {{- end -}}
