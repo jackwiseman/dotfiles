@@ -1,6 +1,6 @@
 #!/bin/sh
 
-{{ if eq .osid "debian" }}
+{{ if eq .osid "linux-debian" }}
 sudo apt install -y {{ .packages.debian.apt | join " " }}
 {{ range .packages.debian.go -}}
 go install {{ . }}
@@ -15,7 +15,7 @@ go install {{ . }}
   # Clean up
   rm /tmp/{{ .binary }}.tar.gz
 {{ end }}
-{{ else if eq .osid "arch" }}
+{{ else if eq .osid "linux-arch" }}
 sudo pacman -Syu --noconfirm --needed {{ .packages.arch.pacman | join " " }}
 yay -Syu --noconfirm --needed {{ .packages.arch.yay | join " " }}
 {{ end }}
