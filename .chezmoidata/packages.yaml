@@ -3,17 +3,22 @@ packages:
     pacman:
       - alacritty
       - atuin
+      - cifs-utils
       - firefox
       - fzf
+      - lazygit
       - neovim
       - rofi
+      - tailscale
       - task
       - tmux
       - unzip
       - waybar
+      - wl-clipboard
       - zoxide
       - zsh
     yay:
+      - mullvad-vpn
       - ttf-monaco-nerd-font-git
   debian:
     apt:
