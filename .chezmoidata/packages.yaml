@@ -7,8 +7,10 @@ packages:
       - firefox
       - fzf
       - lazygit
+      - lf
       - neovim
       - rofi
+      - swayimg
       - tailscale
       - task
       - tmux
@@ -18,7 +20,7 @@ packages:
       - zoxide
       - zsh
     yay:
-      - mullvad-vpn
+      - fnm
       - ttf-monaco-nerd-font-git
   debian:
     apt:

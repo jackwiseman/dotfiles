@@ -18,10 +18,10 @@ source ${ZIM_HOME}/init.zsh
 eval "$(zoxide init zsh --cmd cd)"
 eval "$(fzf --zsh)"
 eval "$(atuin init zsh)"
+eval "$(fnm env --use-on-cd)"
 
 {{ if eq .chezmoi.os "darwin" }}
 eval $(/opt/homebrew/bin/brew shellenv)
-eval "$(fnm env --use-on-cd)"
 
 path=(
 	$path
