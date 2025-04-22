@@ -10,7 +10,6 @@ README.md
 
 {{- if or (eq .osid "linux-debian") (eq .osid "linux-arch") }}
 .gitignore
-Brewfile
 .chezmoiscripts/mac/**
 .config/1Password/*
 .config/aerospace/*

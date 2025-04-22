@@ -1,5 +1,7 @@
 #!/bin/sh
 
+# packages.yaml hash: {{ include ".chezmoidata/packages.yaml" | sha256sum }}
+
 {{ if eq .osid "linux-debian" }}
 sudo apt install -y {{ .packages.debian.apt | join " " }}
 {{ range .packages.debian.go -}}
@@ -18,4 +20,16 @@ go install {{ . }}
 {{ else if eq .osid "linux-arch" }}
 sudo pacman -Syu --noconfirm --needed {{ .packages.arch.pacman | join " " }}
 yay -Syu --noconfirm --needed {{ .packages.arch.yay | join " " }}
+{{ else if eq .osid "darwin" }}
+brew bundle --file=/dev/stdin << EOF
+{{ range .packages.darwin.tap -}}
+tap "{{ . }}"
+{{ end }}
+{{ range .packages.darwin.brew -}}
+brew "{{ . }}"
+{{ end }}
+{{ range .packages.darwin.cask -}}
+cask "{{ . }}"
+{{ end }}
+EOF
 {{ end }}
