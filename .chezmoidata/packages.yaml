@@ -4,6 +4,8 @@ packages:
       - alacritty
       - atuin
       - cifs-utils
+      - docker
+      - docker-compose
       - firefox
       - fzf
       - git-delta
