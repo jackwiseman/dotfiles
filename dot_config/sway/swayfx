@@ -1,0 +1,6 @@
+corner_radius 10
+blur enable
+blur_radius 3
+blur_passes 3
+set $opacity 0.9
+for_window [app_id="Alacritty"] opacity $opacity
