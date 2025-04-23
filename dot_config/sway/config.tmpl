@@ -19,6 +19,7 @@ set $term alacritty
 # set $menu dmenu_path | wmenu | xargs swaymsg exec --
 set $menu wofi --show drun | xargs swaymsg exec --
 set $1password 1password --quick-access | xargs swaymsg exec --
+set $browser firefox
 
 output DP-1 scale 1.5
 output DP-3 scale 1.5
@@ -49,6 +50,9 @@ input "type:touchpad" {
 
     # Start your launcher
     bindsym $altMod+Space exec $menu
+
+    # Start (b)rowser
+    bindsym $mod+b exec $browser
 
     bindsym Control+Shift+Space exec $1password
 
