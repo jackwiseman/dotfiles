@@ -35,7 +35,12 @@ input "5426:131:Razer_Razer_Basilisk_X_HyperSpeed" {
 }
 
 input "type:touchpad" {
-  natural_scroll enabled
+    tap enabled
+    tap_button_map lrm
+    natural_scroll enabled
+    pointer_accel 0.3
+    accel_profile adaptive
+    dwt enabled
 }
 
 ### Key bindings
