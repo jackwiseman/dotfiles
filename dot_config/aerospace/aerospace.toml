@@ -103,7 +103,7 @@ run = 'layout floating'
 alt-enter = 'exec-and-forget open -n /Applications/Alacritty.app'
 alt-space = 'exec-and-forget if [ $(aerospace list-workspaces --focused) != S ]; then aerospace workspace S; else aerospace workspace-back-and-forth; fi'
 
-alt-b = 'exec-and-forget open -n /Applications/Firefox.app'
+alt-b = 'exec-and-forget open -n /Applications/Zen.app'
 
 alt-f = 'fullscreen --no-outer-gaps'
 

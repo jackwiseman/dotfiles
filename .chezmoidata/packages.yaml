@@ -97,6 +97,7 @@ packages:
       - xz
       - yarn
       - zlib
+      - zen-browser
       - zoxide
     cask:
       - 1password
