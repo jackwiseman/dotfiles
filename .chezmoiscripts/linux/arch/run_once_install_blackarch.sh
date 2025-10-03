@@ -1,5 +1,11 @@
 #!/bin/sh
 
+# Exit early if blackarch repo is already added
+if grep -q "blackarch" /etc/pacman.conf; then
+    echo "BlackArch repository is already added."
+    exit 0
+fi
+
 # See https://blackarch.org/downloads#install-repo
 
 # Run https://blackarch.org/strap.sh as root and follow the instructions.
