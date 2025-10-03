@@ -23,7 +23,11 @@ set $browser firefox
 
 output DP-1 scale 1.5
 output DP-3 scale 1.5
-output HDMI-A-1 mode 1920x1080
+
+output "Samsung Electric Company LU28R55 H4ZN604277" {
+  mode 3840x2160@60Hz
+  scale 2
+}
 
 # inputs
 
@@ -150,9 +154,10 @@ bar {
     status_command while date +'%Y-%m-%d %X'; do sleep 1; done
 
     colors {
-    statusline #ffffff
-    background #323232
-    inactive_workspace #32323200 #32323200 #5c5c5c
+      statusline #ffffff
+      background #323232
+      inactive_workspace #32323200 #32323200 #5c5c5c
+    }
 }
 
 exec wpaperd
@@ -160,6 +165,6 @@ exec wpaperd
 default_border pixel 2
 client.focused "#83a598" "#83a598" "#ffffff" "#83a598"
 
-gaps inner 10
+# gaps inner 10
 
 # include swayfx
