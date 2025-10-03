@@ -19,6 +19,9 @@ go install {{ . }}
 {{ end }}
 {{ else if eq .osid "linux-arch" }}
 sudo pacman -Syu --noconfirm --needed {{ .packages.arch.pacman | join " " }}
+{{ if .blackarch }}
+sudo pacman -Syu --noconfirm --needed {{ .packages.arch.blackarch | join " " }}
+{{ end }}
 yay -Syu --noconfirm --needed {{ .packages.arch.yay | join " " }}
 {{ else if eq .osid "darwin" }}
 brew bundle --file=/dev/stdin << EOF

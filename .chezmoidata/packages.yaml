@@ -26,6 +26,9 @@ packages:
     yay:
       - fnm
       - ttf-monaco-nerd-font-git
+    blackarch:
+      - ffuf
+      - gobuster
   debian:
     apt:
       - alacritty
