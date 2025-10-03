@@ -13,6 +13,7 @@ packages:
       - lf
       - neovim
       - rofi
+      - sway
       - swayimg
       - tailscale
       - task
