@@ -4,6 +4,7 @@
 {{- end -}}
 
 scriptTempDir = "~/tmp"
+encryption = "age"
 
 [data]
 	osid = {{ $osid | quote }}
@@ -14,3 +15,6 @@ scriptTempDir = "~/tmp"
 	blackarch = false
 	keyboardLayout = "mac"
 	{{- end }}
+[age]
+	identity = "/Users/jackwiseman/key.txt"
+	recipient = "age1rccvfufdgnjlytgdcn4p8kyjt45a8z4hvz32vaf5tdvwl803yeesstx64u"
