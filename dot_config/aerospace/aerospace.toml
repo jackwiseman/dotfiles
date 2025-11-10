@@ -52,6 +52,11 @@ preset = 'qwerty'
 #                 In this example, 24 is a default value when there is no match.
 #                 Monitor pattern is the same as for 'workspace-to-monitor-force-assignment'.
 #                 See: https://nikitabobko.github.io/AeroSpace/guide#assign-workspaces-to-monitors
+
+[workspace-to-monitor-force-assignment]
+8 = 1
+9 = 3
+
 [gaps]
 inner.horizontal = 5
 inner.vertical =   5
@@ -72,6 +77,10 @@ run = "layout tiling"
 
 [[on-window-detected]]
 if.app-id = 'com.utmapp.UTM'
+run = "move-node-to-workspace 9"
+
+[[on-window-detected]]
+if.app-id = 'md.obsidian'
 run = "move-node-to-workspace 9"
 
 # 'main' binding mode declaration
