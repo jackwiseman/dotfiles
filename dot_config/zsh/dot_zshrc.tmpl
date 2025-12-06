@@ -15,8 +15,11 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
+# overwrite vi mode which is set when EDITOR contains the string vi
+bindkey -e
+
 eval "$(zoxide init zsh --cmd cd)"
-eval "$(fzf --zsh)"
+eval "$(tv init zsh)"
 eval "$(atuin init zsh)"
 eval "$(fnm env --use-on-cd)"
 
@@ -30,12 +33,7 @@ path=(
 	$HOME/.local/bin
 	$HOME/.cargo/bin
 )
-# export PATH=$GOPATH/bin:/usr/local/go/bin:$PATH
 {{- end }}
-
-
-# overwrite vi mode which is set when EDITOR contains the string vi
-bindkey -e
 
 source $ZDOTDIR/aliases
 
