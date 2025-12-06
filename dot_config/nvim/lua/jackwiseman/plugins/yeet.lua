@@ -4,6 +4,7 @@ return {
 	-- 	'stevearc/dressing.nvim'
 	-- },
 	cmd = 'Yeet',
+	enabled = true,
 	opts = {},
 	keys = {
 		{
