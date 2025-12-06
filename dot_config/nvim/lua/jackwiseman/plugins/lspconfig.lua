@@ -18,10 +18,10 @@ return {
 			keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
 
 			opts.desc = '[G]oto [D]efinition'
-			keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts)
+			keymap.set('n', '<leader>gd', '<cmd>Telescope lsp_definitions<CR>', opts)
 
 			opts.desc = '[G]oto [R]eferences'
-			keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
+			keymap.set('n', '<leader>gr', '<cmd>Telescope lsp_references<CR>', opts)
 
 			opts.desc = '[G]oto [I]mplementation'
 			keymap.set('n', 'gI', vim.lsp.buf.implementation, opts)
