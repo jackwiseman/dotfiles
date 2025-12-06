@@ -1,9 +1,8 @@
 return {
 	"neovim/nvim-lspconfig",
 	event = { "BufReadPre", "BufNewFile" },
-	dependencies = { "hrsh7th/cmp-nvim-lsp"  },
+	dependencies = { "hrsh7th/cmp-nvim-lsp" },
 	config = function()
-		local lspconfig = require("lspconfig")
 		local cmp_nvim_lsp = require("cmp_nvim_lsp")
 
 		local keymap = vim.keymap
@@ -19,7 +18,7 @@ return {
 			keymap.set('n', '<leader>ca', vim.lsp.buf.code_action, opts)
 
 			opts.desc = '[G]oto [D]efinition'
-			keymap.set('n', 'gd', vim.lsp.buf.definition, opts)
+			keymap.set('n', 'gd', '<cmd>Telescope lsp_definitions<CR>', opts)
 
 			opts.desc = '[G]oto [R]eferences'
 			keymap.set('n', 'gr', '<cmd>Telescope lsp_references<CR>', opts)
@@ -45,26 +44,26 @@ return {
 			-- Create a command `:Format` local to the LSP buffer
 			vim.api.nvim_buf_create_user_command(bufnr, 'Format', function(_)
 				vim.lsp.buf.format()
-				end, { desc = 'Format current buffer with LSP' })
+			end, { desc = 'Format current buffer with LSP' })
 		end
 
 		local capabilities = cmp_nvim_lsp.default_capabilities()
 
+		-- Setup LSP servers using vim.lsp.enable
+		local servers = {
+			gopls = {},
+			pyright = {},
+			ts_ls = {
+				cmd = { "fnm", "exec", "--using=default", "typescript-language-server", "--stdio" },
+			},
+		}
 
-		lspconfig["gopls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		lspconfig["pyright"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-		})
-
-		lspconfig["ts_ls"].setup({
-			capabilities = capabilities,
-			on_attach = on_attach,
-			cmd = vim.list_extend({ "fnm", "exec", "--using=default" }, lspconfig["ts_ls"].document_config.default_config.cmd),
-		})
+		for server, config in pairs(servers) do
+			vim.lsp.enable(server, {
+				capabilities = capabilities,
+				on_attach = on_attach,
+				cmd = config.cmd,
+			})
+		end
 	end
 }
