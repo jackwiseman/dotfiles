@@ -2,7 +2,7 @@ return {
 	-- Fuzzy Finder (files, lsp, etc)
 	{ 
 		'nvim-telescope/telescope.nvim',
-		branch = '0.1.x', 
+		version = '0.2.0',
 		dependencies = { 
 			{ 'nvim-lua/plenary.nvim' },
 			{ 'nvim-telescope/telescope-fzf-native.nvim', build = 'make', cond = vim.fn.executable 'make' == 1 },
