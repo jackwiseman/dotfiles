@@ -3,13 +3,13 @@ README.md
 
 {{- if eq .osid "darwin" }}
 .chezmoiscripts/**
-.chezmoiscripts/linux/**
 .config/sway/*
 .config/waybar/*
 .config/wpaperd/*
 {{- end -}}
 
 {{- if or (eq .osid "linux-debian") (eq .osid "linux-arch") }}
+.ssh/config
 .gitignore
 .chezmoiscripts/mac/**
 .config/1Password/*
