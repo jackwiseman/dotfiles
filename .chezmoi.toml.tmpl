@@ -14,7 +14,7 @@ encryption = "age"
 	{{- else }}
 	keyboardLayout = "mac"
 	{{- end }}
-	{{- if or (eq .osid "linux-debian") (eq .osid "linux-arch") }}
+	{{- if or (eq $osid "linux-debian") (eq $osid "linux-arch") }}
 	{{ $headless = promptBool "headless" true }}
 	{{- end }}
 	headless = {{ $headless }}
