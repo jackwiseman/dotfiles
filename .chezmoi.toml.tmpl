@@ -7,11 +7,15 @@ scriptTempDir = "~/tmp"
 encryption = "age"
 
 [data]
+	{{ $headless := false }}
 	osid = {{ $osid | quote }}
 	{{- if and (hasKey .chezmoi.osRelease "id")  (eq .chezmoi.osRelease.id "arch") }}
 	keyboardLayout = {{ promptChoice "keyboard layout" (list "win" "mac") | quote }}
 	{{- else }}
 	keyboardLayout = "mac"
+	{{- end }}
+	{{- if or (eq .osid "linux-debian") (eq .osid "linux-arch") }}
+	{{ $headless = promptBool "headless" false }}
 	{{- end }}
 {{ if eq .chezmoi.os "darwin" -}}
 [age]
