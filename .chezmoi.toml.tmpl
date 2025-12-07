@@ -10,11 +10,11 @@ encryption = "age"
 	osid = {{ $osid | quote }}
 	{{- if and (hasKey .chezmoi.osRelease "id")  (eq .chezmoi.osRelease.id "arch") }}
 	keyboardLayout = {{ promptChoice "keyboard layout" (list "win" "mac") | quote }}
-	blackarch = {{ promptBool "include blackarch repos" false }}
 	{{- else }}
-	blackarch = false
 	keyboardLayout = "mac"
 	{{- end }}
+{{ if eq .chezmoi.os "darwin" -}}
 [age]
 	identity = "/Users/jackwiseman/key.txt"
 	recipient = "age1rccvfufdgnjlytgdcn4p8kyjt45a8z4hvz32vaf5tdvwl803yeesstx64u"
+{{- end -}}
