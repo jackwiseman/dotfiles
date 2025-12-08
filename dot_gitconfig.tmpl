@@ -19,3 +19,7 @@
     diffFilter = delta --color-only
 [credential "https://git.wiseman.sh"]
     helper = 1password
+{{ if eq .osid "darwin" }}
+[url "git@github.com:"]
+    insteadOf = https://github.com
+{{ end }}
