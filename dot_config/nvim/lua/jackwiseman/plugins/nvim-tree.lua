@@ -2,7 +2,7 @@ return {
 	'kyazdani42/nvim-tree.lua',
 	version = "v1.3.0",
 	keys = {
-		{ "<leader>f", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree" },
+		{ "<leader>e", "<cmd>NvimTreeToggle<cr>", desc = "NvimTree" },
 	},
 	config = function()
 		local function my_on_attach(bufnr)
