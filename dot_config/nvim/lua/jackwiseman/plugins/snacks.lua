@@ -4,7 +4,7 @@ return {
 	lazy = false,
 	---@type snacks.Config
 	opts = {
-		picker = { 
+		picker = {
 			enabled = true,
 			layout = {
 				reverse = true,
@@ -32,7 +32,7 @@ return {
 	},
 	keys = {
 		{ "<leader>sa", function() Snacks.picker() end, desc = "Search all picker utils" },
-		{ "<leader>ff", function() Snacks.picker.files() end, desc = "[F]ind [F]iles" },
+		{ "<leader>sf", function() Snacks.picker.files() end, desc = "[S]earch [F]iles" },
 		{ "<leader>sg", function() Snacks.picker.grep() end, desc = "[S]earch via [G]rep" },
 		{ "<leader>fg", function() Snacks.picker.git_files({untracked=true}) end, desc = "[F]ind [G]it files" },
 		{ "gd", function() Snacks.picker.lsp_definitions() end, desc = "Goto Definition" },
