@@ -18,7 +18,8 @@ return {
 			ensure_installed = {
 				'gopls',
 				'pyright',
-				'ts_ls'
+				'ts_ls',
+				'lua_ls'
 			},
 			automatic_installation = true
 		})
