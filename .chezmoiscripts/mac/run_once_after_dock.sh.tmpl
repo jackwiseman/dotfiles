@@ -1,0 +1,21 @@
+#!/bin/sh
+
+dockutil --remove all
+dockutil --add /System/Applications/Apps.app
+dockutil --add /System/Applications/Mail.app
+{{- if eq .profile "personal" }}
+dockutil --add /System/Applications/Messages.app
+{{ else }}
+dockutil --add /Applications/Slack.app
+{{- end }}
+dockutil --add /Applications/Firefox.app
+{{- if eq .profile "personal" }}
+dockutil --add /Applications/Spotify.app
+dockutil --add /Applications/Plex.app
+{{- end }}
+{{- if eq .profile "work" }}
+dockutil --add /Applications/.app
+dockutil --add /Applications/Burp\ Suite\ Professional.app
+{{- end }}
+dockutil --add ~/Screenshots --view fan --display stack --sort dateadded
+dockutil --add ~/Downloads --view fan --display stack --sort dateadded
