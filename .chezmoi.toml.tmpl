@@ -23,7 +23,7 @@ encryption = "age"
 	{{- else }}
 	profile = "personal"
 	{{- end }}
-{{ if and (eq .chezmoi.os "darwin") (eq .profile "personal" -}}
+{{ if and (eq .chezmoi.os "darwin") (eq .profile "personal") -}}
 [age]
 	identity = "/Users/jackwiseman/key.txt"
 	recipient = "age1rccvfufdgnjlytgdcn4p8kyjt45a8z4hvz32vaf5tdvwl803yeesstx64u"
