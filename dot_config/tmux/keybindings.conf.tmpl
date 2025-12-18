@@ -65,4 +65,6 @@ bind-key j choose-tree -swZ
 
 # popup windows
 bind g display-popup -E -d "#{pane_current_path}" -xC -yC -w 90% -h 90% "lazygit"
+{{ if eq .profile "personal" }}
 bind-key -n C-\\ run-shell "~/.config/tmux/tmux-claude.sh"
+{{ end }}

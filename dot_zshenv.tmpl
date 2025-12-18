@@ -10,15 +10,18 @@ export VISUAL="nvim"
 export FZF_ALT_C_COMMAND="" # disable fzf's annoying alt-c bind
 
 export GOPATH=~/go
-export DISABLE_AUTO_TITLE=true
-export HOMEBREW_NO_AUTO_UPDATE=1
-export HOMEBREW_NO_ENV_HINTS=1
+# export DISABLE_AUTO_TITLE=true
 export TLDR_AUTO_UPDATE_DISABLED=true
 
 {{ if eq .osid "darwin" }}
+export HOMEBREW_NO_AUTO_UPDATE=1
+export HOMEBREW_NO_ENV_HINTS=1
+
 export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
 . "$HOME/.cargo/env"
 
+{{- if eq .profile "personal" }}
 # use 1password for ssh
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+{{- end }}
 {{- end }}

@@ -6,6 +6,11 @@ README.md
 .config/sway/*
 .config/waybar/*
 .config/wpaperd/*
+{{- if eq .profile "work" }}
+.config/tmux/tmux-claude.sh
+.ssh/config
+.config/1Password/**
+{{- end -}}
 {{- end -}}
 
 {{- if or (eq .osid "linux-debian") (eq .osid "linux-arch") }}

@@ -17,9 +17,11 @@
     default = current
 [interactive]
     diffFilter = delta --color-only
+{{- if eq .profile "personal" }}
 [credential "https://git.wiseman.sh"]
     helper = 1password
-{{ if eq .osid "darwin" }}
+{{- end }}
+{{- if eq .osid "darwin" }}
 [url "git@github.com:"]
     insteadOf = https://github.com
-{{ end }}
+{{- end }}

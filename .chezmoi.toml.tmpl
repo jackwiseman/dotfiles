@@ -18,7 +18,12 @@ encryption = "age"
 	{{ $headless = promptBool "headless" true }}
 	{{- end }}
 	headless = {{ $headless }}
-{{ if eq .chezmoi.os "darwin" -}}
+	{{- if eq .chezmoi.os "darwin" }}
+	profile = {{ promptChoice "profile" (list "work" "personal") | quote }}
+	{{- else }}
+	profile = "personal"
+	{{- end }}
+{{ if and (eq .chezmoi.os "darwin") (eq .profile "personal" -}}
 [age]
 	identity = "/Users/jackwiseman/key.txt"
 	recipient = "age1rccvfufdgnjlytgdcn4p8kyjt45a8z4hvz32vaf5tdvwl803yeesstx64u"
