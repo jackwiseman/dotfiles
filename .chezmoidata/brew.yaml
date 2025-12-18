@@ -140,6 +140,8 @@ homebrew:
       - "yaak"
       - "zenmap"
   work:
+    taps:
+    brews:
     casks:
       - "bitwarden"
       - "burp-suite-professional"
