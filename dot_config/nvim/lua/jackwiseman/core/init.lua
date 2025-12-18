@@ -37,6 +37,8 @@ vim.o.termguicolors = true
 -- Set completeopt to have a better completion experience
 vim.o.completeopt = 'menuone,noselect'
 
+-- set scrolloff to 2
+vim.o.scrolloff = 2
 
 -- Keymaps for better default experience
 -- Disable space in visual mode
