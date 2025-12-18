@@ -56,6 +56,7 @@ return {
 			ts_ls = {
 				cmd = { "fnm", "exec", "--using=default", "typescript-language-server", "--stdio" },
 			},
+			ansiblels = {},
 		}
 
 		for server, config in pairs(servers) do
