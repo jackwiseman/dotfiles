@@ -2,7 +2,6 @@ README.md
 .DS_Store
 
 {{- if eq .osid "darwin" }}
-.chezmoiscripts/**
 .config/sway/*
 .config/waybar/*
 .config/wpaperd/*
