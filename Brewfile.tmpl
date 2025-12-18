@@ -1,0 +1,48 @@
+# shared taps
+{{- range .homebrew.shared.taps }}
+tap "{{ . }}"
+{{- end }}
+{{- if eq .profile "personal" }}
+# personal taps
+{{- range .homebrew.personal.taps }}
+tap "{{ . }}"
+{{- end }}
+{{- end }}
+{{- if eq .profile "work" }}
+# work taps
+{{- range .homebrew.work.taps }}
+tap "{{ . }}"
+{{- end }}
+{{- end }}
+# shared brews
+{{- range .homebrew.shared.brews }}
+brew "{{ . }}"
+{{- end }}
+{{- if eq .profile "personal" }}
+# personal brews
+{{- range .homebrew.personal.brews }}
+brew "{{ . }}"
+{{- end }}
+{{- end }}
+{{- if eq .profile "work" }}
+# work brews
+{{- range .homebrew.work.brews }}
+brew "{{ . }}"
+{{- end }}
+{{- end }}
+# shared casks
+{{- range .homebrew.shared.casks }}
+cask "{{ . }}"
+{{- end }}
+{{- if eq .profile "personal" }}
+# personal casks
+{{- range .homebrew.personal.casks }}
+cask "{{ . }}"
+{{- end }}
+{{- end }}
+{{- if eq .profile "work" }}
+# work casks
+{{- range .homebrew.work.casks }}
+cask "{{ . }}"
+{{- end }}
+{{- end }}
