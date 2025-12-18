@@ -20,7 +20,6 @@ homebrew:
       - "fd"
       - "ffmpeg"
       - "fileicon"
-      - "fnm"
       - "fzf"
       - "git-delta"
       - "git-secrets"
