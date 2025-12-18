@@ -21,13 +21,5 @@ defaults write com.apple.dock wvous-br-corner -int 0
 mkdir -p "$HOME/Screenshots"
 defaults write com.apple.screencapture location "$HOME/Screenshots"
 
-# Set hammerspoon home directory to ~/.config/hammerspoon
-defaults write org.hammerspoon.Hammerspoon MJConfigFile "$HOME/.config/hammerspoon/init.lua"
-
-# Set alt-tab defaults
-defaults write com.lwouis.alt-tab-macos holdShortcut "\\U2318"
-# counter intuitive, but hide stuff in other spaces
-defaults write com.lwouis.alt-tab-macos spacesToShow 1
-
 # disable .DS_Store file creation on network shares
 defaults write com.apple.desktopservices DSDontWriteNetworkStores true
