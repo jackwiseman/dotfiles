@@ -6,6 +6,13 @@ alias restart="sudo reboot"
 alias ls="ls --color=auto"
 alias l="ls -la -FG"
 
+# just
+alias j="just"
+alias jg="just -g"
+
+# ssh but force password authentication
+alias ssh-onetime="ssh -o PubkeyAuthentication=no -o PreferredAuthentications=password -o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null"
+
 # git
 alias ga="git add"
 alias gs="git status"
