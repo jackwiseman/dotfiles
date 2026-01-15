@@ -24,4 +24,8 @@ export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
 # use 1password for ssh
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 {{- end }}
+{{- if eq .profile "work" }}
+# use bitwarden for ssh
+export SSH_AUTH_SOCK=/Users/jackwiseman/.bitwarden-ssh-agent.sock
+{{- end }}
 {{- end }}
