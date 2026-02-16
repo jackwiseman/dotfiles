@@ -8,6 +8,7 @@ README.md
 {{- if eq .profile "work" }}
 .ssh/config
 {{- end -}}
+{{- end -}}
 
 {{- if or (eq .osid "linux-debian") (eq .osid "linux-arch") }}
 .ssh/config
