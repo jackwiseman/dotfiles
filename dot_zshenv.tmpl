@@ -23,3 +23,7 @@ export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
 # use 1password for ssh
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
 {{- end }}
+
+{{ if and (eq .chezmoi.os "linux") (not .headless) }}
+export WLR_NO_HARDWARE_CURSORS=1
+{{- end }}
