@@ -10,5 +10,6 @@ else
     echo "$$" > "$TERM_PIDFILE"
     swaymsg "for_window [ pid=$$ ] 'floating enable ; resize set 100ppt 50ppt ; move position 0 0 ; move to scratchpad ; scratchpad show'"
     # swaymsg "for_window [ pid=$$ ] 'floating enable ; resize set 100ppt 100ppt ; move position 0 0 ; move to scratchpad ; scratchpad show'"
+    LIBGL_ALWAYS_SOFTWARE=1 
     exec alacritty -e zsh -c "tmux attach -t scratchpad || tmux new-session -s 'scratchpad'"
 fi
