@@ -41,6 +41,18 @@ tempe () {
   fi
 }
 
+# create and enter a directory
+mkcd () {
+  \mkdir -p "$1"
+  cd "$1"
+}
+
+# copy/paste 
+{{ if not .headless }}
+alias copy="{{ if eq .chezmoi.os "darwin" }}pbcopy{{ else }}wlcopy{{ end }}"
+alias pasta="{{ if eq .chezmoi.os "darwin" }}pbpaste{{ else }}wlpaste{{ end }}"
+{{ end }}
+
 # misc
 alias :q="exit"
 
