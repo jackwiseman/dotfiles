@@ -1,7 +1,6 @@
 return {
 	'mfussenegger/nvim-lint',
-	-- events = { 'BufEnter, BufWritePost, InsertLeave' },
-	lazy = false,
+	ft = { "sh", "javascript" },
 	config = function()
 		local lint = require('lint')
 		local eslint = lint.linters.eslint_d

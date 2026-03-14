@@ -1,9 +1,7 @@
 return {
 	"mhartington/formatter.nvim",
 	lazy = true,
-	event = {
-		"BufWritePre",
-	},
+	ft = { "go" },
 	config = function()
 		require("formatter").setup({
 			filetype = {
