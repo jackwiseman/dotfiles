@@ -11,7 +11,7 @@ homebrew:
       - "btop"
       - "capstone"
       - "chezmoi"
-      - "colima, restart_service: :changed"
+      # - "colima, restart_service: :changed"
       - "coreutils"
       - "docker"
       - "dockutil"
@@ -68,7 +68,7 @@ homebrew:
       - "sshpass"
       - "taskwarrior-tui"
       - "television"
-      - "tlrc, link: false"
+      # - "tlrc, link: false"
       - "tmux"
       - "tmuxp"
       - "tpm"
@@ -93,7 +93,7 @@ homebrew:
       - "karabiner-elements"
       - "metasploit"
       - "obsidian"
-      - "xbar"
+      - "swiftbar"
   personal:
     taps:
       - "fastrepl/hyprnote"
