@@ -57,6 +57,7 @@ return {
 				cmd = { "fnm", "exec", "--using=default", "typescript-language-server", "--stdio" },
 			},
 			ansiblels = {},
+			marksman = {},
 		}
 
 		for server, config in pairs(servers) do

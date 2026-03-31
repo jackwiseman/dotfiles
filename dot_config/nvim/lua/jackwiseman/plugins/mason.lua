@@ -19,7 +19,8 @@ return {
 				'gopls',
 				'pyright',
 				'ts_ls',
-				'lua_ls'
+				'lua_ls',
+				'marksman',
 			},
 			automatic_installation = true
 		})
