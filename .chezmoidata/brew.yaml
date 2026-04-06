@@ -91,7 +91,6 @@ homebrew:
       - "google-chrome"
       - "hiddenbar"
       - "karabiner-elements"
-      - "metasploit"
       - "obsidian"
       - "swiftbar"
   personal:
