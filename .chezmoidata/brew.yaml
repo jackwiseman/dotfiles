@@ -45,7 +45,7 @@ homebrew:
       - "lnav"
       - "luarocks"
       - "lzo"
-      - "macpine"
+      - "markedit"
       - "mise"
       - "mpv"
       - "neovim"
