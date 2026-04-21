@@ -70,7 +70,7 @@ vim.api.nvim_create_autocmd("FileType", {
 })
 
 vim.api.nvim_create_autocmd("FileType", {
-	pattern = "nix,tf,hcl",
+	pattern = "nix,tf,hcl,json",
 	command = "setlocal shiftwidth=2 tabstop=2 expandtab"
 })
 
