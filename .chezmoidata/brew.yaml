@@ -5,13 +5,14 @@ homebrew:
       - "joshmedeski/sesh" # sesh
       - "nikitabobko/tap" # aerospace
     brews:
+      # - "colima, restart_service: :changed"
+      # - "tlrc, link: false"
       - "atuin"
       - "bash"
       - "bat"
       - "btop"
       - "capstone"
       - "chezmoi"
-      # - "colima, restart_service: :changed"
       - "coreutils"
       - "docker"
       - "dockutil"
@@ -20,6 +21,7 @@ homebrew:
       - "fd"
       - "ffmpeg"
       - "fileicon"
+      - "firefox"
       - "fzf"
       - "git-delta"
       - "git-secrets"
@@ -68,7 +70,6 @@ homebrew:
       - "sshpass"
       - "taskwarrior-tui"
       - "television"
-      # - "tlrc, link: false"
       - "tmux"
       - "tmuxp"
       - "tpm"
@@ -85,12 +86,12 @@ homebrew:
       - "zoxide"
     casks:
       - "aerospace"
-      - "alacritty"
       - "alfred"
       - "font-monaco-patched"
       - "google-chrome"
       - "hiddenbar"
       - "karabiner-elements"
+      - "kitty"
       - "obsidian"
       - "swiftbar"
   personal:
@@ -101,10 +102,8 @@ homebrew:
     brews:
       - "ansible"
       - "cocoapods"
-      - "codex"
       - "hashicorp/tap/packer"
       - "hashicorp/tap/terraform"
-      - "opencode"
     casks:
       - "1password"
       - "1password-cli"
@@ -112,12 +111,12 @@ homebrew:
       - "beekeeper-studio"
       - "calibre"
       - "drawio"
-      - "firefox"
       - "gimp"
       - "gpg-suite-no-mail"
       - "hyprnote"
       - "kismetwireless/kismet/kismet"
       - "little-snitch"
+      - "mole"
       - "mullvad-vpn"
       - "netnewswire"
       - "onlyoffice"
@@ -136,7 +135,6 @@ homebrew:
       - "utm"
       - "vlc"
       - "yaak"
-      - "zenmap"
   work:
     taps:
     brews:
