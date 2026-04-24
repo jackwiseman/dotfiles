@@ -1,0 +1,22 @@
+[metadata]
+name = "sessionizer"
+description = "Pick a git repo and create-or-attach a tmux session for it"
+requirements = ["fd", "tmux"]
+
+[source]
+command = "fd --type d --hidden --max-depth 3 '^\\.git$' ${TMUX_SESSIONIZER_PATHS:-$HOME/code $HOME/work $HOME/.local/share/chezmoi} | sed 's|/\\.git$||'"
+
+[preview]
+command = "eza -la --color=always --icons '{}' 2>/dev/null || ls -la '{}'"
+
+[keybindings]
+enter = "actions:attach"
+
+[actions.attach]
+description = "Create-or-attach a tmux session named after the repo dir"
+command = '''
+NAME=$(basename "{}" | tr '.' '_')
+tmux has-session -t="$NAME" 2>/dev/null || tmux new-session -ds "$NAME" -c "{}"
+tmux switch-client -t "$NAME"
+'''
+mode = "execute"

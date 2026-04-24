@@ -1,0 +1,19 @@
+[metadata]
+name = "open"
+description = "Pick a file and open it in $EDITOR in a new tmux window"
+requirements = ["fd", "bat", "tmux"]
+
+[source]
+command = ["fd -t f -H", "fd -t f"]
+
+[preview]
+command = "bat -n --color=always '{}'"
+env = { BAT_THEME = "ansi" }
+
+[keybindings]
+enter = "actions:edit_in_window"
+
+[actions.edit_in_window]
+description = "Open selection in $EDITOR in a new tmux window"
+command = "tmux new-window -c \"$(dirname '{}')\" \"${EDITOR:-vim} '{}'\""
+mode = "execute"

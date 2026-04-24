@@ -256,6 +256,4 @@ fallback_channel = "files"
 # controls which key binding should trigger tv
 # for shell autocomplete
 "smart_autocomplete" = "ctrl-t"
-# controls which keybinding should trigger tv
-# for command history
-"command_history" = "ctrl-r"
+# "command_history" intentionally unset — atuin owns Ctrl-R

@@ -1,0 +1,18 @@
+[metadata]
+name = "tmux-sessions"
+description = "Switch to an existing tmux session"
+requirements = ["tmux"]
+
+[source]
+command = "tmux list-sessions -F '#{session_name}'"
+
+[preview]
+command = "tmux list-windows -t '{}' -F '#{window_index}: #{window_name} (#{pane_current_command})'"
+
+[keybindings]
+enter = "actions:switch"
+
+[actions.switch]
+description = "Switch client to the selected session"
+command = "tmux switch-client -t '{}'"
+mode = "execute"
