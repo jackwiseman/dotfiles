@@ -2,29 +2,30 @@
 {{- if hasKey .chezmoi.osRelease "id" -}}
 {{-   $osid = printf "%s-%s" .chezmoi.os .chezmoi.osRelease.id -}}
 {{- end -}}
+{{- $headless := false -}}
+{{- $profile := "personal" -}}
+{{- $keyboardLayout := "mac" -}}
+{{- if and (hasKey .chezmoi.osRelease "id") (eq .chezmoi.osRelease.id "arch") -}}
+{{-   $keyboardLayout = promptChoice "keyboard layout" (list "win" "mac") -}}
+{{- end -}}
+{{- if or (eq $osid "linux-debian") (eq $osid "linux-arch") -}}
+{{-   $headless = promptBool "headless" true -}}
+{{- end -}}
+{{- if eq .chezmoi.os "darwin" -}}
+{{-   $profile = promptChoice "profile" (list "work" "personal") -}}
+{{- end -}}
+{{- $hasAge := and (eq .chezmoi.os "darwin") (eq $profile "personal") -}}
 
 scriptTempDir = "~/tmp"
-
-[data]
-	{{ $headless := false }}
-	{{- $profile := "personal" -}}
-	osid = {{ $osid | quote }}
-	{{- if and (hasKey .chezmoi.osRelease "id")  (eq .chezmoi.osRelease.id "arch") }}
-	keyboardLayout = {{ promptChoice "keyboard layout" (list "win" "mac") | quote }}
-	{{- else }}
-	keyboardLayout = "mac"
-	{{- end }}
-	{{- if or (eq $osid "linux-debian") (eq $osid "linux-arch") }}
-	{{ $headless = promptBool "headless" true }}
-	{{- end }}
-	headless = {{ $headless }}
-	{{- if eq .chezmoi.os "darwin" }}
-	{{- $profile = promptChoice "profile" (list "work" "personal") }}
-	{{- end }}
-	profile = {{ $profile | quote }}
-{{ if and (eq .chezmoi.os "darwin") (eq $profile "personal") -}}
+{{ if $hasAge -}}
 encryption = "age"
-
+{{ end }}
+[data]
+	osid = {{ $osid | quote }}
+	keyboardLayout = {{ $keyboardLayout | quote }}
+	headless = {{ $headless }}
+	profile = {{ $profile | quote }}
+{{ if $hasAge }}
 [age]
 	identity = "{{ .chezmoi.homeDir }}/key.txt"
 	recipient = "age1hw8cjlsc2es4ns9l73avrr0ycc88ehal0vl5kzzcnql689e9nvas98zg3f"
