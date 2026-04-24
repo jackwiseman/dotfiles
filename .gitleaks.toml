@@ -1,0 +1,55 @@
+title = "chezmoi dotfiles gitleaks config"
+
+[extend]
+useDefault = true
+
+# ----------------------------------------------------------------------------
+# Custom rules
+# ----------------------------------------------------------------------------
+
+[[rules]]
+id = "wiseman-domain"
+description = "Private wiseman.sh hostname in tracked file"
+regex = '''[a-z0-9.-]*wiseman\.sh'''
+tags = ["privacy", "infra"]
+
+[[rules]]
+id = "rfc1918-ip"
+description = "RFC1918 private IPv4 address in tracked file"
+regex = '''\b(?:10(?:\.\d{1,3}){3}|172\.(?:1[6-9]|2\d|3[01])(?:\.\d{1,3}){2}|192\.168(?:\.\d{1,3}){2})\b'''
+tags = ["privacy", "infra"]
+
+[[rules]]
+id = "weak-encryption-secret"
+description = "Obvious placeholder value assigned to encryption_secret / password / api_key"
+regex = '''(?i)(encryption[_-]?secret|password|passwd|api[_-]?key|token)\s*[:=]\s*["']?(test|testing|changeme|password|secret|dummy|placeholder|xxx+|admin|1234+)\b'''
+tags = ["weak-secret"]
+
+# ----------------------------------------------------------------------------
+# Allowlist — things that look suspicious but are safe to commit
+# ----------------------------------------------------------------------------
+
+[allowlist]
+description = "Known-safe public values and file paths"
+
+paths = [
+  # The config itself contains all the regex we're matching on
+  '''^\.gitleaks\.toml$''',
+  # Encrypted age payloads are opaque but may contain high-entropy strings
+  # gitleaks flags as secrets.
+  '''\.age$''',
+]
+
+regexes = [
+  # Age public keys (recipients) — these are PUBLIC keys, not secrets
+  '''age1[0-9a-z]{58}''',
+  # GitHub noreply email
+  '''\d+\+[a-zA-Z0-9-]+@users\.noreply\.github\.com''',
+  # GPG key ID — public identifier, not a secret
+  '''\b0C9B9E35D2F03725\b''',
+]
+
+stopwords = [
+  # Literal string that should never be treated as a secret even if matched
+  "example.com",
+]
