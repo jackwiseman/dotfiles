@@ -4,7 +4,6 @@
 {{- end -}}
 
 scriptTempDir = "~/tmp"
-encryption = "age"
 
 [data]
 	{{ $headless := false }}
@@ -24,7 +23,9 @@ encryption = "age"
 	{{- end }}
 	profile = {{ $profile | quote }}
 {{ if and (eq .chezmoi.os "darwin") (eq $profile "personal") -}}
+encryption = "age"
+
 [age]
-	identity = "/Users/jackwiseman/key.txt"
+	identity = "{{ .chezmoi.homeDir }}/key.txt"
 	recipient = "age1hw8cjlsc2es4ns9l73avrr0ycc88ehal0vl5kzzcnql689e9nvas98zg3f"
 {{- end -}}
