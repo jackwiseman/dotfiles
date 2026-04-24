@@ -65,6 +65,7 @@ homebrew:
       - "readline"
       - "redis"
       - "ripgrep"
+      - "rsync"
       - "rustup"
       - "snappy"
       - "sshpass"
