@@ -73,6 +73,7 @@ homebrew:
       - "television"
       - "tmux"
       - "tmuxp"
+      - "topgrade"
       - "tpm"
       - "tree-sitter"
       - "up"
