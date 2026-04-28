@@ -10,10 +10,10 @@ modify_font cell_width -1px
 modify_font baseline -1px
 
 # Gruvbox Dark colorscheme
-foreground #ebdbb2
-background #282828
+foreground {{ .colors.gruvbox.fg1 }}
+background {{ .colors.gruvbox.bg0 }}
 
-color0  #282828
+color0 {{ .colors.gruvbox.bg0 }}
 color1  #cc241d
 color2  #98971a
 color3  #d79921
@@ -23,12 +23,12 @@ color6  #689d6a
 color7  #a89984
 color8  #928374
 color9  #fb4934
-color10 #b8bb26
+color10 {{ .colors.gruvbox.green }}
 color11 #fabd2f
-color12 #83a598
+color12 {{ .colors.gruvbox.blue }}
 color13 #d3869b
 color14 #8ec07c
-color15 #ebdbb2
+color15 {{ .colors.gruvbox.fg1 }}
 
 # Window
 hide_window_decorations titlebar-only
