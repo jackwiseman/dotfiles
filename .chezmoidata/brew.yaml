@@ -76,6 +76,7 @@ homebrew:
       - "topgrade"
       - "tpm"
       - "tree-sitter"
+      - "tree-sitter-cli"
       - "up"
       - "uv"
       - "vde"

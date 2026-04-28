@@ -1,38 +1,38 @@
 return {
 	'nvim-treesitter/nvim-treesitter',
-	event = { "BufReadPre", "BufNewFile" },
-	build = ":TSUpdate",
-	dependencies = {
-		'nvim-treesitter/nvim-treesitter-textobjects',
-		'nvim-treesitter/nvim-treesitter-context',
-	},
+	branch = 'main',
+	lazy = false,
+	build = ':TSUpdate',
 	config = function()
-		local configs = require('nvim-treesitter.configs')
-		configs.setup({
-			ensure_installed = {
-				'astro',
-				'bash',
-				'c',
-				'cpp',
-				'go',
-				'hcl',
-				'just',
-				'lua',
-				'markdown',
-				'markdown_inline',
-				'python',
-				'regex',
-				'rust',
-				'starlark',
-				'terraform',
-				'typescript',
-				'vim',
-			},
-			highlight = { enable = true },
-			indent = { enable = true },
-			incremental_selection = {
-				enable = true,
-			},
+		local langs = {
+			'astro',
+			'bash',
+			'c',
+			'cpp',
+			'go',
+			'hcl',
+			'just',
+			'lua',
+			'markdown',
+			'markdown_inline',
+			'python',
+			'regex',
+			'rust',
+			'starlark',
+			'terraform',
+			'typescript',
+			'vim',
+		}
+
+		require('nvim-treesitter').install(langs)
+
+		vim.api.nvim_create_autocmd('FileType', {
+			callback = function(args)
+				if not pcall(vim.treesitter.start, args.buf) then
+					return
+				end
+				vim.bo[args.buf].indentexpr = "v:lua.require'nvim-treesitter'.indentexpr()"
+			end,
 		})
-	end
+	end,
 }
