@@ -18,13 +18,28 @@ source ${ZIM_HOME}/init.zsh
 # overwrite vi mode which is set when EDITOR contains the string vi
 bindkey -e
 
-eval "$(zoxide init zsh --cmd cd)"
-eval "$(tv init zsh)"
-eval "$(atuin init zsh)"
-eval "$(mise activate zsh)"
+_cached_eval() {
+  local cmd=$1; shift
+  local cache="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/eval-cache"
+  local bin_path="${commands[$cmd]}"
+  local cache_file="$cache/${cmd}.zsh"
+
+  [[ -d "$cache" ]] || mkdir -p "$cache"
+
+  if [[ ! -f "$cache_file" ]] || \
+     [[ "$bin_path" -nt "$cache_file" ]]; then
+    "$cmd" "$@" > "$cache_file"
+  fi
+  source "$cache_file"
+}
+
+_cached_eval zoxide init zsh --cmd cd
+_cached_eval tv init zsh
+_cached_eval atuin init zsh
+_cached_eval mise activate zsh
 
 {{ if eq .chezmoi.os "darwin" }}
-eval $(/opt/homebrew/bin/brew shellenv)
+_cached_eval $(/opt/homebrew/bin/brew shellenv)
 
 path=(
 	$path
