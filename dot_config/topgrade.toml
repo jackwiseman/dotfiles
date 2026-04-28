@@ -1,0 +1,18 @@
+[misc]
+assume_yes = true
+cleanup = true
+pre_sudo = true
+no_retry = true
+# run_in_tmux = true
+notify_each_step = false
+notify_end = "on_failure"
+disable = ["vim", "containers", "cargo"]
+first = ["chezmoi"]
+last = ["system"]
+
+[brew]
+greedy_cask = true
+autoremove = true
+
+[git]
+pull_predefined = false
