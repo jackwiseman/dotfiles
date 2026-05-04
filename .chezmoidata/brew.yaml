@@ -53,6 +53,7 @@ homebrew:
       - "neovim"
       - "nmap"
       - "node"
+      - "nuclei"
       - "ollama"
       - "openssl@3"
       - "pam-reattach"
