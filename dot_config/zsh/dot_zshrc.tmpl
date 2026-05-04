@@ -39,7 +39,7 @@ _cached_eval atuin init zsh
 _cached_eval mise activate zsh
 
 {{ if eq .chezmoi.os "darwin" }}
-_cached_eval $(/opt/homebrew/bin/brew shellenv)
+_cached_eval brew shellenv
 
 path=(
 	$path
