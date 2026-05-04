@@ -59,11 +59,11 @@ claude() {
     if [[ "$PWD" == "$HOME" ]]; then
 	    	echo "You are in your home directory, changing to a temporary directory..."
 		tempe
-		/Users/jackwiseman/.local/bin/claude "$@"
+		$HOME/.local/bin/claude "$@"
 
 	return 1
     fi
-    /Users/jackwiseman/.local/bin/claude "$@"
+    $HOME/.local/bin/claude "$@"
 }
 
 ssht() {
