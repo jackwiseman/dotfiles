@@ -1,6 +1,6 @@
 zmodule git-info
 zmodule https://github.com/jackwiseman/gitster
 zmodule prompt-pwd
-zmodule completion
 zmodule zsh-users/zsh-autosuggestions
 zmodule zdharma-continuum/fast-syntax-highlighting
+zmodule completion
