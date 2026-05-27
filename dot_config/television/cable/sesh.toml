@@ -10,8 +10,8 @@ requirements = ["sesh"]
 # Multiple source commands for cycling through different modes
 # Press Ctrl+S to cycle between sources
 command = [
-  "sesh list -t --icons",                       # tmux sessions only
-  "sesh list -c --icons"
+  "sesh list -c --icons",
+  "sesh list -t --icons"                       # tmux sessions only
 ]
 ansi = true
 output = "{strip_ansi|split: :1}"
