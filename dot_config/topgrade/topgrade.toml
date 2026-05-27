@@ -1,7 +1,7 @@
 [misc]
 assume_yes = true
 cleanup = true
-pre_sudo = true
+#pre_sudo = true
 no_retry = true
 # run_in_tmux = true
 notify_each_step = false
@@ -9,6 +9,9 @@ notify_end = "on_failure"
 disable = ["vim", "containers", "cargo"]
 first = ["chezmoi"]
 last = ["system"]
+
+[windows]
+open_remotes_in_new_terminal = false
 
 [brew]
 greedy_cask = true
