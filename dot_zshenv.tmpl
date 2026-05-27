@@ -20,8 +20,11 @@ export TLDR_AUTO_UPDATE_DISABLED=true
 export HOMEBREW_NO_AUTO_UPDATE=1
 export HOMEBREW_NO_ENV_HINTS=1
 
-export CPPFLAGS="-I$(xcrun -show-sdk-path)/usr/include"
-. "$HOME/.cargo/env"
+# cache xcrun -show-sdk-path (~50–150ms otherwise, every shell)
+_sdk_cache="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/sdk-path"
+[[ -s "$_sdk_cache" ]] || { mkdir -p "${_sdk_cache:h}" && xcrun -show-sdk-path > "$_sdk_cache"; }
+export CPPFLAGS="-I$(<"$_sdk_cache")/usr/include"
+unset _sdk_cache
 
 # use 1password for ssh
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock

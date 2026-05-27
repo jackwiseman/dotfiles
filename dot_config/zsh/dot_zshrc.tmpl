@@ -42,11 +42,10 @@ _cached_eval mise activate zsh
 _cached_eval brew shellenv
 
 path=(
-	$path
-	/usr/local/go/bin
-	$GOPATH/bin
 	$HOME/.local/bin
 	$HOME/.cargo/bin
+	$GOPATH/bin
+	$path
 )
 {{- end }}
 
