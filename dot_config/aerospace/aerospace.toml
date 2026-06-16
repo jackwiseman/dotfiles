@@ -114,7 +114,8 @@ run = "move-node-to-workspace 3"
 # end tell'
 # '''
 
-alt-enter = 'exec-and-forget open -n /Applications/Kitty.app'
+# throwaway window: pass an explicit program so kitty skips its `shell` (no tmux)
+alt-enter = 'exec-and-forget open -n /Applications/Kitty.app --args zsh -l'
 alt-space = 'exec-and-forget kitten quick-access-terminal'
 
 alt-b = 'exec-and-forget open -n /Applications/Firefox.app'
