@@ -10,25 +10,25 @@ modify_font cell_width -1px
 modify_font baseline -1px
 
 # Gruvbox Dark colorscheme
-foreground #ebdbb2
-background #282828
+foreground {{ .gruvbox.fg1 }}
+background {{ .gruvbox.bg0 }}
 
-color0  #282828
-color1  #cc241d
-color2  #98971a
-color3  #d79921
-color4  #458588
-color5  #b16286
-color6  #689d6a
-color7  #a89984
-color8  #928374
-color9  #fb4934
-color10 #b8bb26
-color11 #fabd2f
-color12 #83a598
-color13 #d3869b
-color14 #8ec07c
-color15 #ebdbb2
+color0  {{ .gruvbox.bg0 }}
+color1  {{ .gruvbox.red }}
+color2  {{ .gruvbox.green }}
+color3  {{ .gruvbox.yellow }}
+color4  {{ .gruvbox.blue }}
+color5  {{ .gruvbox.purple }}
+color6  {{ .gruvbox.aqua }}
+color7  {{ .gruvbox.fg4 }}
+color8  {{ .gruvbox.gray }}
+color9  {{ .gruvbox.bright_red }}
+color10 {{ .gruvbox.bright_green }}
+color11 {{ .gruvbox.bright_yellow }}
+color12 {{ .gruvbox.bright_blue }}
+color13 {{ .gruvbox.bright_purple }}
+color14 {{ .gruvbox.bright_aqua }}
+color15 {{ .gruvbox.fg1 }}
 
 # Window
 hide_window_decorations titlebar-only
