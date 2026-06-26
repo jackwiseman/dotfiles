@@ -147,3 +147,25 @@ homebrew:
       - "burp-suite-professional"
       - "postman"
       - "slack"
+  client:
+    taps:
+      - "joshmedeski/sesh"        # sesh session manager (has config)
+    brews:
+      - "atuin"                   # zsh cached-eval (history)
+      - "bat"
+      - "chezmoi"                 # manage these dotfiles
+      - "coreutils"
+      - "fd"
+      - "fzf"
+      - "git-delta"               # gitconfig sets pager = delta
+      - "jq"
+      - "joshmedeski/sesh/sesh"
+      - "mise"                    # zsh cached-eval; on-demand runtimes
+      - "neovim"
+      - "ripgrep"
+      - "television"              # `tv` zsh cached-eval + config
+      - "tmux"
+      - "tpm"
+      - "zoxide"                  # zsh cached-eval (cd)
+    casks:
+      - "kitty"

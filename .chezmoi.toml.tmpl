@@ -12,7 +12,7 @@
 {{-   $headless = promptBool "headless" true -}}
 {{- end -}}
 {{- if eq .chezmoi.os "darwin" -}}
-{{-   $profile = promptChoice "profile" (list "work" "personal") -}}
+{{-   $profile = promptChoice "profile" (list "work" "personal" "client") -}}
 {{- end -}}
 {{- $hasAge := and (eq .chezmoi.os "darwin") (eq $profile "personal") -}}
 

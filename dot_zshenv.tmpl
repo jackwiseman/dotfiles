@@ -26,8 +26,10 @@ _sdk_cache="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/sdk-path"
 export CPPFLAGS="-I$(<"$_sdk_cache")/usr/include"
 unset _sdk_cache
 
+{{ if ne .profile "client" -}}
 # use 1password for ssh
 export SSH_AUTH_SOCK=~/Library/Group\ Containers/2BUA8C4S2C.com.1password/t/agent.sock
+{{- end }}
 {{- end }}
 
 {{ if and (eq .chezmoi.os "linux") (not .headless) }}

@@ -9,6 +9,18 @@ README.md
 .ssh/config
 .ssh/config.age
 {{- end -}}
+{{- if eq .profile "client" }}
+.chezmoiscripts/mac/run_once_after_dock.sh
+.chezmoiscripts/mac/run_onchange_after_defaults.sh
+.chezmoiscripts/mac/run_onchange_after_set-file-handlers.sh
+.ssh/config
+.ssh/config.age
+.config/aerospace/**
+.config/karabiner/**
+.config/1Password/**
+.config/task/**
+.config/wallpapers/**
+{{- end -}}
 {{- end -}}
 
 {{- if or (eq .osid "linux-debian") (eq .osid "linux-arch") }}

@@ -24,6 +24,8 @@
 {{- if eq .osid "darwin" }}
 [url "git@github.com:"]
     insteadOf = https://github.com
+{{- end }}
+{{- if and (eq .osid "darwin") (ne .profile "client") }}
 [gpg]
   format = ssh
 [gpg "ssh"]
