@@ -2,7 +2,6 @@ homebrew:
   shared:
     taps:
       - "jackwiseman/brews" # personal brews
-      - "joshmedeski/sesh" # sesh
       - "nikitabobko/tap" # aerospace
     brews:
       # - "colima, restart_service: :changed"
@@ -32,7 +31,6 @@ homebrew:
       - "harlequin"
       - "iperf3"
       - "iproute2mac"
-      - "joshmedeski/sesh/sesh"
       - "jpeg-turbo"
       - "jq"
       - "just"
@@ -68,6 +66,7 @@ homebrew:
       - "ripgrep"
       - "rsync"
       - "rustup"
+      - "sesh"
       - "snappy"
       - "sshpass"
       - "taskwarrior-tui"
@@ -149,7 +148,6 @@ homebrew:
       - "slack"
   minimal:
     taps:
-      - "joshmedeski/sesh"        # sesh session manager (has config)
     brews:
       - "atuin"                   # zsh cached-eval (history)
       - "bat"
@@ -159,10 +157,10 @@ homebrew:
       - "fzf"
       - "git-delta"               # gitconfig sets pager = delta
       - "jq"
-      - "joshmedeski/sesh/sesh"
       - "mise"                    # zsh cached-eval; on-demand runtimes
       - "neovim"
       - "ripgrep"
+      - "sesh"
       - "television"              # `tv` zsh cached-eval + config
       - "tmux"
       - "tpm"
