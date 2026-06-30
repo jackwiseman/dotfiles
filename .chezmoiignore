@@ -10,9 +10,9 @@ README.md
 .ssh/config.age
 {{- end -}}
 {{- if eq .profile "client" }}
-.chezmoiscripts/mac/run_once_after_dock.sh
-.chezmoiscripts/mac/run_onchange_after_defaults.sh
-.chezmoiscripts/mac/run_onchange_after_set-file-handlers.sh
+.chezmoiscripts/mac/dock.sh
+.chezmoiscripts/mac/defaults.sh
+.chezmoiscripts/mac/set-file-handlers.sh
 .ssh/config
 .ssh/config.age
 .config/aerospace/**
