@@ -21,7 +21,7 @@
 [credential "https://git.wiseman.sh"]
     helper = 1password
 {{- end }}
-{{- if and (eq .osid "darwin") (ne .profile "client") }}
+{{- if and (eq .osid "darwin") (ne .profile "minimal") }}
 [url "git@github.com:"]
     insteadOf = https://github.com
 {{- end }}

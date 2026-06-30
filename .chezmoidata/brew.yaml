@@ -147,7 +147,7 @@ homebrew:
       - "burp-suite-professional"
       - "postman"
       - "slack"
-  client:
+  minimal:
     taps:
       - "joshmedeski/sesh"        # sesh session manager (has config)
     brews:

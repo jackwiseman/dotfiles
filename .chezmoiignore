@@ -9,7 +9,7 @@ README.md
 .ssh/config
 .ssh/config.age
 {{- end -}}
-{{- if eq .profile "client" }}
+{{- if eq .profile "minimal" }}
 .chezmoiscripts/mac/dock.sh
 .chezmoiscripts/mac/defaults.sh
 .chezmoiscripts/mac/set-file-handlers.sh
