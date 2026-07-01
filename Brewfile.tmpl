@@ -1,3 +1,15 @@
+{{- if eq .profile "minimal" -}}
+# minimal
+{{- range .homebrew.minimal.taps }}
+tap "{{ . }}"
+{{- end }}
+{{- range .homebrew.minimal.brews }}
+brew "{{ . }}"
+{{- end }}
+{{- range .homebrew.minimal.casks }}
+cask "{{ . }}"
+{{- end }}
+{{- else -}}
 # shared taps
 {{- range .homebrew.shared.taps }}
 tap "{{ . }}"
@@ -46,3 +58,4 @@ cask "{{ . }}"
 cask "{{ . }}"
 {{- end }}
 {{- end }}
+{{- end -}}

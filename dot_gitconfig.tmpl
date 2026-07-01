@@ -21,9 +21,11 @@
 [credential "https://git.wiseman.sh"]
     helper = 1password
 {{- end }}
-{{- if eq .osid "darwin" }}
+{{- if and (eq .osid "darwin") (ne .profile "minimal") }}
 [url "git@github.com:"]
     insteadOf = https://github.com
+{{- end }}
+{{- if and (eq .osid "darwin") (ne .profile "minimal") }}
 [gpg]
   format = ssh
 [gpg "ssh"]

@@ -2,12 +2,25 @@ README.md
 .DS_Store
 
 {{- if eq .osid "darwin" }}
-.config/sway/*
-.config/waybar/*
-.config/wpaperd/*
+.config/sway
+.config/waybar
+.config/wpaperd
 {{- if eq .profile "work" }}
 .ssh/config
 .ssh/config.age
+{{- end -}}
+{{- if eq .profile "minimal" }}
+.chezmoiscripts/mac/dock.sh
+.chezmoiscripts/mac/defaults.sh
+.chezmoiscripts/mac/set-file-handlers.sh
+.ssh/config
+.ssh/config.age
+.config/aerospace/**
+.config/karabiner/**
+.config/1Password/**
+.config/task/**
+.config/topgrade
+.config/wallpapers/**
 {{- end -}}
 {{- end -}}
 
