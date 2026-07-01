@@ -2,9 +2,9 @@ README.md
 .DS_Store
 
 {{- if eq .osid "darwin" }}
-.config/sway/*
-.config/waybar/*
-.config/wpaperd/*
+.config/sway
+.config/waybar
+.config/wpaperd
 {{- if eq .profile "work" }}
 .ssh/config
 .ssh/config.age
@@ -19,6 +19,7 @@ README.md
 .config/karabiner/**
 .config/1Password/**
 .config/task/**
+.config/topgrade
 .config/wallpapers/**
 {{- end -}}
 {{- end -}}
