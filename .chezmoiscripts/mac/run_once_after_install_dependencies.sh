@@ -2,7 +2,7 @@
 
 # check for existence of homebrew, install if not found
 # this ensures xcode-select is installed as well
-eval "$(/usr/local/bin/brew shellenv)"
+eval "$(/opt/homebrew/bin/brew shellenv)"
 brew bundle install
 
 # if ! command -v brew > /dev/null 2>&1; then
