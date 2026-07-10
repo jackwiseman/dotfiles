@@ -1,0 +1,32 @@
+#! /bin/sh
+
+# Load Homebrew into this non-login script's PATH before using it.
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Homebrew 6.0 (June 2026) added "Tap Trust": brew refuses to evaluate Ruby from
+# a third-party tap until that tap is explicitly trusted, so a non-interactive
+# `brew bundle` halts on a fresh machine instead of prompting. Trust each tap we
+# declare up front. We trust only our own declared taps rather than flipping the
+# blanket (and soon-to-be-removed) HOMEBREW_NO_REQUIRE_TAP_TRUST bypass, and do
+# it here rather than via the Brewfile's `trusted: true` because that option is
+# silently dropped without an explicit remote (Homebrew/brew#22668).
+{{ if eq .profile "minimal" -}}
+{{ range .homebrew.minimal.taps -}}
+brew tap {{ . | quote }} && brew trust {{ . | quote }}
+{{ end -}}
+{{ else -}}
+{{ range .homebrew.shared.taps -}}
+brew tap {{ . | quote }} && brew trust {{ . | quote }}
+{{ end -}}
+{{ if eq .profile "personal" -}}
+{{ range .homebrew.personal.taps -}}
+brew tap {{ . | quote }} && brew trust {{ . | quote }}
+{{ end -}}
+{{ end -}}
+{{ if eq .profile "work" -}}
+{{ range .homebrew.work.taps -}}
+brew tap {{ . | quote }} && brew trust {{ . | quote }}
+{{ end -}}
+{{ end -}}
+{{ end }}
+brew bundle install
