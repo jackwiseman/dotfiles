@@ -1,0 +1,17 @@
+set previewer ~/.config/lf/preview
+set cleaner   ~/.config/lf/cleaner
+set drawbox        # optional: gruvbox-friendly border around the preview pane
+
+# open text files in $EDITOR (nvim), hand everything else to the OS opener
+cmd open ${{
+    case $(file --mime-type -Lb "$f") in
+        text/*|application/json|application/javascript|inode/x-empty)
+            $EDITOR "$fx" ;;
+        *)
+            if command -v open >/dev/null 2>&1; then
+                open "$f"
+            else
+                xdg-open "$f" >/dev/null 2>&1
+            fi ;;
+    esac
+}}
