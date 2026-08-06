@@ -59,9 +59,11 @@ bind ! run-shell "~/.config/tmux/claude-jump.sh"
 
 # agent dashboard: every window (any session, incl. claude_* popups) with a
 # Claude state; Enter jumps (popup sessions re-open as popups)
+# Colors come from the palette rather than gruvbox.conf's $vars: the format is
+# single-quoted, and tmux only expands $vars inside double quotes.
 bind a choose-tree -wZ -O time \
     -f '#{!=:#{@claude_state},}' \
-    -F '#{?window_format,#{?#{==:#{@claude_state},working},#[fg=#83a598],#{?#{==:#{@claude_state},blocked},#[fg=#fb4934],#[fg=#b8bb26]}}● #[default]#W #[fg=#a89984]#{b:pane_current_path},#{session_name}}' \
+    -F '#{?window_format,#{?#{==:#{@claude_state},working},#[fg={{ .gruvbox.bright_blue }}],#{?#{==:#{@claude_state},blocked},#[fg={{ .gruvbox.bright_red }}],#[fg={{ .gruvbox.bright_green }}]}}● #[default]#W #[fg={{ .gruvbox.fg4 }}]#{b:pane_current_path},#{session_name}}' \
     "run-shell '~/.config/tmux/claude-jump.sh %%'"
 
 # alacritty

@@ -9,7 +9,6 @@ README.md
 
 {{- if eq .osid "darwin" }}
 .config/sway
-.config/waybar
 .config/wpaperd
 {{- if eq .profile "minimal" }}
 .chezmoiscripts/mac/dock.sh
@@ -36,7 +35,6 @@ README.md
 .config/sway/**
 .config/alacritty/**
 .config/wallpapers/**
-.config/waybar/**
 .config/wpaperd/**
 {{- end -}}
 {{- end -}}
