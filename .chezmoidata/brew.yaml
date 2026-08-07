@@ -20,7 +20,6 @@ homebrew:
       - "fd"
       - "ffmpeg"
       - "fileicon"
-      - "firefox"
       - "fzf"
       - "git-delta"
       - "git-secrets"
@@ -89,6 +88,7 @@ homebrew:
     casks:
       - "aerospace"
       - "alfred"
+      - "firefox"
       - "font-monaco-patched"
       - "google-chrome"
       - "hiddenbar"
@@ -98,7 +98,6 @@ homebrew:
       - "swiftbar"
   personal:
     taps:
-      - "fastrepl/hyprnote"
       - "hashicorp/tap"
       - "kismetwireless/kismet"
     brews:
@@ -115,7 +114,6 @@ homebrew:
       - "drawio"
       - "gimp"
       - "gpg-suite-no-mail"
-      - "hyprnote"
       - "kismetwireless/kismet/kismet"
       - "little-snitch"
       - "mole"
