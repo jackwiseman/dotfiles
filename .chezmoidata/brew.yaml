@@ -69,6 +69,7 @@ homebrew:
       - "sshpass"
       - "taskwarrior-tui"
       - "television"
+      - "the_silver_searcher"
       - "tmux"
       - "tmuxp"
       - "topgrade"
