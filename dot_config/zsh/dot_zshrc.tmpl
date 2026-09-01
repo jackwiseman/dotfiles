@@ -35,6 +35,22 @@ _cached_eval() {
 
 _cached_eval zoxide init zsh --cmd cd
 _cached_eval tv init zsh
+
+# Ctrl-T at an empty prompt: open tv on the default channel (files) and insert
+# the selection into the command line. Non-empty prompts keep tv's
+# smart-autocomplete behavior. Wired via the `fzf_default_completion` hook
+# that tv's _tv_smart_autocomplete checks when LBUFFER is empty.
+_tv_empty_buffer() {
+    emulate -L zsh
+    zle -I
+    local output
+    output=$(tv --inline < /dev/tty)
+    zle reset-prompt
+    [[ -n $output ]] && LBUFFER+="$output"
+}
+zle -N tv-empty-buffer _tv_empty_buffer
+fzf_default_completion=tv-empty-buffer
+
 _cached_eval atuin init zsh
 _cached_eval mise activate zsh
 
