@@ -132,7 +132,7 @@ homebrew:
     brews:
     casks:
       - "bitwarden"
-      - "burp-suite-professional"
+      - "burp-suite"
       - "postman"
       - "slack"
   minimal:
