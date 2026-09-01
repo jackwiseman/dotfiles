@@ -1,4 +1,5 @@
 README.md
+CLAUDE.local.md
 .DS_Store
 
 {{- /* ssh config is age-encrypted; deploy only where decryption is configured */}}
