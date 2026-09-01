@@ -15,3 +15,7 @@ cmd open ${{
             fi ;;
     esac
 }}
+
+cmd trash %set -f; mv "$fx" ~/.local/share/Trash/files/
+map D delete      # permanent, prompts for confirmation
+map <delete> trash
