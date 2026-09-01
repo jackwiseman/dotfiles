@@ -58,7 +58,7 @@ homebrew:
       - "pnpm"
       - "pre-commit"
       - "python@3.10"
-      - "qemu"
+      - "rclone"
       - "readline"
       - "redis"
       - "ripgrep"
@@ -92,7 +92,6 @@ homebrew:
       - "firefox"
       - "font-monaco-patched"
       - "google-chrome"
-      - "hiddenbar"
       - "karabiner-elements"
       - "kitty"
       - "obsidian"
@@ -100,12 +99,12 @@ homebrew:
   personal:
     taps:
       - "hashicorp/tap"
-      - "kismetwireless/kismet"
     brews:
       - "ansible"
       - "cocoapods"
       - "hashicorp/tap/packer"
       - "hashicorp/tap/terraform"
+      - "mole"
     casks:
       - "1password"
       - "1password-cli"
@@ -115,18 +114,13 @@ homebrew:
       - "drawio"
       - "gimp"
       - "gpg-suite-no-mail"
-      - "kismetwireless/kismet/kismet"
       - "little-snitch"
-      - "mole"
       - "mullvad-vpn"
       - "netnewswire"
       - "onlyoffice"
       - "plex"
       - "qbittorrent"
       - "rapidapi"
-      - "raspberry-pi-imager"
-      - "rclone"
-      - "restic"
       - "signal"
       - "silentknight"
       - "spotify"
@@ -134,7 +128,6 @@ homebrew:
       - "tailscale-app"
       - "utm"
       - "vlc"
-      - "yaak"
   work:
     taps:
     brews:
