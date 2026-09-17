@@ -1,7 +1,12 @@
 [user]
     email = "40647382+jackwiseman@users.noreply.github.com"
     name = "Jack Wiseman"
+{{- if eq .profile "personal" }}
     signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIDegFGvaM36XP979CGDxMlQPR3VmevBrEHA3aYFjtroo
+{{- end }}
+{{- if eq .profile "work" }}
+    signingkey = ssh-ed25519 AAAAC3NzaC1lZDI1NTE5AAAAIFtzqvK11HxC5kGPi87u1JVCqLz5tcrCfZScZOt1vfXP
+{{- end }}
     pager = delta
 [core]
     excludesFile = ~/.gitignore # Add a global gitignore
