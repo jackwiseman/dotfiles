@@ -1,0 +1,106 @@
+onboarding = false
+
+[ui]
+agent_panel_sort = "priority"
+# tmux new-window does not prompt for a name
+prompt_new_tab_name = false
+# ask for a name when creating a space with prefix+C
+prompt_new_workspace_name = true
+
+[ui.sound]
+enabled = false
+
+[theme]
+name = "gruvbox"
+auto_switch = false
+
+# Keybindings mirror ~/.config/tmux/keybindings.conf (prefix C-a).
+# C-h/j/k/l are vim-aware custom commands further down; `prefix+?` lists everything.
+[keys]
+prefix = "ctrl+a"
+
+# panes
+split_vertical = "prefix+v"     # tmux: split-window -h (new pane to the right)
+split_horizontal = "prefix+s"   # tmux: split-window -v (new pane below)
+close_pane = "prefix+x"
+last_pane = "ctrl+backslash"    # tmux: C-\ select-pane -l
+focus_pane_left = "prefix+left" # tmux defaults; prefix+h/j/k/l are freed for goto below
+focus_pane_down = "prefix+down"
+focus_pane_up = "prefix+up"
+focus_pane_right = "prefix+right"
+
+# tabs (tmux windows)
+new_tab = "prefix+c"
+next_tab = "prefix+n"
+previous_tab = "prefix+p"
+rename_tab = "prefix+comma"
+close_tab = ["prefix+ampersand", "prefix+shift+x"]
+
+# workspaces (tmux sessions)
+detach = "prefix+d"
+new_workspace = "prefix+shift+c"                             # c = new tab, C = new space (prompts for name)
+rename_workspace = ["prefix+shift+w", "prefix+shift+4"]      # w = pick space, W = rename it; shift+4 = tmux's $
+workspace_picker = "prefix+w"    # tmux: w = tv tmux-sessions popup
+goto = ["prefix+j", "prefix+a"]  # tmux: j = choose-tree sessions, a = claude dashboard
+
+# herdr defaults moved off keys tmux uses
+settings = "prefix+shift+s"
+open_notification_target = "prefix+shift+o"
+
+# vim-aware pane navigation (tmux: bind -n C-h/j/k/l with is_vim check)
+[[keys.command]]
+key = "ctrl+h"
+type = "shell"
+command = "~/.config/herdr/vim-nav.sh left h"
+description = "focus pane left (vim-aware)"
+
+[[keys.command]]
+key = "ctrl+j"
+type = "shell"
+command = "~/.config/herdr/vim-nav.sh down j"
+description = "focus pane down (vim-aware)"
+
+[[keys.command]]
+key = "ctrl+k"
+type = "shell"
+command = "~/.config/herdr/vim-nav.sh up k"
+description = "focus pane up (vim-aware)"
+
+[[keys.command]]
+key = "ctrl+l"
+type = "shell"
+command = "~/.config/herdr/vim-nav.sh right l"
+description = "focus pane right (vim-aware)"
+
+# popups (tmux: display-popup -E -d '#{pane_current_path}' -w 90% -h 90%)
+[[keys.command]]
+key = "prefix+g"
+type = "popup"
+command = "cd \"${HERDR_ACTIVE_PANE_CWD:-.}\" && lazygit"
+description = "lazygit"
+width = "90%"
+height = "90%"
+
+[[keys.command]]
+key = "prefix+shift+t"
+type = "popup"
+command = "cd \"${HERDR_ACTIVE_PANE_CWD:-.}\" && tv"
+description = "television"
+width = "90%"
+height = "90%"
+
+[[keys.command]]
+key = "prefix+o"
+type = "popup"
+command = "cd \"${HERDR_ACTIVE_PANE_CWD:-.}\" && tv sessionizer"
+description = "sessionizer (repo -> workspace)"
+width = "90%"
+height = "90%"
+
+[[keys.command]]
+key = "prefix+f"
+type = "popup"
+command = "cd \"${HERDR_ACTIVE_PANE_CWD:-.}\" && tv open"
+description = "open file in new tab"
+width = "90%"
+height = "90%"
