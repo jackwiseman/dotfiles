@@ -4,3 +4,4 @@ zmodule prompt-pwd
 zmodule zsh-users/zsh-autosuggestions
 zmodule zdharma-continuum/fast-syntax-highlighting
 zmodule completion
+zmodule https://github.com/jeffreytse/zsh-vi-mode

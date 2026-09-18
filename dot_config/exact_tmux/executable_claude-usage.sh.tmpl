@@ -1,0 +1,58 @@
+#!/usr/bin/env bash
+
+# Claude Code usage (5h / weekly rate-limit % + time to reset) for tmux status-right.
+#
+# Pure cache reader: ~/.claude/statusline-command.sh persists the rate_limits
+# payload Claude Code pipes to it on every statusline render into CACHE.
+# That script is deliberately NOT chezmoi-managed; if this segment goes blank,
+# check it still contains its usage_cache block.
+#
+# No credentials or network involved here. If Claude Code hasn't rendered a
+# statusline within MAX_AGE the percentages are stale (the 5h window moves
+# fast), so print nothing rather than a misleading number. Reset timestamps
+# are absolute, so the countdowns stay correct regardless.
+# Fails silently on any error so the status bar stays clean.
+
+MAX_AGE=3600
+CACHE="${XDG_CACHE_HOME:-$HOME/.cache}/tmux/claude-usage.json"
+
+# Rendered from .chezmoidata/colors.yaml at apply time -- tmux's conf-parse-time
+# $vars (gruvbox.conf) aren't visible to a run-shell child process.
+GREEN='{{ .gruvbox.bright_green }}'; YELLOW='{{ .gruvbox.bright_orange }}'
+RED='{{ .gruvbox.bright_red }}'; GRAY='{{ .gruvbox.fg4 }}'
+
+[[ -f "$CACHE" ]] || exit 0
+command -v jq >/dev/null || exit 0
+
+mtime="$(stat -f %m "$CACHE" 2>/dev/null || stat -c %Y "$CACHE" 2>/dev/null)" || exit 0
+now=$(date +%s)
+(( now - mtime < MAX_AGE )) || exit 0
+
+color_for() {
+    local u=$1
+    if   (( u >= 90 )); then echo "$RED"
+    elif (( u >= 70 )); then echo "$YELLOW"
+    else                     echo "$GREEN"
+    fi
+}
+
+# seconds -> compact countdown: 2d3h / 2h14m / 14m / now
+until_str() {
+    local s=$(( $1 - now ))
+    (( s > 0 )) || { echo "now"; return; }
+    if   (( s >= 86400 )); then printf '%dd%dh' $(( s / 86400 )) $(( s % 86400 / 3600 ))
+    elif (( s >= 3600 ));  then printf '%dh%dm' $(( s / 3600 )) $(( s % 3600 / 60 ))
+    else                        printf '%dm' $(( s / 60 ))
+    fi
+}
+
+read -r h5 h5r d7 d7r < <(jq -r '
+    "\(.five_hour.used_percentage  // empty | floor) \(.five_hour.resets_at  // 0) " +
+    "\(.seven_day.used_percentage // empty | floor) \(.seven_day.resets_at // 0)"
+' "$CACHE" 2>/dev/null)
+[[ "$h5" =~ ^[0-9]+$ && "$d7" =~ ^[0-9]+$ ]] || exit 0
+
+printf '#[fg=%s]5h #[fg=%s]%s%%#[fg=%s] %s  wk #[fg=%s]%s%%#[fg=%s] %s#[default]' \
+    "$GRAY" "$(color_for "$h5")" "$h5" "$GRAY" "$(until_str "$h5r")" \
+    "$(color_for "$d7")" "$d7" "$GRAY" "$(until_str "$d7r")"
+exit 0
