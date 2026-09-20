@@ -52,10 +52,12 @@ shell_integration no-cursor
 clear_all_shortcuts yes
 
 # Custom keybindings
-map cmd+c send_text all \uE000
-map cmd+n send_text all \uE001
-map cmd+p send_text all \uE002
-map ctrl+g send_text all \uE005
+# Send the C-a prefix sequence so these work identically in tmux and herdr,
+# instead of private-use codepoints only tmux knows how to bind.
+map cmd+c send_text all \x01c
+map cmd+n send_text all \x01n
+map cmd+p send_text all \x01p
+map ctrl+g send_text all \x01g
 
 # Font size
 map cmd+equal change_font_size all +1.0

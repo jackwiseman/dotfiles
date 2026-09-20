@@ -15,9 +15,6 @@ fi
 # Initialize modules.
 source ${ZIM_HOME}/init.zsh
 
-# overwrite vi mode which is set when EDITOR contains the string vi
-bindkey -e
-
 _cached_eval() {
   local cmd=$1; shift
   local cache="${XDG_DATA_HOME:-$HOME/.local/share}/zsh/eval-cache"
@@ -70,7 +67,11 @@ inbox=/Users/jackwiseman/obsidian/\$inbox
 
 source $ZDOTDIR/aliases
 
-bindkey '^ ' autosuggest-accept
+# zsh-vi-mode defers its keymap setup to the first prompt and resets every
+# keymap, so custom bindkeys only survive inside its after-init hook.
+zvm_after_init() {
+	bindkey '^ ' autosuggest-accept
+}
 
 # ensure claude never opens in $HOME
 claude() {
