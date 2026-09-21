@@ -62,8 +62,6 @@ vim.api.nvim_create_autocmd('TextYankPost', {
 vim.opt.clipboard = "unnamedplus"
 vim.opt.clipboard:append("unnamed")
 
-vim.g.rooter_patterns = {'.git', 'package.json'}
-
 vim.api.nvim_create_autocmd("FileType", {
 	pattern = "vue,scss,javascript,sh,php,just",
 	command = "setlocal shiftwidth=4 tabstop=4 expandtab"
