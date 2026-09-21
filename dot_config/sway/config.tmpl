@@ -131,7 +131,6 @@ input "type:touchpad" {
     # Make the current focus fullscreen
     bindsym $mod+f fullscreen
 
-    bindsym $mod+space exec $HOME/.config/sway/toggle_alacritty.sh
     bindsym $mod+Shift+space move container to scratchpad
 
 bindsym $mod+r mode "resize"
@@ -165,5 +164,3 @@ default_border pixel 2
 client.focused "{{ .gruvbox.bright_blue }}" "{{ .gruvbox.bright_blue }}" "{{ .gruvbox.fg0 }}" "{{ .gruvbox.bright_blue }}"
 
 # gaps inner 10
-
-# include swayfx
