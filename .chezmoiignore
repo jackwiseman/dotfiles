@@ -29,17 +29,10 @@ CLAUDE.local.md
 .chezmoiscripts/mac/**
 .config/1Password/**
 .config/aerospace/**
-.config/alacritty/alacritty.icns
 .config/karabiner/**
-.config/skhd
 {{- if .headless }}
 .config/sway/**
-.config/alacritty/**
 .config/wallpapers/**
 .config/wpaperd/**
 {{- end -}}
-{{- end -}}
-
-{{- if (eq .osid "linux-debian") }}
-.chezmoiscripts/linux/arch/*
 {{- end -}}

@@ -73,7 +73,6 @@ homebrew:
       - "tmux"
       - "tmuxp"
       - "topgrade"
-      - "tpm"
       - "tree-sitter"
       - "tree-sitter-cli"
       - "up"
@@ -152,7 +151,6 @@ homebrew:
       - "sesh"
       - "television"              # `tv` zsh cached-eval + config
       - "tmux"
-      - "tpm"
       - "zoxide"                  # zsh cached-eval (cd)
     casks:
       - "kitty"
